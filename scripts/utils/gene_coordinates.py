@@ -376,7 +376,7 @@ BRCA1 = Gene(
     cds_start=43045677,
     cds_end=43124096,
     is_control=True,
-    dms_source="Findlay 2018 (SGE/HDR); MaveDB urn:mavedb:00000003; "
+    dms_source="Findlay 2018 (SGE); MaveDB urn:mavedb:00000097-0-2; "
                "ClinGen PS3/BS3 approved. Coverage: exons 18-23 (RING+BRCT)",
     spaceflight_evidence="Rutter 2024 risk allele; DNA repair key for radiation response",
     rutter_classification="Risk",
@@ -485,8 +485,8 @@ DNMT3A = Gene(
     cds_start=25234278,
     cds_end=25313984,
     is_control=True,
-    dms_source="Lue et al. 2023 (Nat Chem Biol); Base editor scanning; "
-               "731 sgRNAs covering full CDS; doi:10.1038/s41589-022-01167-4",
+    dms_source="Garcia et al. 2025 (paired DMS); bioRxiv 10.1101/2025.09.24.678339; "
+               "2,036 variants across 3 libraries (alpha-2 helix, TRD, core RD interface)",
     spaceflight_evidence="6 mutations in 14 astronauts (2nd most after TP53); "
                          "found in I4 crew; clonal hematopoiesis marker",
     rutter_classification="Risk (CH)",

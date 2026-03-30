@@ -5,7 +5,6 @@ type: software
 authors:
   - family-names: Kim
     given-names: JangKeun
-    orcid: ""
     affiliation: "Weill Cornell Medicine"
   - family-names: Mason
     given-names: Christopher E.
@@ -13,7 +12,7 @@ authors:
 repository-code: "https://github.com/jang1563/evo2-spaceflight-vep"
 license: MIT
 version: "1.0.0"
-date-released: "2026-01-01"
+date-released: "2026-03-30"
 keywords:
   - variant effect prediction
   - genomic foundation model

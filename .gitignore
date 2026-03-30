@@ -27,6 +27,8 @@ data/liftover/
 data/dms/
 data/mpra/
 data/encode/
+data/noncoding/
+data/mouse/
 *.fna
 *.fna.fai
 *.vcf.gz

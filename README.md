@@ -64,8 +64,9 @@ scripts/
     clinvar_parser.py         # ClinVar VCF parser with star-level stratification
     benchmarking.py           # AUROC/AUPRC/calibration/Pejaver LR computation
   slurm/
-    submit_phase1_ablation.sh # SLURM job for window ablation
-    template.sh               # Generic SLURM job template
+    submit_phase0.sh            # Phase 0: data download + setup
+    submit_phase1_ablation.sh   # Phase 1: window ablation SLURM jobs
+    template.sh                 # Generic SLURM job template
 ```
 
 ## Methods
@@ -103,6 +104,8 @@ Optimal window size selected via ablation across 4K, 8K, 16K, 32K, and 64K bp us
 | DNMT3A DMS | Garcia et al. 2025 (bioRxiv 10.1101/2025.09.24.678339) | — |
 | TERT MPRA | Kircher 2019 (MaveDB urn:mavedb:00000031-b-1) | — |
 | AlphaMissense | Cheng et al. 2023 | hg38 |
+| CADD | v1.7 (Rentzsch et al. 2021) | hg38 |
+| REVEL | v1.3 (Ioannidis et al. 2016) | hg38 |
 | gnomAD constraint | v4.1 | hg38 |
 | ENCODE | ChIP-seq peaks (DHS, H3K27ac, H3K4me1, CTCF) | hg38 |
 | LINSIGHT / Eigen / ncER | Precomputed non-coding scores | hg19 (lifted over) |
