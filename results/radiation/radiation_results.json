@@ -1,0 +1,213 @@
+[
+  {
+    "gene": "RAD51",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 1896,
+        "mean_delta": -0.0009972250034034503,
+        "std_delta": 0.0019503525114662973,
+        "median_delta": -0.00041598081588745117,
+        "q10": -0.002575904130935669,
+        "q90": 3.725290298461914e-06
+      },
+      "transition_CG_to_TA": {
+        "n": 1914,
+        "mean_delta": -0.0005957173454101308,
+        "std_delta": 0.001219339201494885,
+        "median_delta": -0.0002440810203552246,
+        "q10": -0.0018117010593414306,
+        "q90": 4.048347473144533e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 1643,
+        "mean_delta": -0.0006564968399934775,
+        "std_delta": 0.0011810120459674798,
+        "median_delta": -0.00032335519790649414,
+        "q10": -0.0020962953567504883,
+        "q90": 0.00010476112365722656
+      },
+      "other_transversion": {
+        "n": 5169,
+        "mean_delta": -0.000977800729127612,
+        "std_delta": 0.0016578963423483674,
+        "median_delta": -0.0004547238349914551,
+        "q10": -0.0028597593307495115,
+        "q90": 4.9591064453124946e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 487,
+        "other_n": 2573,
+        "radiation_mean": -0.0030489424415682375,
+        "other_mean": -0.0022687481110354505,
+        "mannwhitney_p": 8.756705846535774e-08
+      },
+      "intronic": {
+        "radiation_n": 6,
+        "other_n": 58,
+        "radiation_mean": -0.00023498137791951498,
+        "other_mean": -0.0002869912262620597,
+        "mannwhitney_p": 0.883975627510458
+      },
+      "promoter": {
+        "radiation_n": 1402,
+        "other_n": 6092,
+        "radiation_mean": -0.00028852074700653465,
+        "other_mean": -0.00023288014133901716,
+        "mannwhitney_p": 3.1469469502709273e-13
+      },
+      "utr5": {
+        "radiation_n": 1,
+        "other_n": 3,
+        "radiation_mean": 1.233816146850586e-05,
+        "other_mean": -7.969141006469727e-05
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 1210,
+        "mean_delta": -0.011155230200980321,
+        "std_delta": 0.004846271896854165,
+        "median_delta": -0.011119544506072998
+      },
+      "other_indel": {
+        "n": 21,
+        "mean_delta": -0.002337064061846052,
+        "std_delta": 0.00483490514324155,
+        "median_delta": -8.33272933959961e-05
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 1896,
+      "other_n": 8726,
+      "radiation_mean_delta": -0.0009972250034034503,
+      "other_mean_delta": -0.0008334952184374169,
+      "mannwhitney_p": 4.44504234281178e-06,
+      "ks_stat": 0.07373098582150825,
+      "ks_p": 8.224993463014778e-08
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr15:40731154:G>T",
+        "delta": -0.01780688762664795,
+        "region_type": "coding",
+        "pos": 40731154
+      },
+      {
+        "variant_key": "chr15:40729555:C>A",
+        "delta": -0.016924023628234863,
+        "region_type": "coding",
+        "pos": 40729555
+      },
+      {
+        "variant_key": "chr15:40731127:G>T",
+        "delta": -0.01665288209915161,
+        "region_type": "coding",
+        "pos": 40731127
+      },
+      {
+        "variant_key": "chr15:40731160:G>T",
+        "delta": -0.015390276908874512,
+        "region_type": "coding",
+        "pos": 40731160
+      },
+      {
+        "variant_key": "chr15:40731102:C>A",
+        "delta": -0.014810323715209961,
+        "region_type": "coding",
+        "pos": 40731102
+      },
+      {
+        "variant_key": "chr15:40729543:C>A",
+        "delta": -0.013924837112426758,
+        "region_type": "coding",
+        "pos": 40729543
+      },
+      {
+        "variant_key": "chr15:40729631:G>T",
+        "delta": -0.013569056987762451,
+        "region_type": "coding",
+        "pos": 40729631
+      },
+      {
+        "variant_key": "chr15:40728816:G>T",
+        "delta": -0.01277148723602295,
+        "region_type": "coding",
+        "pos": 40728816
+      },
+      {
+        "variant_key": "chr15:40729575:C>A",
+        "delta": -0.012703955173492432,
+        "region_type": "coding",
+        "pos": 40729575
+      },
+      {
+        "variant_key": "chr15:40729568:G>T",
+        "delta": -0.012372732162475586,
+        "region_type": "coding",
+        "pos": 40729568
+      },
+      {
+        "variant_key": "chr15:40731151:G>T",
+        "delta": -0.012341499328613281,
+        "region_type": "coding",
+        "pos": 40731151
+      },
+      {
+        "variant_key": "chr15:40701109:G>T",
+        "delta": -0.012205421924591064,
+        "region_type": "coding",
+        "pos": 40701109
+      },
+      {
+        "variant_key": "chr15:40731155:G>T",
+        "delta": -0.012115836143493652,
+        "region_type": "coding",
+        "pos": 40731155
+      },
+      {
+        "variant_key": "chr15:40706221:G>T",
+        "delta": -0.012057125568389893,
+        "region_type": "coding",
+        "pos": 40706221
+      },
+      {
+        "variant_key": "chr15:40731176:G>T",
+        "delta": -0.011821568012237549,
+        "region_type": "coding",
+        "pos": 40731176
+      },
+      {
+        "variant_key": "chr15:40731093:C>A",
+        "delta": -0.011655330657958984,
+        "region_type": "coding",
+        "pos": 40731093
+      },
+      {
+        "variant_key": "chr15:40731163:G>T",
+        "delta": -0.011381685733795166,
+        "region_type": "coding",
+        "pos": 40731163
+      },
+      {
+        "variant_key": "chr15:40731161:G>T",
+        "delta": -0.010891735553741455,
+        "region_type": "coding",
+        "pos": 40731161
+      },
+      {
+        "variant_key": "chr15:40729523:G>T",
+        "delta": -0.010679781436920166,
+        "region_type": "coding",
+        "pos": 40729523
+      },
+      {
+        "variant_key": "chr15:40728802:C>A",
+        "delta": -0.010577797889709473,
+        "region_type": "coding",
+        "pos": 40728802
+      }
+    ]
+  }
+]

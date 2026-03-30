@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Evo2 Zero-Shot VEP for Spaceflight Radiation-Response Genes"
+type: software
+authors:
+  - family-names: Kim
+    given-names: JangKeun
+    orcid: ""
+    affiliation: "Weill Cornell Medicine"
+  - family-names: Mason
+    given-names: Christopher E.
+    affiliation: "Weill Cornell Medicine"
+repository-code: "https://github.com/jang1563/evo2-spaceflight-vep"
+license: MIT
+version: "1.0.0"
+date-released: "2026-01-01"
+keywords:
+  - variant effect prediction
+  - genomic foundation model
+  - evo2
+  - spaceflight genomics
+  - radiation biology
+  - deep mutational scanning
+  - non-coding variants
+  - clonal hematopoiesis
+abstract: >-
+  Zero-shot variant effect prediction across coding and non-coding regions
+  of 10 spaceflight radiation-response genes using the Evo2 genomic
+  foundation model. Validated against deep mutational scanning data
+  (BRCA1, TP53, CHEK2, DNMT3A), TERT promoter MPRA, and ENCODE
+  regulatory elements. Provides PP3/BP4-level computational evidence
+  for ClinVar VUS prioritization and radiation-characteristic mutation
+  functional impact assessment.
+references:
+  - type: article
+    title: "Sequence modeling and design from molecular to genome scale with Evo 2"
+    authors:
+      - family-names: Nguyen
+        given-names: Eric
+    journal: Nature
+    year: 2026
+    doi: "10.1038/s41586-026-10176-5"
+  - type: article
+    title: "Protective alleles and modifier variants in the development of precision medicine for crewed spaceflight"
+    authors:
+      - family-names: Rutter
+        given-names: Lindsay
+      - family-names: Mason
+        given-names: Christopher E.
+    journal: "Nature Communications"
+    year: 2024
+    volume: 15
+    start: 6158
+    doi: "10.1038/s41467-024-50532-5"

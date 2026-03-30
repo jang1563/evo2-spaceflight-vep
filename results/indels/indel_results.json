@@ -1,0 +1,58 @@
+[
+  {
+    "gene": "DNMT3A",
+    "min_stars": 1,
+    "counts": {
+      "frameshift": {
+        "clinvar_plp": 65,
+        "clinvar_blb": 6,
+        "scored_plp": 65,
+        "scored_blb": 6
+      },
+      "inframe": {
+        "clinvar_plp": 2,
+        "clinvar_blb": 0,
+        "scored_plp": 2,
+        "scored_blb": 0
+      }
+    },
+    "metrics": {
+      "frameshift_plp": {
+        "mean_delta": -0.009029033550849329,
+        "std_delta": 0.004187603637702649,
+        "median_delta": -0.008296489715576172,
+        "n": 65
+      },
+      "frameshift_blb": {
+        "mean_delta": 1.0540088017781576e-05,
+        "std_delta": 0.00012278686263825445,
+        "median_delta": 5.614757537841797e-05,
+        "n": 6
+      },
+      "frameshift_separation": 0.00903957363886711,
+      "frameshift_mannwhitney_p": 4.887619693529627e-08,
+      "frameshift_auroc": 0.9923076923076923,
+      "inframe_plp": {
+        "mean_delta": 0.009551644325256348,
+        "std_delta": 0.017182469367980957,
+        "median_delta": 0.009551644325256348,
+        "n": 2
+      }
+    },
+    "sanity_check": {
+      "frameshift_more_negative": true,
+      "frameshift_mean_delta": -0.009029033550849329,
+      "inframe_mean_delta": 0.009551644325256348
+    },
+    "snv_stats": {
+      "n": 15975,
+      "mean_delta": -0.0011790228449682675,
+      "std_delta": 0.0019304154138048916
+    },
+    "indel_stats": {
+      "n": 3718,
+      "mean_delta": -0.009302945996946773,
+      "std_delta": 0.005554397452324772
+    }
+  }
+]

@@ -1,0 +1,450 @@
+{
+  "metrics": [
+    {
+      "gene": "BRCA1",
+      "window_size": 4096,
+      "n_total": 2676,
+      "n_plp": 813,
+      "n_blb": 1863,
+      "auroc": 0.9702420212607923,
+      "auprc": 0.9515039741527823,
+      "mean_delta_plp": -0.007591770730481963,
+      "mean_delta_blb": -0.00036765255085959974,
+      "std_delta_plp": 0.006535701405577676,
+      "std_delta_blb": 0.0009381500435251315,
+      "separation": 0.007224118179622364,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9702420212607923,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_2_star": {
+          "auroc": 0.9702420212607923,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_3_star": {
+          "auroc": 0.9669803659724978,
+          "n_plp": 538,
+          "n_blb": 1030
+        }
+      }
+    },
+    {
+      "gene": "BRCA1",
+      "window_size": 8192,
+      "n_total": 2676,
+      "n_plp": 813,
+      "n_blb": 1863,
+      "auroc": 0.987934919606845,
+      "auprc": 0.9726550556955196,
+      "mean_delta_plp": -0.004556565560391321,
+      "mean_delta_blb": -0.00019604124436759847,
+      "std_delta_plp": 0.0036614085074421817,
+      "std_delta_blb": 0.0004996226802650989,
+      "separation": 0.004360524316023723,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.987934919606845,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_2_star": {
+          "auroc": 0.987934919606845,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_3_star": {
+          "auroc": 0.9840112606922439,
+          "n_plp": 538,
+          "n_blb": 1030
+        }
+      }
+    },
+    {
+      "gene": "BRCA1",
+      "window_size": 16384,
+      "n_total": 2676,
+      "n_plp": 813,
+      "n_blb": 1863,
+      "auroc": 0.9847364254640938,
+      "auprc": 0.9678643098832702,
+      "mean_delta_plp": -0.0023444983352154383,
+      "mean_delta_blb": -0.00010192183096819646,
+      "std_delta_plp": 0.001870157739847234,
+      "std_delta_blb": 0.00026858087796602923,
+      "separation": 0.0022425765042472416,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9847364254640938,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_2_star": {
+          "auroc": 0.9847364254640938,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_3_star": {
+          "auroc": 0.9808685530732306,
+          "n_plp": 538,
+          "n_blb": 1030
+        }
+      }
+    },
+    {
+      "gene": "BRCA1",
+      "window_size": 32768,
+      "n_total": 2676,
+      "n_plp": 813,
+      "n_blb": 1863,
+      "auroc": 0.9838358689545028,
+      "auprc": 0.9700173075146454,
+      "mean_delta_plp": -0.001268642708237614,
+      "mean_delta_blb": -5.3699817698422904e-05,
+      "std_delta_plp": 0.0009679015193107282,
+      "std_delta_blb": 0.0001366006728426278,
+      "separation": 0.001214942890539191,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9838358689545028,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_2_star": {
+          "auroc": 0.9838358689545028,
+          "n_plp": 813,
+          "n_blb": 1863
+        },
+        ">=_3_star": {
+          "auroc": 0.9793698343378929,
+          "n_plp": 538,
+          "n_blb": 1030
+        }
+      }
+    },
+    {
+      "gene": "TP53",
+      "window_size": 4096,
+      "n_total": 839,
+      "n_plp": 315,
+      "n_blb": 524,
+      "auroc": 0.9898945837877136,
+      "auprc": 0.9820259582768052,
+      "mean_delta_plp": -0.008148553257896787,
+      "mean_delta_blb": -0.0005133419318963553,
+      "std_delta_plp": 0.005482145024065512,
+      "std_delta_blb": 0.0008898263519493766,
+      "separation": 0.007635211326000431,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9898945837877136,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_2_star": {
+          "auroc": 0.9898945837877136,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_3_star": {
+          "auroc": 0.9204055220017255,
+          "n_plp": 61,
+          "n_blb": 76
+        }
+      }
+    },
+    {
+      "gene": "TP53",
+      "window_size": 8192,
+      "n_total": 839,
+      "n_plp": 315,
+      "n_blb": 524,
+      "auroc": 0.9887343996122622,
+      "auprc": 0.9794355213918384,
+      "mean_delta_plp": -0.004495941268073188,
+      "mean_delta_blb": -0.00028528864602096206,
+      "std_delta_plp": 0.0028734579713534606,
+      "std_delta_blb": 0.0005148806792119689,
+      "separation": 0.004210652622052225,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9887343996122622,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_2_star": {
+          "auroc": 0.9887343996122622,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_3_star": {
+          "auroc": 0.905090595340811,
+          "n_plp": 61,
+          "n_blb": 76
+        }
+      }
+    },
+    {
+      "gene": "TP53",
+      "window_size": 16384,
+      "n_total": 839,
+      "n_plp": 315,
+      "n_blb": 524,
+      "auroc": 0.9839391736338301,
+      "auprc": 0.9721407083490927,
+      "mean_delta_plp": -0.0022534448003012036,
+      "mean_delta_blb": -0.0001536873915723262,
+      "std_delta_plp": 0.0015206962412362076,
+      "std_delta_blb": 0.0002628296590656496,
+      "separation": 0.0020997574087288774,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9839391736338301,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_2_star": {
+          "auroc": 0.9839391736338301,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_3_star": {
+          "auroc": 0.8779119930974979,
+          "n_plp": 61,
+          "n_blb": 76
+        }
+      }
+    },
+    {
+      "gene": "TP53",
+      "window_size": 32768,
+      "n_total": 839,
+      "n_plp": 315,
+      "n_blb": 524,
+      "auroc": 0.9817642069550467,
+      "auprc": 0.9698986777534391,
+      "mean_delta_plp": -0.0011186781383696056,
+      "mean_delta_blb": -8.014356362000677e-05,
+      "std_delta_plp": 0.0007567362626884411,
+      "std_delta_blb": 0.00013311104112071948,
+      "separation": 0.0010385345747495989,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9817642069550467,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_2_star": {
+          "auroc": 0.9817642069550467,
+          "n_plp": 315,
+          "n_blb": 524
+        },
+        ">=_3_star": {
+          "auroc": 0.8669111302847283,
+          "n_plp": 61,
+          "n_blb": 76
+        }
+      }
+    },
+    {
+      "gene": "CHEK2",
+      "window_size": 4096,
+      "n_total": 689,
+      "n_plp": 204,
+      "n_blb": 485,
+      "auroc": 0.9996361431170406,
+      "auprc": 0.9990748411873016,
+      "mean_delta_plp": -0.010946816089106541,
+      "mean_delta_blb": -0.0004568565752088409,
+      "std_delta_plp": 0.00549792937030666,
+      "std_delta_blb": 0.0006066885249164331,
+      "separation": 0.0104899595138977,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9996361431170406,
+          "n_plp": 204,
+          "n_blb": 485
+        },
+        ">=_2_star": {
+          "auroc": 0.9996361431170406,
+          "n_plp": 204,
+          "n_blb": 485
+        }
+      }
+    },
+    {
+      "gene": "CHEK2",
+      "window_size": 8192,
+      "n_total": 689,
+      "n_plp": 204,
+      "n_blb": 485,
+      "auroc": 0.9996462502526784,
+      "auprc": 0.9990897400665222,
+      "mean_delta_plp": -0.005695831249741947,
+      "mean_delta_blb": -0.00024072460292540876,
+      "std_delta_plp": 0.0027524946164953065,
+      "std_delta_blb": 0.0003055164747023241,
+      "separation": 0.005455106646816538,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9996462502526784,
+          "n_plp": 204,
+          "n_blb": 485
+        },
+        ">=_2_star": {
+          "auroc": 0.9996462502526784,
+          "n_plp": 204,
+          "n_blb": 485
+        }
+      }
+    },
+    {
+      "gene": "CHEK2",
+      "window_size": 16384,
+      "n_total": 689,
+      "n_plp": 204,
+      "n_blb": 485,
+      "auroc": 0.9999292500505357,
+      "auprc": 0.9998301134166914,
+      "mean_delta_plp": -0.003288653843543109,
+      "mean_delta_blb": -0.00012250757708991925,
+      "std_delta_plp": 0.0015148702146974625,
+      "std_delta_blb": 0.00013622891679351335,
+      "separation": 0.0031661462664531897,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9999292500505357,
+          "n_plp": 204,
+          "n_blb": 485
+        },
+        ">=_2_star": {
+          "auroc": 0.9999292500505357,
+          "n_plp": 204,
+          "n_blb": 485
+        }
+      }
+    },
+    {
+      "gene": "CHEK2",
+      "window_size": 32768,
+      "n_total": 689,
+      "n_plp": 204,
+      "n_blb": 485,
+      "auroc": 0.9998989286436224,
+      "auprc": 0.9997554629853247,
+      "mean_delta_plp": -0.001660167878749324,
+      "mean_delta_blb": -6.270113679551587e-05,
+      "std_delta_plp": 0.0008040041294183336,
+      "std_delta_blb": 6.977873810659319e-05,
+      "separation": 0.001597466741953808,
+      "star_stratification": {
+        ">=_1_star": {
+          "auroc": 0.9998989286436224,
+          "n_plp": 204,
+          "n_blb": 485
+        },
+        ">=_2_star": {
+          "auroc": 0.9998989286436224,
+          "n_plp": 204,
+          "n_blb": 485
+        }
+      }
+    }
+  ],
+  "stability": [
+    {
+      "pearson_r": 0.9238864595602013,
+      "pearson_p": 0.0,
+      "n_shared": 2676,
+      "gene": "BRCA1",
+      "window_small": 4096,
+      "window_large": 8192
+    },
+    {
+      "pearson_r": 0.9606409903596467,
+      "pearson_p": 0.0,
+      "n_shared": 2676,
+      "gene": "BRCA1",
+      "window_small": 8192,
+      "window_large": 16384
+    },
+    {
+      "pearson_r": 0.9836504993179316,
+      "pearson_p": 0.0,
+      "n_shared": 2676,
+      "gene": "BRCA1",
+      "window_small": 16384,
+      "window_large": 32768
+    },
+    {
+      "pearson_r": 0.9468605972155867,
+      "pearson_p": 0.0,
+      "n_shared": 839,
+      "gene": "TP53",
+      "window_small": 4096,
+      "window_large": 8192
+    },
+    {
+      "pearson_r": 0.9854402317344231,
+      "pearson_p": 0.0,
+      "n_shared": 839,
+      "gene": "TP53",
+      "window_small": 8192,
+      "window_large": 16384
+    },
+    {
+      "pearson_r": 0.9977354373600221,
+      "pearson_p": 0.0,
+      "n_shared": 839,
+      "gene": "TP53",
+      "window_small": 16384,
+      "window_large": 32768
+    },
+    {
+      "pearson_r": 0.9867032492945725,
+      "pearson_p": 0.0,
+      "n_shared": 689,
+      "gene": "CHEK2",
+      "window_small": 4096,
+      "window_large": 8192
+    },
+    {
+      "pearson_r": 0.9340584451177226,
+      "pearson_p": 1.97843832518088e-309,
+      "n_shared": 689,
+      "gene": "CHEK2",
+      "window_small": 8192,
+      "window_large": 16384
+    },
+    {
+      "pearson_r": 0.9931988809682413,
+      "pearson_p": 0.0,
+      "n_shared": 689,
+      "gene": "CHEK2",
+      "window_small": 16384,
+      "window_large": 32768
+    }
+  ],
+  "recommendation": {
+    "per_gene": {
+      "BRCA1": {
+        "best_window": 8192,
+        "best_auroc": 0.987934919606845
+      },
+      "TP53": {
+        "best_window": 4096,
+        "best_auroc": 0.9898945837877136
+      },
+      "CHEK2": {
+        "best_window": 16384,
+        "best_auroc": 0.9999292500505357
+      }
+    },
+    "overall": {
+      "best_window": 8192,
+      "mean_auroc": 0.9921051898239286
+    }
+  }
+}

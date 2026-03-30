@@ -1,0 +1,25 @@
+{
+  "gene": "TP53",
+  "window_size": 8192,
+  "n_evo2_scored": 14240,
+  "n_plp": 1116,
+  "n_blb": 1142,
+  "n_dms_mapped": 9379,
+  "n_dms_matched": 7898,
+  "spearman_rho": -0.22915028271337806,
+  "spearman_p": 1.2854126020863356e-94,
+  "auroc": 0.9834609940430233,
+  "thresholds": {
+    "pp3_supporting": 0.00024001531534128054,
+    "pp3_moderate": 0.0005298626792800791,
+    "pp3_strong": 0.0013027889831168753,
+    "bp4_supporting": null,
+    "bp4_moderate": null,
+    "bp4_strong": null
+  },
+  "sanity_checks": {
+    "plp_lower_than_blb": "True",
+    "plp_mean_delta": -0.0059014422967370635,
+    "blb_mean_delta": -0.0002914605771794039
+  }
+}
