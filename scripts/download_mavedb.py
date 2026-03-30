@@ -165,7 +165,7 @@ def main():
     print("\n" + "=" * 60)
     print("Manual verification needed:")
     print("  1. CHEK2 (McCarthy-Leo 2024): Check paper supplementary data")
-    print("  2. DNMT3A (Huang 2022): Check MaveDB or Blood supplementary")
+    print("  2. DNMT3A (Garcia et al. 2025): Download from bioRxiv 10.1101/2025.09.24.678339 supplementary")
     print("=" * 60)
 
 

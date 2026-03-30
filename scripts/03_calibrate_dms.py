@@ -112,7 +112,7 @@ def load_dms_mapped(gene_symbol: str, dms_dir: Path) -> list:
         return variants
 
     elif gene_symbol == "DNMT3A":
-        # Prefer Garcia 2025 methylation activity (2,036 variants) over Huang 2022 stability (254)
+        # Prefer Garcia 2025 methylation activity (2,036 variants) over Garcia 2025 (2,036) is primary; Huang 2022 stability (254) is fallback
         garcia_path = dms_dir / "dnmt3a" / "dnmt3a_garcia_2025_wt.csv"
         huang_path = dms_dir / "dnmt3a" / "dnmt3a_scores.csv"
         if garcia_path.exists():
@@ -125,7 +125,7 @@ def load_dms_mapped(gene_symbol: str, dms_dir: Path) -> list:
         elif huang_path.exists():
             with open(huang_path) as f:
                 rows = list(csv.DictReader(f))
-            log.info(f"  DNMT3A DMS: {len(rows)} rows loaded (Huang 2022 stability, fallback)")
+            log.info(f"  DNMT3A DMS: {len(rows)} rows loaded (Huang 2022 stability, fallback — Garcia 2025 preferred)")
             variants = map_dnmt3a_dms(rows, gene)
             log.info(f"  DNMT3A DMS: {len(variants)} SNVs mapped to genomic coords")
             return variants

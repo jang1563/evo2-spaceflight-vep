@@ -8,10 +8,11 @@
 
 set -euo pipefail
 
-BASE="/athena/masonlab/scratch/users/jak4013/evo2/data"
-PROJECT_DATA="/athena/masonlab/scratch/users/jak4013/evo2/project_spaceflight_vep/data"
-TMPDIR="/athena/masonlab/scratch/users/jak4013/evo2/tmp"
-export TMPDIR
+EVO2_ROOT="${EVO2_ROOT:-/path/to/your/scratch/evo2}"
+BASE="$EVO2_ROOT/data"
+PROJECT_DATA="$EVO2_ROOT/project_spaceflight_vep/data"
+export TMPDIR="$EVO2_ROOT/tmp"
+mkdir -p "$TMPDIR"
 
 echo "=== Evo2 VEP Data Download: $(date) ==="
 echo "Base directory: $BASE"
@@ -79,31 +80,31 @@ echo "=== 4. DMS Datasets (project-specific) ==="
 mkdir -p "$PROJECT_DATA/dms"
 cd "$PROJECT_DATA/dms"
 
-# BRCA1 - Findlay 2018 SGE (MaveDB urn:mavedb:00000003)
+# BRCA1 - Findlay 2018 SGE (MaveDB urn:mavedb:00000097-0-2)
 echo "Downloading BRCA1 DMS (Findlay 2018)..."
 mkdir -p brca1
 wget -q -O brca1/findlay2018_scores.csv \
-    "https://www.mavedb.org/api/v1/score-sets/urn:mavedb:00000003-a-1/scores/" 2>/dev/null || \
-    echo "  NOTE: MaveDB API may need manual download. Check https://www.mavedb.org/#/experiment-sets/urn:mavedb:00000003"
+    "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00000097-0-2/scores/" 2>/dev/null || \
+    echo "  NOTE: MaveDB API may need manual download. Check https://www.mavedb.org/score-sets/urn:mavedb:00000097-0-2/"
 
 # TP53 - Giacomelli 2018 (MaveDB urn:mavedb:00000068-b-1)
 echo "Downloading TP53 DMS (Giacomelli 2018)..."
 mkdir -p tp53
 wget -q -O tp53/giacomelli2018_scores.csv \
-    "https://www.mavedb.org/api/v1/score-sets/urn:mavedb:00000068-b-1/scores/" 2>/dev/null || \
+    "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00000068-b-1/scores/" 2>/dev/null || \
     echo "  NOTE: MaveDB API may need manual download. Check https://www.mavedb.org/#/experiment-sets/urn:mavedb:00000068"
 
-# CHEK2 - McCarthy-Leo 2024
+# CHEK2 - McCarthy-Leo 2024 (MaveDB urn:mavedb:00001203-a-1)
 echo "CHEK2 DMS (McCarthy-Leo 2024)..."
 mkdir -p chek2
-echo "  NOTE: Check MaveDB or paper supplementary for CHEK2 DMS data."
+echo "  NOTE: MaveDB API may need manual download. Check https://www.mavedb.org/score-sets/urn:mavedb:00001203-a-1/"
 echo "  Paper: McCarthy-Leo 2024, 4,885 SNVs"
 
-# DNMT3A - Huang 2022 (Blood) / Huang 2024
-echo "DNMT3A DMS (Huang 2022/2024)..."
+# DNMT3A - Garcia et al. 2025 (bioRxiv 10.1101/2025.09.24.678339)
+echo "DNMT3A DMS (Garcia et al. 2025)..."
 mkdir -p dnmt3a
-echo "  NOTE: Check MaveDB for DNMT3A paired WT/R882H DMS data."
-echo "  Paper: Huang 2022 (Blood), 4,020 single-AA substitutions"
+echo "  NOTE: Download from paper supplementary data."
+echo "  Paper: Garcia et al. 2025, bioRxiv 10.1101/2025.09.24.678339"
 
 # -------------------------------------------------------------------------
 # 5. TERT Promoter MPRA (Kircher 2019)
@@ -113,11 +114,11 @@ echo "=== 5. TERT Promoter MPRA (project-specific) ==="
 mkdir -p "$PROJECT_DATA/mpra"
 cd "$PROJECT_DATA/mpra"
 
-# MaveDB urn:mavedb:00000024-a or GEO GSE126550
-echo "Downloading TERT promoter MPRA (Kircher 2019)..."
+# MaveDB urn:mavedb:00000031-b-1 (Kircher 2019 GBM) or GEO GSE126550
+echo "Downloading TERT promoter MPRA (Kircher 2019 GBM)..."
 wget -q -O tert_mpra_scores.csv \
-    "https://www.mavedb.org/api/v1/score-sets/urn:mavedb:00000024-a-1/scores/" 2>/dev/null || \
-    echo "  NOTE: MaveDB API may need manual download. Check MaveDB urn:mavedb:00000024-a"
+    "https://api.mavedb.org/api/v1/score-sets/urn:mavedb:00000031-b-1/scores/" 2>/dev/null || \
+    echo "  NOTE: MaveDB API may need manual download. Check https://www.mavedb.org/score-sets/urn:mavedb:00000031-b-1/"
 echo "  Also available from GEO: GSE126550"
 
 # -------------------------------------------------------------------------
@@ -268,7 +269,7 @@ echo "Data directory: $BASE"
 du -sh "$BASE"/* 2>/dev/null || true
 echo ""
 echo "Manual downloads still needed:"
-echo "  1. DMS data: verify MaveDB API downloads or get from paper supplements"
+echo "  1. DNMT3A DMS: Garcia et al. 2025 supplementary (bioRxiv 10.1101/2025.09.24.678339)"
 echo "  2. CADD v1.7: full genome (~80GB) or use web API for targeted scoring"
 echo "  3. LINSIGHT, Eigen, ncER: download + liftover hg19→hg38"
 echo "  4. ENCODE: per-gene ChIP-seq peaks via REST API"

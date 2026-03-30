@@ -680,7 +680,7 @@ def map_chek2_dms(dms_rows: list, gene: Gene, score_column: str = "RCS_this_SNV"
 
 def map_dnmt3a_dms(dms_rows: list, gene: Gene) -> List[GenomicVariant]:
     """
-    Map DNMT3A Huang 2022 stability assay data to genomic variants.
+    Map DNMT3A stability assay data (Huang 2022 fallback; Garcia et al. 2025 preferred) to genomic variants.
 
     Input: rows from CSV with columns: Mutation (e.g., "R19W"),
            Stability ratio (Normalized to DNMT3AWT)
