@@ -17,7 +17,7 @@ echo "=== Phase 0: Setup ==="
 
 # 1. Install missing packages
 echo "Installing missing packages..."
-CONDA_BASE="${CONDA_BASE:-/home/fs01/$USER/miniconda3/miniconda3}"
+CONDA_BASE="${CONDA_BASE:-/home/$USER/miniconda3}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 conda activate evo2
 export TMPDIR="$EVO2_ROOT/tmp"

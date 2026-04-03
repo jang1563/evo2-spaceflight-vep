@@ -11,7 +11,7 @@ SBATCH="/opt/ohpc/pub/software/slurm/24.05.2/bin/sbatch"
 EVO2_ROOT="${EVO2_ROOT:-/path/to/your/scratch/evo2}"
 SCRIPTS_DIR="$EVO2_ROOT/project_spaceflight_vep/scripts"
 LOGS_DIR="$EVO2_ROOT/project_spaceflight_vep/logs"
-CONDA_BASE="${CONDA_BASE:-/home/fs01/$USER/miniconda3/miniconda3}"
+CONDA_BASE="${CONDA_BASE:-/home/$USER/miniconda3}"
 
 echo "=== Phase 1: Window Ablation ==="
 

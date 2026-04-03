@@ -1,0 +1,117 @@
+[
+  {
+    "gene": "ATM",
+    "window_size": 8192,
+    "n_evo2_scored": 52791,
+    "n_plp_matched": 1298,
+    "n_blb_matched": 5098,
+    "star_stratification": {
+      "ge_1_star": {
+        "auroc": 0.9913430959662117,
+        "auprc": 0.983709807419342,
+        "n_plp": 1298,
+        "n_blb": 5098,
+        "precision_at_90_recall": 0.9823380992430614,
+        "recall_at_90_precision": 0.9799691833590138,
+        "mean_delta_plp": -0.009412116372530192,
+        "mean_delta_blb": -0.00026900602724562445
+      },
+      "ge_2_star": {
+        "auroc": 0.9954715716650719,
+        "auprc": 0.9916780048207555,
+        "n_plp": 816,
+        "n_blb": 2582,
+        "precision_at_90_recall": 0.9852348993288591,
+        "recall_at_90_precision": 0.9877450980392157,
+        "mean_delta_plp": -0.009289959116893657,
+        "mean_delta_blb": -0.000246646051532441
+      },
+      "ge_3_star": {
+        "auroc": 0.9633986928104574,
+        "auprc": 0.9897791516264149,
+        "n_plp": 51,
+        "n_blb": 15,
+        "precision_at_90_recall": 0.9787234042553191,
+        "recall_at_90_precision": 0.9803921568627451,
+        "mean_delta_plp": -0.007654829352509742,
+        "mean_delta_blb": -0.0010940829912821453
+      }
+    },
+    "tool_aurocs": {
+      "Evo2": 0.9913430959662117,
+      "AlphaMissense": 0.9305430091337951,
+      "CADD": 0.9949523434089237,
+      "REVEL": 0.9222380275011854
+    },
+    "tool_auprcs": {
+      "Evo2": 0.983709807419342,
+      "AlphaMissense": 0.9086337626326125,
+      "CADD": 0.9911115169857394,
+      "REVEL": 0.8591527129272316
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.76427905891179,
+        "p_value": 2.3959738727236743e-40,
+        "n_shared": 204,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.7704994038494759,
+        "p_value": 2.2769277830691018e-41,
+        "n_shared": 204,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.7844035250707856,
+        "p_value": 1.4453562193354538e-43,
+        "n_shared": 203,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.6286100031755836,
+        "p_value": 0.0,
+        "n_shared": 6392,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.5989809008519315,
+        "p_value": 1.0902763616445847e-37,
+        "n_shared": 373,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.5592618083514901,
+        "p_value": 4.454744559230268e-32,
+        "n_shared": 373,
+        "interpretation": "Complementary (high added value)"
+      }
+    },
+    "calibration": {
+      "fraction_positive": [
+        0.0,
+        0.03125,
+        0.015098039215686275,
+        0.8904593639575972,
+        0.9944444444444445,
+        0.9935275080906149,
+        0.9946808510638298,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "mean_predicted": [
+        0.05173485561650307,
+        0.17183201634605472,
+        0.24416672781419377,
+        0.3499695667333196,
+        0.4493364058416468,
+        0.5458730971702596,
+        0.6411032433285173,
+        0.7435370751866829,
+        0.8364079800629897,
+        0.9486952927753366
+      ]
+    }
+  }
+]

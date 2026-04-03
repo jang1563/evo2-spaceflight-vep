@@ -1,0 +1,817 @@
+[
+  {
+    "gene": "TERT",
+    "min_stars": 2,
+    "n_plp": 24,
+    "n_blb": 691,
+    "tool_metrics": {
+      "AlphaMissense": {
+        "auroc": 0.96875,
+        "auprc": 0.9815476190476189,
+        "n_scored": 22,
+        "n_plp": 14,
+        "n_blb": 8
+      },
+      "CADD": {
+        "auroc": 0.9990295972828724,
+        "auprc": 0.9799187156524113,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "REVEL": {
+        "auroc": 0.9956709956709957,
+        "auprc": 0.9910714285714285,
+        "n_scored": 47,
+        "n_plp": 14,
+        "n_blb": 33
+      },
+      "SpliceAI": {
+        "auroc": 0.6234230955846677,
+        "auprc": 0.2948720430759511,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "ncER": {
+        "auroc": 0.3833090732654052,
+        "auprc": 0.02701499215442391,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "Evo2": {
+        "auroc": 0.9089483839845635,
+        "auprc": 0.6419929637543712,
+        "n_scored": 715,
+        "n_plp": 24,
+        "n_blb": 691
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "rho": 0.8480225988700565,
+        "p": 6.237808226109957e-07,
+        "n": 22,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "rho": 0.6382378113869324,
+        "p": 0.0013922270029529513,
+        "n": 22,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "rho": 0.7579780025497905,
+        "p": 4.379088347671502e-05,
+        "n": 22,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "rho": 0.5484162187597845,
+        "p": 0.008224344302352827,
+        "n": 22,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_ncER": {
+        "rho": -0.18089318887996678,
+        "p": 0.4204639629659122,
+        "n": 22,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "CADD_vs_Evo2": {
+        "rho": 0.4139633681579354,
+        "p": 8.246175043907872e-31,
+        "n": 711,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.7378859732469981,
+        "p": 3.265987122197879e-09,
+        "n": 47,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.002219373938146399,
+        "p": 0.9528926669838061,
+        "n": 711,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.48622147765054874,
+        "p": 1.825423848119253e-43,
+        "n": 711,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.5448553028675365,
+        "p": 7.503389257578661e-05,
+        "n": 47,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.09389117729388939,
+        "p": 0.012255562561295827,
+        "n": 711,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.12467511642340771,
+        "p": 0.000863582678037735,
+        "n": 711,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": 0.42712968341306656,
+        "p": 0.0027506201089806848,
+        "n": 47,
+        "interpretation": "Complementary (high added value)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": -0.15278666974644156,
+        "p": 0.30522996664988633,
+        "n": 47,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": -0.1685881224418568,
+        "p": 6.189454721772468e-06,
+        "n": 711,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      }
+    }
+  },
+  {
+    "gene": "ATM",
+    "min_stars": 2,
+    "n_plp": 816,
+    "n_blb": 2582,
+    "tool_metrics": {
+      "AlphaMissense": {
+        "auroc": 0.9262672811059908,
+        "auprc": 0.9608318282878235,
+        "n_scored": 87,
+        "n_plp": 56,
+        "n_blb": 31
+      },
+      "CADD": {
+        "auroc": 0.9989010962912297,
+        "auprc": 0.9973825173779206,
+        "n_scored": 3396,
+        "n_plp": 816,
+        "n_blb": 2580
+      },
+      "REVEL": {
+        "auroc": 0.9367753623188405,
+        "auprc": 0.9064946837681467,
+        "n_scored": 187,
+        "n_plp": 72,
+        "n_blb": 115
+      },
+      "SpliceAI": {
+        "auroc": 0.7904250265997872,
+        "auprc": 0.7076087452627733,
+        "n_scored": 3396,
+        "n_plp": 816,
+        "n_blb": 2580
+      },
+      "ncER": {
+        "auroc": 0.6562310075134278,
+        "auprc": 0.34862908735472387,
+        "n_scored": 3397,
+        "n_plp": 816,
+        "n_blb": 2581
+      },
+      "Evo2": {
+        "auroc": 0.9954715716650719,
+        "auprc": 0.9916780048207555,
+        "n_scored": 3398,
+        "n_plp": 816,
+        "n_blb": 2582
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "rho": 0.602296981638742,
+        "p": 6.770162726666697e-10,
+        "n": 87,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "rho": 0.5689837428009039,
+        "p": 8.927700418942454e-09,
+        "n": 87,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "rho": 0.8361802601937032,
+        "p": 1.2644050375688233e-23,
+        "n": 86,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "rho": -0.12464502176444818,
+        "p": 0.25002522311292535,
+        "n": 87,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "AlphaMissense_vs_ncER": {
+        "rho": 0.422447028780389,
+        "p": 4.5845156993784176e-05,
+        "n": 87,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_Evo2": {
+        "rho": 0.6736680698897185,
+        "p": 0.0,
+        "n": 3396,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.6781378311844484,
+        "p": 1.54805749515488e-26,
+        "n": 187,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.40847148450323256,
+        "p": 9.838929824523375e-137,
+        "n": 3396,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.30498125051793246,
+        "p": 5.007095834674615e-74,
+        "n": 3396,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.633336040432558,
+        "p": 2.3282525495020317e-22,
+        "n": 187,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.3725389810528031,
+        "p": 2.809963669811351e-112,
+        "n": 3396,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.32546688244309846,
+        "p": 1.194393631131694e-84,
+        "n": 3397,
+        "interpretation": "Complementary (high added value)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": 0.2359496354581674,
+        "p": 0.0011501876701677293,
+        "n": 187,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": 0.23764481896069745,
+        "p": 0.001056620918353539,
+        "n": 187,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": 0.1587186103397253,
+        "p": 1.3399865426516553e-20,
+        "n": 3396,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      }
+    }
+  },
+  {
+    "gene": "BRCA1",
+    "min_stars": 2,
+    "n_plp": 813,
+    "n_blb": 1863,
+    "tool_metrics": {
+      "AlphaMissense": {
+        "auroc": 0.9604448603512813,
+        "auprc": 0.9645313675414461,
+        "n_scored": 335,
+        "n_plp": 151,
+        "n_blb": 184
+      },
+      "CADD": {
+        "auroc": 0.9950900108782985,
+        "auprc": 0.9908408032222001,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "REVEL": {
+        "auroc": 0.7481848890409202,
+        "auprc": 0.7326806857576933,
+        "n_scored": 712,
+        "n_plp": 257,
+        "n_blb": 455
+      },
+      "SpliceAI": {
+        "auroc": 0.6877157048560671,
+        "auprc": 0.5979801336065027,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "ncER": {
+        "auroc": 0.7146354696916652,
+        "auprc": 0.5105394216882331,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "Evo2": {
+        "auroc": 0.987934919606845,
+        "auprc": 0.9726550556955196,
+        "n_scored": 2676,
+        "n_plp": 813,
+        "n_blb": 1863
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "rho": 0.7965320734097807,
+        "p": 9.256471997158218e-75,
+        "n": 335,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "rho": 0.7878604149831315,
+        "p": 4.3572797545211907e-72,
+        "n": 335,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "rho": 0.8031681019959052,
+        "p": 6.78894836992162e-77,
+        "n": 335,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "rho": 0.2705896485100554,
+        "p": 4.951006852592097e-07,
+        "n": 335,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "AlphaMissense_vs_ncER": {
+        "rho": 0.7639329196193928,
+        "p": 2.547295257093464e-65,
+        "n": 335,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_Evo2": {
+        "rho": 0.7207739230302723,
+        "p": 0.0,
+        "n": 2647,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.45423576758259737,
+        "p": 1.5442685937487143e-37,
+        "n": 712,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.34172257895240804,
+        "p": 2.1656424272554992e-73,
+        "n": 2647,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.5253545586061166,
+        "p": 9.464790617358123e-188,
+        "n": 2647,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.4724346246570893,
+        "p": 7.254161739764575e-41,
+        "n": 712,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.28543168564969423,
+        "p": 8.385381380516586e-51,
+        "n": 2647,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.40412603277458403,
+        "p": 1.4777425090693524e-104,
+        "n": 2647,
+        "interpretation": "Complementary (high added value)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": 0.12245262053648134,
+        "p": 0.0010602489499509987,
+        "n": 712,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": 0.4107976744212511,
+        "p": 2.3090700383056568e-30,
+        "n": 712,
+        "interpretation": "Complementary (high added value)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": 0.3735898539169834,
+        "p": 1.9011099332418032e-88,
+        "n": 2647,
+        "interpretation": "Complementary (high added value)"
+      }
+    }
+  },
+  {
+    "gene": "TP53",
+    "min_stars": 2,
+    "n_plp": 315,
+    "n_blb": 524,
+    "tool_metrics": {
+      "AlphaMissense": {
+        "auroc": 0.9881693648816937,
+        "auprc": 0.9956022013440678,
+        "n_scored": 271,
+        "n_plp": 198,
+        "n_blb": 73
+      },
+      "CADD": {
+        "auroc": 0.9881649097297952,
+        "auprc": 0.9809655966717594,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "REVEL": {
+        "auroc": 0.9516798583051973,
+        "auprc": 0.9799580144616531,
+        "n_scored": 292,
+        "n_plp": 203,
+        "n_blb": 89
+      },
+      "SpliceAI": {
+        "auroc": 0.5941960499212408,
+        "auprc": 0.564480276055351,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "ncER": {
+        "auroc": 0.7404580152671756,
+        "auprc": 0.6172452644566856,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "Evo2": {
+        "auroc": 0.9887343996122622,
+        "auprc": 0.9794355213918384,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "rho": 0.6321867013598345,
+        "p": 1.1963870771559964e-31,
+        "n": 271,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "rho": 0.6009298294760173,
+        "p": 5.423080468382676e-28,
+        "n": 271,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "rho": 0.7578041725266654,
+        "p": 8.41142534744115e-52,
+        "n": 271,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "rho": -0.07751870289236545,
+        "p": 0.20332505868935805,
+        "n": 271,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "AlphaMissense_vs_ncER": {
+        "rho": 0.477513804696055,
+        "p": 7.68181383363327e-17,
+        "n": 271,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_Evo2": {
+        "rho": 0.8276820943733622,
+        "p": 3.4044499656026e-212,
+        "n": 839,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.7587823567848887,
+        "p": 6.226298948815103e-56,
+        "n": 292,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.24089066546560733,
+        "p": 1.5326261359412035e-12,
+        "n": 839,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.49350163107775197,
+        "p": 1.0388819007402845e-52,
+        "n": 839,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.5246734750443399,
+        "p": 4.689599202629614e-22,
+        "n": 292,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.19302624769938104,
+        "p": 1.7419737913926913e-08,
+        "n": 839,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.4482875920352317,
+        "p": 1.0265518856357394e-42,
+        "n": 839,
+        "interpretation": "Complementary (high added value)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": -0.09658516876731274,
+        "p": 0.09951240857635589,
+        "n": 292,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": 0.49076987056900007,
+        "p": 4.187950664266161e-19,
+        "n": 292,
+        "interpretation": "Complementary (high added value)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": -0.007662754985492103,
+        "p": 0.8246036030706179,
+        "n": 839,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      }
+    }
+  },
+  {
+    "gene": "CHEK2",
+    "min_stars": 2,
+    "n_plp": 204,
+    "n_blb": 485,
+    "tool_metrics": {
+      "CADD": {
+        "auroc": 0.9985791418016482,
+        "auprc": 0.9978699089312515,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "REVEL": {
+        "auroc": 0.8317730496453901,
+        "auprc": 0.6255163545422818,
+        "n_scored": 197,
+        "n_plp": 47,
+        "n_blb": 150
+      },
+      "SpliceAI": {
+        "auroc": 0.8202817358827591,
+        "auprc": 0.7658040233642676,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "ncER": {
+        "auroc": 0.6452218568586855,
+        "auprc": 0.39608347019364826,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "Evo2": {
+        "auroc": 0.9996462502526784,
+        "auprc": 0.9990897400665222,
+        "n_scored": 689,
+        "n_plp": 204,
+        "n_blb": 485
+      }
+    },
+    "orthogonality": {
+      "CADD_vs_Evo2": {
+        "rho": 0.6816474611580674,
+        "p": 5.128287032232102e-95,
+        "n": 687,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.5075971250155483,
+        "p": 2.6840044656631457e-14,
+        "n": 197,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.48558332467725757,
+        "p": 6.248499404812202e-42,
+        "n": 687,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.28930540851033276,
+        "p": 1.0332573091437542e-14,
+        "n": 687,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.4414271168291548,
+        "p": 8.4217087668672e-11,
+        "n": 197,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.4464727808256364,
+        "p": 5.794358428975778e-35,
+        "n": 687,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.2769532760023839,
+        "p": 1.4576255791610345e-13,
+        "n": 687,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": 0.24000599022619545,
+        "p": 0.0006812997941445999,
+        "n": 197,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": 0.08141396013368518,
+        "p": 0.2554059812362047,
+        "n": 197,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": 0.20897899123525462,
+        "p": 3.2267700923046304e-08,
+        "n": 687,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      }
+    }
+  },
+  {
+    "gene": "DNMT3A",
+    "min_stars": 2,
+    "n_plp": 23,
+    "n_blb": 136,
+    "tool_metrics": {
+      "AlphaMissense": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "n_scored": 18,
+        "n_plp": 12,
+        "n_blb": 6
+      },
+      "CADD": {
+        "auroc": 1.0,
+        "auprc": 1.0,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "REVEL": {
+        "auroc": 0.9722222222222223,
+        "auprc": 0.9880952380952381,
+        "n_scored": 18,
+        "n_plp": 12,
+        "n_blb": 6
+      },
+      "SpliceAI": {
+        "auroc": 0.6582480818414322,
+        "auprc": 0.34528602290515964,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "ncER": {
+        "auroc": 0.7476023017902813,
+        "auprc": 0.3398582516005143,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "Evo2": {
+        "auroc": 0.9961636828644501,
+        "auprc": 0.9767491001796045,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "rho": 0.712371044107835,
+        "p": 0.0009093530834684736,
+        "n": 18,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_Evo2": {
+        "rho": 0.5376676986584108,
+        "p": 0.021371414657806467,
+        "n": 18,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_REVEL": {
+        "rho": 0.7564499484004128,
+        "p": 0.0002802193872136038,
+        "n": 18,
+        "interpretation": "Moderately correlated"
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "rho": 0.35849049881405776,
+        "p": 0.14406168520464702,
+        "n": 18,
+        "interpretation": "Complementary (high added value)"
+      },
+      "AlphaMissense_vs_ncER": {
+        "rho": 0.6900830128594342,
+        "p": 0.0015268501579865184,
+        "n": 18,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_Evo2": {
+        "rho": 0.6005406754423427,
+        "p": 5.896221752003296e-17,
+        "n": 159,
+        "interpretation": "Complementary (high added value)"
+      },
+      "CADD_vs_REVEL": {
+        "rho": 0.8307534042073877,
+        "p": 1.961260020444634e-05,
+        "n": 18,
+        "interpretation": "Moderately correlated"
+      },
+      "CADD_vs_SpliceAI": {
+        "rho": 0.29962879120222363,
+        "p": 0.0001245979695718911,
+        "n": 159,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "CADD_vs_ncER": {
+        "rho": 0.37521589657524695,
+        "p": 1.0980154084992377e-06,
+        "n": 159,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_REVEL": {
+        "rho": 0.5087719298245614,
+        "p": 0.031068538407296186,
+        "n": 18,
+        "interpretation": "Complementary (high added value)"
+      },
+      "Evo2_vs_SpliceAI": {
+        "rho": 0.05306778554731986,
+        "p": 0.5064677050025173,
+        "n": 159,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "Evo2_vs_ncER": {
+        "rho": 0.32339422853222916,
+        "p": 3.2110235483980096e-05,
+        "n": 159,
+        "interpretation": "Complementary (high added value)"
+      },
+      "REVEL_vs_SpliceAI": {
+        "rho": 0.25623255325070354,
+        "p": 0.30473959656954414,
+        "n": 18,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      },
+      "REVEL_vs_ncER": {
+        "rho": 0.5557854205364904,
+        "p": 0.016626517634375945,
+        "n": 18,
+        "interpretation": "Complementary (high added value)"
+      },
+      "SpliceAI_vs_ncER": {
+        "rho": 0.1848818389225432,
+        "p": 0.019646748026355746,
+        "n": 159,
+        "interpretation": "Near-orthogonal (may provide PP3 without double-counting)"
+      }
+    }
+  }
+]

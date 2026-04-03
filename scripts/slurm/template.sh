@@ -41,7 +41,7 @@ nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
 EVO2_ROOT="${EVO2_ROOT:-/path/to/your/scratch/evo2}"
 
 # Environment — update CONDA_BASE to your miniconda/conda path
-CONDA_BASE="${CONDA_BASE:-/home/fs01/$USER/miniconda3/miniconda3}"
+CONDA_BASE="${CONDA_BASE:-/home/$USER/miniconda3}"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 conda activate evo2
 

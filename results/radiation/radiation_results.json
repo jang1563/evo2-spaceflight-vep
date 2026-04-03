@@ -1,5 +1,1053 @@
 [
   {
+    "gene": "TERT",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 2839,
+        "mean_delta": -0.0010501144636932836,
+        "std_delta": 0.0015123408833045621,
+        "median_delta": -0.00055694580078125,
+        "q10": -0.0025847434997558595,
+        "q90": -8.879899978637694e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 2988,
+        "mean_delta": -0.0006606205001253999,
+        "std_delta": 0.0011417127210306584,
+        "median_delta": -0.0003465414047241211,
+        "q10": -0.001589024066925049,
+        "q90": -3.634095191955565e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 1399,
+        "mean_delta": -0.0009575389469411222,
+        "std_delta": 0.0014923369437120255,
+        "median_delta": -0.0003808736801147461,
+        "q10": -0.0029355287551879883,
+        "q90": 0.00020458698272705081
+      },
+      "other_transversion": {
+        "n": 5504,
+        "mean_delta": -0.001169447938716689,
+        "std_delta": 0.0016064905919599237,
+        "median_delta": -0.0005675852298736572,
+        "q10": -0.0032530486583709716,
+        "q90": 7.217526435852043e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 2246,
+        "other_n": 7952,
+        "radiation_mean": -0.0012554634073856997,
+        "other_mean": -0.0011820826731937031,
+        "mannwhitney_p": 8.033349137139727e-10
+      },
+      "intronic": {
+        "radiation_n": 70,
+        "other_n": 399,
+        "radiation_mean": -0.0003678347383226667,
+        "other_mean": -0.0004209590734993306,
+        "mannwhitney_p": 0.0054059543302189
+      },
+      "promoter": {
+        "radiation_n": 520,
+        "other_n": 1515,
+        "radiation_mean": -0.0002599865198135376,
+        "other_mean": -0.00012052590304081983,
+        "mannwhitney_p": 3.17875530353312e-43
+      },
+      "utr5": {
+        "radiation_n": 3,
+        "other_n": 11,
+        "radiation_mean": -0.0001875758171081543,
+        "other_mean": -7.369843396273527e-05
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 4553,
+        "mean_delta": -0.006277967567577903,
+        "std_delta": 0.003953468936028226,
+        "median_delta": -0.005758762359619141
+      },
+      "other_indel": {
+        "n": 130,
+        "mean_delta": -0.003451257485609788,
+        "std_delta": 0.005625962468040412,
+        "median_delta": -0.002635091543197632
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 2839,
+      "other_n": 9891,
+      "radiation_mean_delta": -0.0010501144636932836,
+      "other_mean_delta": -0.0009857620559945385,
+      "mannwhitney_p": 5.321718413129345e-19,
+      "ks_stat": 0.13266047611818416,
+      "ks_p": 2.6906469125029375e-34
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr5:1278792:C>A",
+        "delta": -0.024584710597991943,
+        "region_type": "coding",
+        "pos": 1278792
+      },
+      {
+        "variant_key": "chr5:1268600:C>A",
+        "delta": -0.011999249458312988,
+        "region_type": "coding",
+        "pos": 1268600
+      },
+      {
+        "variant_key": "chr5:1280193:G>T",
+        "delta": -0.011301517486572266,
+        "region_type": "coding",
+        "pos": 1280193
+      },
+      {
+        "variant_key": "chr5:1293801:C>A",
+        "delta": -0.011036872863769531,
+        "region_type": "coding",
+        "pos": 1293801
+      },
+      {
+        "variant_key": "chr5:1293727:G>T",
+        "delta": -0.011031866073608398,
+        "region_type": "coding",
+        "pos": 1293727
+      },
+      {
+        "variant_key": "chr5:1282469:G>T",
+        "delta": -0.010996401309967041,
+        "region_type": "coding",
+        "pos": 1282469
+      },
+      {
+        "variant_key": "chr5:1268601:C>A",
+        "delta": -0.010915994644165039,
+        "region_type": "coding",
+        "pos": 1268601
+      },
+      {
+        "variant_key": "chr5:1282435:C>A",
+        "delta": -0.010547399520874023,
+        "region_type": "coding",
+        "pos": 1282435
+      },
+      {
+        "variant_key": "chr5:1268613:C>A",
+        "delta": -0.010535597801208496,
+        "region_type": "coding",
+        "pos": 1268613
+      },
+      {
+        "variant_key": "chr5:1282541:G>T",
+        "delta": -0.010242462158203125,
+        "region_type": "coding",
+        "pos": 1282541
+      },
+      {
+        "variant_key": "chr5:1266515:C>A",
+        "delta": -0.01013481616973877,
+        "region_type": "coding",
+        "pos": 1266515
+      },
+      {
+        "variant_key": "chr5:1294421:C>A",
+        "delta": -0.009919464588165283,
+        "region_type": "coding",
+        "pos": 1294421
+      },
+      {
+        "variant_key": "chr5:1266512:C>A",
+        "delta": -0.009743094444274902,
+        "region_type": "coding",
+        "pos": 1266512
+      },
+      {
+        "variant_key": "chr5:1268612:C>A",
+        "delta": -0.00966644287109375,
+        "region_type": "coding",
+        "pos": 1268612
+      },
+      {
+        "variant_key": "chr5:1294586:C>A",
+        "delta": -0.008906960487365723,
+        "region_type": "coding",
+        "pos": 1294586
+      },
+      {
+        "variant_key": "chr5:1268606:G>T",
+        "delta": -0.008825898170471191,
+        "region_type": "coding",
+        "pos": 1268606
+      },
+      {
+        "variant_key": "chr5:1294372:G>T",
+        "delta": -0.008778214454650879,
+        "region_type": "coding",
+        "pos": 1294372
+      },
+      {
+        "variant_key": "chr5:1294357:G>T",
+        "delta": -0.008750975131988525,
+        "region_type": "coding",
+        "pos": 1294357
+      },
+      {
+        "variant_key": "chr5:1294818:G>T",
+        "delta": -0.008744776248931885,
+        "region_type": "coding",
+        "pos": 1294818
+      },
+      {
+        "variant_key": "chr5:1260473:C>A",
+        "delta": -0.008525490760803223,
+        "region_type": "coding",
+        "pos": 1260473
+      }
+    ]
+  },
+  {
+    "gene": "ATM",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 5146,
+        "mean_delta": -0.0023379857976567266,
+        "std_delta": 0.003513716331172434,
+        "median_delta": -0.0010229945182800293,
+        "q10": -0.00687795877456665,
+        "q90": 2.282857894897461e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 5475,
+        "mean_delta": -0.001434104192202494,
+        "std_delta": 0.0029424681548457475,
+        "median_delta": -0.0003961920738220215,
+        "q10": -0.0036641120910644535,
+        "q90": 0.00010910034179687509
+      },
+      "transition_AT_to_GC": {
+        "n": 7988,
+        "mean_delta": -0.0010927115969497918,
+        "std_delta": 0.0018706058928831082,
+        "median_delta": -0.00046196579933166504,
+        "q10": -0.0028833985328674317,
+        "q90": 1.6582012176513715e-05
+      },
+      "other_transversion": {
+        "n": 19768,
+        "mean_delta": -0.0020284918440300072,
+        "std_delta": 0.0029239399658678596,
+        "median_delta": -0.0010247230529785156,
+        "q10": -0.005297648906707764,
+        "q90": -2.273321151733407e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 3557,
+        "other_n": 23957,
+        "radiation_mean": -0.002958260847337802,
+        "other_mean": -0.002073771568343243,
+        "mannwhitney_p": 5.864164630575329e-69
+      },
+      "intronic": {
+        "radiation_n": 309,
+        "other_n": 2959,
+        "radiation_mean": -0.003551488169574429,
+        "other_mean": -0.0018487166173960076,
+        "mannwhitney_p": 0.4239600823355878
+      },
+      "promoter": {
+        "radiation_n": 1270,
+        "other_n": 6200,
+        "radiation_mean": -0.00032128865324606106,
+        "other_mean": -0.00024362783278188398,
+        "mannwhitney_p": 1.0747272752978259e-06
+      },
+      "utr5": {
+        "radiation_n": 3,
+        "other_n": 20,
+        "radiation_mean": -0.000541826089223226,
+        "other_mean": -0.0002868086099624634
+      },
+      "utr3": {
+        "radiation_n": 7,
+        "other_n": 79,
+        "radiation_mean": -0.000238452638898577,
+        "other_mean": -0.00012274859826776047,
+        "mannwhitney_p": 0.38439339829781316
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 11046,
+        "mean_delta": -0.011929503875907167,
+        "std_delta": 0.0051983110821129256,
+        "median_delta": -0.011927425861358643
+      },
+      "other_indel": {
+        "n": 3253,
+        "mean_delta": -0.009477456716108865,
+        "std_delta": 0.011468790057040854,
+        "median_delta": -0.010299205780029297
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 5146,
+      "other_n": 33231,
+      "radiation_mean_delta": -0.0023379857976567266,
+      "other_mean_delta": -0.0017056220836426464,
+      "mannwhitney_p": 1.1351021762564688e-26,
+      "ks_stat": 0.08409165730709323,
+      "ks_p": 7.335418166465625e-28
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr11:108250845:G>T",
+        "delta": -0.0261075496673584,
+        "region_type": "coding",
+        "pos": 108250845
+      },
+      {
+        "variant_key": "chr11:108246962:G>T",
+        "delta": -0.024701237678527832,
+        "region_type": "intronic",
+        "pos": 108246962
+      },
+      {
+        "variant_key": "chr11:108250897:C>A",
+        "delta": -0.022871315479278564,
+        "region_type": "coding",
+        "pos": 108250897
+      },
+      {
+        "variant_key": "chr11:108268609:G>T",
+        "delta": -0.021967172622680664,
+        "region_type": "intronic",
+        "pos": 108268609
+      },
+      {
+        "variant_key": "chr11:108250971:G>T",
+        "delta": -0.021210193634033203,
+        "region_type": "coding",
+        "pos": 108250971
+      },
+      {
+        "variant_key": "chr11:108250873:C>A",
+        "delta": -0.021086573600769043,
+        "region_type": "coding",
+        "pos": 108250873
+      },
+      {
+        "variant_key": "chr11:108247100:G>T",
+        "delta": -0.02069491147994995,
+        "region_type": "coding",
+        "pos": 108247100
+      },
+      {
+        "variant_key": "chr11:108251072:G>T",
+        "delta": -0.02063119411468506,
+        "region_type": "intronic",
+        "pos": 108251072
+      },
+      {
+        "variant_key": "chr11:108268613:G>T",
+        "delta": -0.020433008670806885,
+        "region_type": "intronic",
+        "pos": 108268613
+      },
+      {
+        "variant_key": "chr11:108251016:G>T",
+        "delta": -0.020137012004852295,
+        "region_type": "coding",
+        "pos": 108251016
+      },
+      {
+        "variant_key": "chr11:108335865:G>T",
+        "delta": -0.020031452178955078,
+        "region_type": "coding",
+        "pos": 108335865
+      },
+      {
+        "variant_key": "chr11:108251028:G>T",
+        "delta": -0.019474029541015625,
+        "region_type": "coding",
+        "pos": 108251028
+      },
+      {
+        "variant_key": "chr11:108335853:G>T",
+        "delta": -0.01916038990020752,
+        "region_type": "coding",
+        "pos": 108335853
+      },
+      {
+        "variant_key": "chr11:108250956:G>T",
+        "delta": -0.018780410289764404,
+        "region_type": "coding",
+        "pos": 108250956
+      },
+      {
+        "variant_key": "chr11:108246975:C>A",
+        "delta": -0.018779873847961426,
+        "region_type": "coding",
+        "pos": 108246975
+      },
+      {
+        "variant_key": "chr11:108249074:C>A",
+        "delta": -0.018736064434051514,
+        "region_type": "coding",
+        "pos": 108249074
+      },
+      {
+        "variant_key": "chr11:108289646:G>T",
+        "delta": -0.018660902976989746,
+        "region_type": "coding",
+        "pos": 108289646
+      },
+      {
+        "variant_key": "chr11:108307984:G>T",
+        "delta": -0.018644332885742188,
+        "region_type": "intronic",
+        "pos": 108307984
+      },
+      {
+        "variant_key": "chr11:108249034:G>T",
+        "delta": -0.0186312198638916,
+        "region_type": "coding",
+        "pos": 108249034
+      },
+      {
+        "variant_key": "chr11:108249101:G>T",
+        "delta": -0.01859039068222046,
+        "region_type": "coding",
+        "pos": 108249101
+      }
+    ]
+  },
+  {
+    "gene": "NFE2L2",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 2048,
+        "mean_delta": -0.001106718962546438,
+        "std_delta": 0.002395468256631653,
+        "median_delta": -0.0002422332763671875,
+        "q10": -0.0029091835021972656,
+        "q90": 5.0997734069824186e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 2050,
+        "mean_delta": -0.0006743500290847406,
+        "std_delta": 0.0017585007526825542,
+        "median_delta": -0.00017070770263671875,
+        "q10": -0.0018210887908935546,
+        "q90": 5.626678466796875e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 2235,
+        "mean_delta": -0.0006723188713892995,
+        "std_delta": 0.0013641878663397675,
+        "median_delta": -0.00023365020751953125,
+        "q10": -0.0019152641296386718,
+        "q90": 7.133483886718757e-05
+      },
+      "other_transversion": {
+        "n": 6505,
+        "mean_delta": -0.0010560843140047208,
+        "std_delta": 0.0020975994933694754,
+        "median_delta": -0.00025463104248046875,
+        "q10": -0.0029126644134521485,
+        "q90": 5.779266357421888e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 783,
+        "other_n": 4671,
+        "radiation_mean": -0.0027125579034992867,
+        "other_mean": -0.0019799314967265504,
+        "mannwhitney_p": 7.739664758440679e-13
+      },
+      "intronic": {
+        "radiation_n": 1,
+        "other_n": 28,
+        "radiation_mean": -0.00037550926208496094,
+        "other_mean": -0.002213910222053528
+      },
+      "promoter": {
+        "radiation_n": 1264,
+        "other_n": 6091,
+        "radiation_mean": -0.00011254120853882802,
+        "other_mean": -7.299773310659907e-05,
+        "mannwhitney_p": 5.708403101960992e-15
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 2371,
+        "mean_delta": -0.012093763218706342,
+        "std_delta": 0.0063291548689127656,
+        "median_delta": -0.011574506759643555
+      },
+      "other_indel": {
+        "n": 21,
+        "mean_delta": -0.008141066346849715,
+        "std_delta": 0.006757435120196083,
+        "median_delta": -0.007307529449462891
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 2048,
+      "other_n": 10790,
+      "radiation_mean_delta": -0.001106718962546438,
+      "other_mean_delta": -0.0009040666079499083,
+      "mannwhitney_p": 0.0033631729074271857,
+      "ks_stat": 0.0627764966114458,
+      "ks_p": 2.440175085559192e-06
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr2:177232417:C>A",
+        "delta": -0.021709978580474854,
+        "region_type": "coding",
+        "pos": 177232417
+      },
+      {
+        "variant_key": "chr2:177232399:C>A",
+        "delta": -0.020987749099731445,
+        "region_type": "coding",
+        "pos": 177232399
+      },
+      {
+        "variant_key": "chr2:177231060:G>T",
+        "delta": -0.01930105686187744,
+        "region_type": "coding",
+        "pos": 177231060
+      },
+      {
+        "variant_key": "chr2:177230891:C>A",
+        "delta": -0.019216716289520264,
+        "region_type": "coding",
+        "pos": 177230891
+      },
+      {
+        "variant_key": "chr2:177232420:C>A",
+        "delta": -0.019000768661499023,
+        "region_type": "coding",
+        "pos": 177232420
+      },
+      {
+        "variant_key": "chr2:177232432:C>A",
+        "delta": -0.018504858016967773,
+        "region_type": "coding",
+        "pos": 177232432
+      },
+      {
+        "variant_key": "chr2:177232391:C>A",
+        "delta": -0.01761925220489502,
+        "region_type": "coding",
+        "pos": 177232391
+      },
+      {
+        "variant_key": "chr2:177232422:C>A",
+        "delta": -0.017178773880004883,
+        "region_type": "coding",
+        "pos": 177232422
+      },
+      {
+        "variant_key": "chr2:177230885:C>A",
+        "delta": -0.017010092735290527,
+        "region_type": "coding",
+        "pos": 177230885
+      },
+      {
+        "variant_key": "chr2:177232421:C>A",
+        "delta": -0.01616150140762329,
+        "region_type": "coding",
+        "pos": 177232421
+      },
+      {
+        "variant_key": "chr2:177230859:G>T",
+        "delta": -0.015843510627746582,
+        "region_type": "coding",
+        "pos": 177230859
+      },
+      {
+        "variant_key": "chr2:177230864:C>A",
+        "delta": -0.015687525272369385,
+        "region_type": "coding",
+        "pos": 177230864
+      },
+      {
+        "variant_key": "chr2:177230915:C>A",
+        "delta": -0.015116631984710693,
+        "region_type": "coding",
+        "pos": 177230915
+      },
+      {
+        "variant_key": "chr2:177234010:G>T",
+        "delta": -0.014656305313110352,
+        "region_type": "coding",
+        "pos": 177234010
+      },
+      {
+        "variant_key": "chr2:177233294:G>T",
+        "delta": -0.014420807361602783,
+        "region_type": "coding",
+        "pos": 177233294
+      },
+      {
+        "variant_key": "chr2:177233249:C>A",
+        "delta": -0.013662934303283691,
+        "region_type": "coding",
+        "pos": 177233249
+      },
+      {
+        "variant_key": "chr2:177233306:G>T",
+        "delta": -0.013562440872192383,
+        "region_type": "coding",
+        "pos": 177233306
+      },
+      {
+        "variant_key": "chr2:177231938:C>A",
+        "delta": -0.013023972511291504,
+        "region_type": "coding",
+        "pos": 177231938
+      },
+      {
+        "variant_key": "chr2:177231058:C>A",
+        "delta": -0.01299583911895752,
+        "region_type": "coding",
+        "pos": 177231058
+      },
+      {
+        "variant_key": "chr2:177234004:C>A",
+        "delta": -0.012984156608581543,
+        "region_type": "coding",
+        "pos": 177234004
+      }
+    ]
+  },
+  {
+    "gene": "CLOCK",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 2387,
+        "mean_delta": -0.001461022011046136,
+        "std_delta": 0.0023935743760387846,
+        "median_delta": -0.0004019737243652344,
+        "q10": -0.004021477699279785,
+        "q90": 1.814365386962894e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 2380,
+        "mean_delta": -0.0010640086496577544,
+        "std_delta": 0.0021284181209294296,
+        "median_delta": -0.0002276897430419922,
+        "q10": -0.003053915500640869,
+        "q90": 5.3060054779052724e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 2667,
+        "mean_delta": -0.0008689230150795627,
+        "std_delta": 0.0014671186290138832,
+        "median_delta": -0.0003390312194824219,
+        "q10": -0.002553701400756836,
+        "q90": 6.23464584350587e-05
+      },
+      "other_transversion": {
+        "n": 7709,
+        "mean_delta": -0.0014073832564849397,
+        "std_delta": 0.002201182152997985,
+        "median_delta": -0.0005311965942382812,
+        "q10": -0.0037883758544921876,
+        "q90": 2.9635429382324154e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 1064,
+        "other_n": 6559,
+        "radiation_mean": -0.003036843598785257,
+        "other_mean": -0.0022640175836844893,
+        "mannwhitney_p": 1.791970028740702e-28
+      },
+      "intronic": {
+        "radiation_n": 5,
+        "other_n": 12,
+        "radiation_mean": -0.0010142922401428223,
+        "other_mean": -0.0022333264350891113,
+        "mannwhitney_p": 0.6460892049127342
+      },
+      "promoter": {
+        "radiation_n": 1315,
+        "other_n": 6183,
+        "radiation_mean": -0.00018993965119916677,
+        "other_mean": -0.00013285056877228776,
+        "mannwhitney_p": 4.340955551582059e-16
+      },
+      "utr5": {
+        "radiation_n": 1,
+        "other_n": 1,
+        "radiation_mean": -0.0012230873107910156,
+        "other_mean": -0.00012934207916259766
+      },
+      "utr3": {
+        "radiation_n": 2,
+        "other_n": 1,
+        "radiation_mean": -9.638071060180664e-05,
+        "other_mean": -0.0012401342391967773
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 3226,
+        "mean_delta": -0.011610433006611805,
+        "std_delta": 0.0066210579021751415,
+        "median_delta": -0.010873585939407349
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 2387,
+      "other_n": 12756,
+      "radiation_mean_delta": -0.001461022011046136,
+      "other_mean_delta": -0.001230736578209866,
+      "mannwhitney_p": 0.00048647947194207906,
+      "ks_stat": 0.04417514226939767,
+      "ks_p": 0.0007559290886097213
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr4:55435414:C>A",
+        "delta": -0.03579378128051758,
+        "region_type": "coding",
+        "pos": 55435414
+      },
+      {
+        "variant_key": "chr4:55453676:C>A",
+        "delta": -0.01976907253265381,
+        "region_type": "coding",
+        "pos": 55453676
+      },
+      {
+        "variant_key": "chr4:55435565:G>T",
+        "delta": -0.016262054443359375,
+        "region_type": "coding",
+        "pos": 55435565
+      },
+      {
+        "variant_key": "chr4:55450119:G>T",
+        "delta": -0.016257047653198242,
+        "region_type": "coding",
+        "pos": 55450119
+      },
+      {
+        "variant_key": "chr4:55449408:G>T",
+        "delta": -0.015322685241699219,
+        "region_type": "coding",
+        "pos": 55449408
+      },
+      {
+        "variant_key": "chr4:55459189:C>A",
+        "delta": -0.015115976333618164,
+        "region_type": "coding",
+        "pos": 55459189
+      },
+      {
+        "variant_key": "chr4:55450128:G>T",
+        "delta": -0.01473987102508545,
+        "region_type": "coding",
+        "pos": 55450128
+      },
+      {
+        "variant_key": "chr4:55449433:C>A",
+        "delta": -0.014575481414794922,
+        "region_type": "coding",
+        "pos": 55449433
+      },
+      {
+        "variant_key": "chr4:55435508:G>T",
+        "delta": -0.013698458671569824,
+        "region_type": "coding",
+        "pos": 55435508
+      },
+      {
+        "variant_key": "chr4:55453715:G>T",
+        "delta": -0.012905120849609375,
+        "region_type": "coding",
+        "pos": 55453715
+      },
+      {
+        "variant_key": "chr4:55458947:C>A",
+        "delta": -0.012695908546447754,
+        "region_type": "coding",
+        "pos": 55458947
+      },
+      {
+        "variant_key": "chr4:55450174:C>A",
+        "delta": -0.012460827827453613,
+        "region_type": "coding",
+        "pos": 55450174
+      },
+      {
+        "variant_key": "chr4:55459222:C>A",
+        "delta": -0.012419939041137695,
+        "region_type": "coding",
+        "pos": 55459222
+      },
+      {
+        "variant_key": "chr4:55459171:C>A",
+        "delta": -0.012035131454467773,
+        "region_type": "coding",
+        "pos": 55459171
+      },
+      {
+        "variant_key": "chr4:55479664:C>A",
+        "delta": -0.011984586715698242,
+        "region_type": "coding",
+        "pos": 55479664
+      },
+      {
+        "variant_key": "chr4:55475988:C>A",
+        "delta": -0.01170337200164795,
+        "region_type": "coding",
+        "pos": 55475988
+      },
+      {
+        "variant_key": "chr4:55449411:G>T",
+        "delta": -0.011650919914245605,
+        "region_type": "coding",
+        "pos": 55449411
+      },
+      {
+        "variant_key": "chr4:55435452:C>A",
+        "delta": -0.011578917503356934,
+        "region_type": "coding",
+        "pos": 55435452
+      },
+      {
+        "variant_key": "chr4:55435575:C>A",
+        "delta": -0.011577486991882324,
+        "region_type": "coding",
+        "pos": 55435575
+      },
+      {
+        "variant_key": "chr4:55459204:C>A",
+        "delta": -0.011503338813781738,
+        "region_type": "coding",
+        "pos": 55459204
+      }
+    ]
+  },
+  {
+    "gene": "MSTN",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 1294,
+        "mean_delta": -0.0014722836441382005,
+        "std_delta": 0.0030228968991899887,
+        "median_delta": -0.0006834864616394043,
+        "q10": -0.0033156991004943846,
+        "q90": 9.968280792236337e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 1302,
+        "mean_delta": -0.0009633778793288083,
+        "std_delta": 0.0024585350258177255,
+        "median_delta": -0.0004667937755584717,
+        "q10": -0.001856088638305664,
+        "q90": 0.00010770559310913102
+      },
+      "transition_AT_to_GC": {
+        "n": 2343,
+        "mean_delta": -0.0006615881018286529,
+        "std_delta": 0.001207188812655075,
+        "median_delta": -0.0004655122756958008,
+        "q10": -0.001326608657836914,
+        "q90": -3.0732154846191374e-05
+      },
+      "other_transversion": {
+        "n": 5970,
+        "mean_delta": -0.001122681888903006,
+        "std_delta": 0.0022708057948971207,
+        "median_delta": -0.0006609857082366943,
+        "q10": -0.0024373888969421386,
+        "q90": 2.0343065261840885e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 458,
+        "other_n": 2926,
+        "radiation_mean": -0.0034759071976857413,
+        "other_mean": -0.0024367895382198666,
+        "mannwhitney_p": 2.2963731797770097e-13
+      },
+      "promoter": {
+        "radiation_n": 832,
+        "other_n": 6659,
+        "radiation_mean": -0.0003758283475270638,
+        "other_mean": -0.0003562775491003268,
+        "mannwhitney_p": 0.5572130459700413
+      },
+      "utr5": {
+        "radiation_n": 4,
+        "other_n": 22,
+        "radiation_mean": -0.00012008845806121826,
+        "other_mean": -7.919018918817693e-05
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 1473,
+        "mean_delta": -0.016584145966145915,
+        "std_delta": 0.008041403024009625,
+        "median_delta": -0.016199827194213867
+      },
+      "other_indel": {
+        "n": 1,
+        "mean_delta": -7.593631744384766e-05,
+        "std_delta": 0.0,
+        "median_delta": -7.593631744384766e-05
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 1294,
+      "other_n": 9615,
+      "radiation_mean_delta": -0.0014722836441382005,
+      "other_mean_delta": -0.0009887498490090056,
+      "mannwhitney_p": 2.6952361710014485e-09,
+      "ks_stat": 0.14101589720466717,
+      "ks_p": 3.03144048056526e-20
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr2:190057558:G>T",
+        "delta": -0.035383403301239014,
+        "region_type": "coding",
+        "pos": 190057558
+      },
+      {
+        "variant_key": "chr2:190057445:C>A",
+        "delta": -0.02546405792236328,
+        "region_type": "coding",
+        "pos": 190057445
+      },
+      {
+        "variant_key": "chr2:190057381:G>T",
+        "delta": -0.024321794509887695,
+        "region_type": "coding",
+        "pos": 190057381
+      },
+      {
+        "variant_key": "chr2:190057533:G>T",
+        "delta": -0.024277806282043457,
+        "region_type": "coding",
+        "pos": 190057533
+      },
+      {
+        "variant_key": "chr2:190057514:C>A",
+        "delta": -0.021877706050872803,
+        "region_type": "coding",
+        "pos": 190057514
+      },
+      {
+        "variant_key": "chr2:190060394:G>T",
+        "delta": -0.01896822452545166,
+        "region_type": "coding",
+        "pos": 190060394
+      },
+      {
+        "variant_key": "chr2:190060411:C>A",
+        "delta": -0.01881873607635498,
+        "region_type": "coding",
+        "pos": 190060411
+      },
+      {
+        "variant_key": "chr2:190062402:C>A",
+        "delta": -0.01862466335296631,
+        "region_type": "coding",
+        "pos": 190062402
+      },
+      {
+        "variant_key": "chr2:190057316:C>A",
+        "delta": -0.018335282802581787,
+        "region_type": "coding",
+        "pos": 190057316
+      },
+      {
+        "variant_key": "chr2:190057505:C>A",
+        "delta": -0.018276095390319824,
+        "region_type": "coding",
+        "pos": 190057505
+      },
+      {
+        "variant_key": "chr2:190057368:G>T",
+        "delta": -0.01794588565826416,
+        "region_type": "coding",
+        "pos": 190057368
+      },
+      {
+        "variant_key": "chr2:190057458:G>T",
+        "delta": -0.01765620708465576,
+        "region_type": "coding",
+        "pos": 190057458
+      },
+      {
+        "variant_key": "chr2:190060246:C>A",
+        "delta": -0.016971468925476074,
+        "region_type": "coding",
+        "pos": 190060246
+      },
+      {
+        "variant_key": "chr2:190057461:G>T",
+        "delta": -0.01655822992324829,
+        "region_type": "coding",
+        "pos": 190057461
+      },
+      {
+        "variant_key": "chr2:190057277:C>A",
+        "delta": -0.016152381896972656,
+        "region_type": "coding",
+        "pos": 190057277
+      },
+      {
+        "variant_key": "chr2:190057549:G>T",
+        "delta": -0.015706777572631836,
+        "region_type": "coding",
+        "pos": 190057549
+      },
+      {
+        "variant_key": "chr2:190060364:G>T",
+        "delta": -0.015025138854980469,
+        "region_type": "coding",
+        "pos": 190060364
+      },
+      {
+        "variant_key": "chr2:190057258:C>A",
+        "delta": -0.014595389366149902,
+        "region_type": "coding",
+        "pos": 190057258
+      },
+      {
+        "variant_key": "chr2:190057301:C>A",
+        "delta": -0.014511287212371826,
+        "region_type": "coding",
+        "pos": 190057301
+      },
+      {
+        "variant_key": "chr2:190060318:C>A",
+        "delta": -0.01430654525756836,
+        "region_type": "coding",
+        "pos": 190060318
+      }
+    ]
+  },
+  {
     "gene": "RAD51",
     "snv_classes": {
       "radiation_oxidative": {
@@ -207,6 +1255,876 @@
         "delta": -0.010577797889709473,
         "region_type": "coding",
         "pos": 40728802
+      }
+    ]
+  },
+  {
+    "gene": "BRCA1",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 4026,
+        "mean_delta": -0.0010505500446192613,
+        "std_delta": 0.0019960708375778465,
+        "median_delta": -0.0004455745220184326,
+        "q10": -0.002858102321624756,
+        "q90": 6.54458999633789e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 4348,
+        "mean_delta": -0.0005394128916344735,
+        "std_delta": 0.001447505550398392,
+        "median_delta": -0.0001716911792755127,
+        "q10": -0.0014449059963226318,
+        "q90": 0.00013092160224914556
+      },
+      "transition_AT_to_GC": {
+        "n": 4998,
+        "mean_delta": -0.0005492811061802651,
+        "std_delta": 0.001283173991616791,
+        "median_delta": -0.00024315714836120605,
+        "q10": -0.00140727162361145,
+        "q90": 8.382797241210946e-05
+      },
+      "other_transversion": {
+        "n": 13466,
+        "mean_delta": -0.001012346431331898,
+        "std_delta": 0.001886562868156255,
+        "median_delta": -0.00044593214988708496,
+        "q10": -0.002718627452850342,
+        "q90": 5.2362680435180664e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 2305,
+        "other_n": 14471,
+        "radiation_mean": -0.0015014015671488002,
+        "other_mean": -0.0010613520492557401,
+        "mannwhitney_p": 3.622053030700225e-26
+      },
+      "intronic": {
+        "radiation_n": 256,
+        "other_n": 2190,
+        "radiation_mean": -0.0010603789705783129,
+        "other_mean": -0.0008587419714557525,
+        "mannwhitney_p": 0.8946051550213577
+      },
+      "promoter": {
+        "radiation_n": 1446,
+        "other_n": 5975,
+        "radiation_mean": -0.0003406950382111313,
+        "other_mean": -0.00024341410672814277,
+        "mannwhitney_p": 7.159691494263285e-23
+      },
+      "utr5": {
+        "radiation_n": 9,
+        "other_n": 73,
+        "radiation_mean": -0.00020757648679945205,
+        "other_mean": -0.0001714245913779899,
+        "mannwhitney_p": 0.7273825551149992
+      },
+      "utr3": {
+        "radiation_n": 5,
+        "other_n": 65,
+        "radiation_mean": -0.0001650571823120117,
+        "other_mean": -0.00011252623337965745,
+        "mannwhitney_p": 0.9295641564985385
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 6444,
+        "mean_delta": -0.005241157566812895,
+        "std_delta": 0.004626210268723567,
+        "median_delta": -0.0038458704948425293
+      },
+      "other_indel": {
+        "n": 3537,
+        "mean_delta": -0.004953872409283458,
+        "std_delta": 0.00938060955001039,
+        "median_delta": -0.003955662250518799
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 4026,
+      "other_n": 22812,
+      "radiation_mean_delta": -0.0010505500446192613,
+      "other_mean_delta": -0.0008207492225947306,
+      "mannwhitney_p": 1.71336301526275e-21,
+      "ks_stat": 0.08920841463679141,
+      "ks_p": 3.8071106735067726e-24
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr17:43094376:C>A",
+        "delta": -0.03070223331451416,
+        "region_type": "coding",
+        "pos": 43094376
+      },
+      {
+        "variant_key": "chr17:43094380:C>A",
+        "delta": -0.03022688627243042,
+        "region_type": "coding",
+        "pos": 43094380
+      },
+      {
+        "variant_key": "chr17:43094375:C>A",
+        "delta": -0.029948949813842773,
+        "region_type": "coding",
+        "pos": 43094375
+      },
+      {
+        "variant_key": "chr17:43094397:C>A",
+        "delta": -0.01952505111694336,
+        "region_type": "coding",
+        "pos": 43094397
+      },
+      {
+        "variant_key": "chr17:43094386:C>A",
+        "delta": -0.01597285270690918,
+        "region_type": "coding",
+        "pos": 43094386
+      },
+      {
+        "variant_key": "chr17:43094364:C>A",
+        "delta": -0.015358567237854004,
+        "region_type": "coding",
+        "pos": 43094364
+      },
+      {
+        "variant_key": "chr17:43063900:C>A",
+        "delta": -0.015292346477508545,
+        "region_type": "coding",
+        "pos": 43063900
+      },
+      {
+        "variant_key": "chr17:43063909:C>A",
+        "delta": -0.015100419521331787,
+        "region_type": "coding",
+        "pos": 43063909
+      },
+      {
+        "variant_key": "chr17:43091869:C>A",
+        "delta": -0.01504659652709961,
+        "region_type": "coding",
+        "pos": 43091869
+      },
+      {
+        "variant_key": "chr17:43063897:C>A",
+        "delta": -0.014418840408325195,
+        "region_type": "coding",
+        "pos": 43063897
+      },
+      {
+        "variant_key": "chr17:43091875:C>A",
+        "delta": -0.013368010520935059,
+        "region_type": "coding",
+        "pos": 43091875
+      },
+      {
+        "variant_key": "chr17:43067607:C>A",
+        "delta": -0.013367712497711182,
+        "region_type": "coding",
+        "pos": 43067607
+      },
+      {
+        "variant_key": "chr17:43091866:C>A",
+        "delta": -0.013321161270141602,
+        "region_type": "coding",
+        "pos": 43091866
+      },
+      {
+        "variant_key": "chr17:43094146:C>A",
+        "delta": -0.013169586658477783,
+        "region_type": "coding",
+        "pos": 43094146
+      },
+      {
+        "variant_key": "chr17:43106485:C>A",
+        "delta": -0.013160228729248047,
+        "region_type": "coding",
+        "pos": 43106485
+      },
+      {
+        "variant_key": "chr17:43063933:C>A",
+        "delta": -0.012992262840270996,
+        "region_type": "coding",
+        "pos": 43063933
+      },
+      {
+        "variant_key": "chr17:43067695:C>A",
+        "delta": -0.012874722480773926,
+        "region_type": "intronic",
+        "pos": 43067695
+      },
+      {
+        "variant_key": "chr17:43093741:C>A",
+        "delta": -0.012690544128417969,
+        "region_type": "coding",
+        "pos": 43093741
+      },
+      {
+        "variant_key": "chr17:43067606:C>A",
+        "delta": -0.012662649154663086,
+        "region_type": "intronic",
+        "pos": 43067606
+      },
+      {
+        "variant_key": "chr17:43106476:C>A",
+        "delta": -0.012634992599487305,
+        "region_type": "coding",
+        "pos": 43106476
+      }
+    ]
+  },
+  {
+    "gene": "TP53",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 2085,
+        "mean_delta": -0.001007682328029788,
+        "std_delta": 0.0019107409277443162,
+        "median_delta": -0.00031197071075439453,
+        "q10": -0.003001093864440918,
+        "q90": 6.31570816040042e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 2243,
+        "mean_delta": -0.0006014393792851823,
+        "std_delta": 0.0015072286157582029,
+        "median_delta": -0.00017976760864257812,
+        "q10": -0.0015211939811706542,
+        "q90": 8.354187011718747e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 1823,
+        "mean_delta": -0.0005651191244789748,
+        "std_delta": 0.0013806753604245184,
+        "median_delta": -0.00012946128845214844,
+        "q10": -0.0019108891487121576,
+        "q90": 0.00014766454696655269
+      },
+      "other_transversion": {
+        "n": 5597,
+        "mean_delta": -0.0009042841740244091,
+        "std_delta": 0.0017579055265826641,
+        "median_delta": -0.0002593994140625,
+        "q10": -0.002749288082122803,
+        "q90": 8.659362792968757e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 672,
+        "other_n": 2875,
+        "radiation_mean": -0.0019352797064043227,
+        "other_mean": -0.0015997177621592646,
+        "mannwhitney_p": 4.056741315515991e-05
+      },
+      "intronic": {
+        "radiation_n": 81,
+        "other_n": 561,
+        "radiation_mean": -0.0015705750312334226,
+        "other_mean": -0.0011580193318997687,
+        "mannwhitney_p": 0.04796423393756961
+      },
+      "promoter": {
+        "radiation_n": 1323,
+        "other_n": 6157,
+        "radiation_mean": -0.0005085234919553081,
+        "other_mean": -0.000353726537966856,
+        "mannwhitney_p": 9.673157823071595e-14
+      },
+      "utr5": {
+        "radiation_n": 3,
+        "other_n": 17,
+        "radiation_mean": 0.00021588802337646484,
+        "other_mean": -0.00010073535582598518
+      },
+      "utr3": {
+        "radiation_n": 3,
+        "other_n": 27,
+        "radiation_mean": -0.00018767515818277994,
+        "other_mean": -9.714894824557834e-05
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 1374,
+        "mean_delta": -0.008462024828232011,
+        "std_delta": 0.004587293138656345,
+        "median_delta": -0.00808599591255188
+      },
+      "other_indel": {
+        "n": 1049,
+        "mean_delta": -0.008355338591638352,
+        "std_delta": 0.006158926736431243,
+        "median_delta": -0.008525967597961426
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 2085,
+      "other_n": 9663,
+      "radiation_mean_delta": -0.001007682328029788,
+      "other_mean_delta": -0.000770000953500616,
+      "mannwhitney_p": 5.031107221043027e-17,
+      "ks_stat": 0.10599460822524842,
+      "ks_p": 3.137032866285553e-17
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr17:7689322:G>T",
+        "delta": -0.01795881986618042,
+        "region_type": "promoter",
+        "pos": 7689322
+      },
+      {
+        "variant_key": "chr17:7689321:G>T",
+        "delta": -0.017754673957824707,
+        "region_type": "promoter",
+        "pos": 7689321
+      },
+      {
+        "variant_key": "chr17:7689326:G>T",
+        "delta": -0.016439437866210938,
+        "region_type": "promoter",
+        "pos": 7689326
+      },
+      {
+        "variant_key": "chr17:7689079:G>T",
+        "delta": -0.0148085355758667,
+        "region_type": "promoter",
+        "pos": 7689079
+      },
+      {
+        "variant_key": "chr17:7676047:G>T",
+        "delta": -0.012861371040344238,
+        "region_type": "coding",
+        "pos": 7676047
+      },
+      {
+        "variant_key": "chr17:7676059:G>T",
+        "delta": -0.012660026550292969,
+        "region_type": "coding",
+        "pos": 7676059
+      },
+      {
+        "variant_key": "chr17:7673808:C>A",
+        "delta": -0.0125809907913208,
+        "region_type": "coding",
+        "pos": 7673808
+      },
+      {
+        "variant_key": "chr17:7670708:C>A",
+        "delta": -0.012167572975158691,
+        "region_type": "coding",
+        "pos": 7670708
+      },
+      {
+        "variant_key": "chr17:7689278:G>T",
+        "delta": -0.011861145496368408,
+        "region_type": "promoter",
+        "pos": 7689278
+      },
+      {
+        "variant_key": "chr17:7689296:G>T",
+        "delta": -0.011549115180969238,
+        "region_type": "promoter",
+        "pos": 7689296
+      },
+      {
+        "variant_key": "chr17:7675100:C>A",
+        "delta": -0.011027812957763672,
+        "region_type": "coding",
+        "pos": 7675100
+      },
+      {
+        "variant_key": "chr17:7675083:G>T",
+        "delta": -0.010927796363830566,
+        "region_type": "coding",
+        "pos": 7675083
+      },
+      {
+        "variant_key": "chr17:7675188:G>T",
+        "delta": -0.010903120040893555,
+        "region_type": "coding",
+        "pos": 7675188
+      },
+      {
+        "variant_key": "chr17:7689276:C>A",
+        "delta": -0.010834872722625732,
+        "region_type": "promoter",
+        "pos": 7689276
+      },
+      {
+        "variant_key": "chr17:7689068:G>T",
+        "delta": -0.010627269744873047,
+        "region_type": "promoter",
+        "pos": 7689068
+      },
+      {
+        "variant_key": "chr17:7670707:C>A",
+        "delta": -0.010409772396087646,
+        "region_type": "coding",
+        "pos": 7670707
+      },
+      {
+        "variant_key": "chr17:7670698:C>A",
+        "delta": -0.010361671447753906,
+        "region_type": "coding",
+        "pos": 7670698
+      },
+      {
+        "variant_key": "chr17:7675992:C>A",
+        "delta": -0.010305166244506836,
+        "region_type": "intronic",
+        "pos": 7675992
+      },
+      {
+        "variant_key": "chr17:7673533:C>A",
+        "delta": -0.01025313138961792,
+        "region_type": "intronic",
+        "pos": 7673533
+      },
+      {
+        "variant_key": "chr17:7674938:C>A",
+        "delta": -0.010129451751708984,
+        "region_type": "coding",
+        "pos": 7674938
+      }
+    ]
+  },
+  {
+    "gene": "CHEK2",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 2110,
+        "mean_delta": -0.0012177752940010686,
+        "std_delta": 0.0019508098851320308,
+        "median_delta": -0.00047919154167175293,
+        "q10": -0.0035383403301239014,
+        "q90": 3.795027732849127e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 2219,
+        "mean_delta": -0.0007344891273959256,
+        "std_delta": 0.001503995680866688,
+        "median_delta": -0.00023627281188964844,
+        "q10": -0.0020688652992248533,
+        "q90": 7.507801055908205e-05
+      },
+      "transition_AT_to_GC": {
+        "n": 2356,
+        "mean_delta": -0.0006759539879036274,
+        "std_delta": 0.001277295102595855,
+        "median_delta": -0.000265657901763916,
+        "q10": -0.0020348429679870605,
+        "q90": 8.022785186767578e-05
+      },
+      "other_transversion": {
+        "n": 6544,
+        "mean_delta": -0.0011052371692686618,
+        "std_delta": 0.0016970744242226126,
+        "median_delta": -0.0004697144031524658,
+        "q10": -0.00305977463722229,
+        "q90": 2.9695034027099544e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 741,
+        "other_n": 4155,
+        "radiation_mean": -0.0022860752587054584,
+        "other_mean": -0.0016814914134148369,
+        "mannwhitney_p": 3.6764495371437927e-16
+      },
+      "intronic": {
+        "radiation_n": 77,
+        "other_n": 746,
+        "radiation_mean": -0.0022907713790992637,
+        "other_mean": -0.001286761450703598,
+        "mannwhitney_p": 0.03370579667782611
+      },
+      "promoter": {
+        "radiation_n": 1289,
+        "other_n": 6177,
+        "radiation_mean": -0.0005416161242707743,
+        "other_mean": -0.00040404428377378447,
+        "mannwhitney_p": 1.8307351517766917e-11
+      },
+      "utr5": {
+        "radiation_n": 2,
+        "other_n": 22,
+        "radiation_mean": -0.0002613067626953125,
+        "other_mean": -0.0005275580016049472
+      },
+      "utr3": {
+        "radiation_n": 1,
+        "other_n": 14,
+        "radiation_mean": -0.00046890974044799805,
+        "other_mean": -7.363302367074149e-05
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 1861,
+        "mean_delta": -0.008014286128120484,
+        "std_delta": 0.004037684305269392,
+        "median_delta": -0.007725775241851807
+      },
+      "other_indel": {
+        "n": 969,
+        "mean_delta": -0.006105118245655292,
+        "std_delta": 0.011612019852276811,
+        "median_delta": -0.007180154323577881
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 2110,
+      "other_n": 11119,
+      "radiation_mean_delta": -0.0012177752940010686,
+      "other_mean_delta": -0.0009402869866792542,
+      "mannwhitney_p": 9.583668164604918e-12,
+      "ks_stat": 0.08635135878171041,
+      "ks_p": 5.958721581774248e-12
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr22:28742267:G>T",
+        "delta": -0.017785847187042236,
+        "region_type": "promoter",
+        "pos": 28742267
+      },
+      {
+        "variant_key": "chr22:28725069:C>A",
+        "delta": -0.017539381980895996,
+        "region_type": "coding",
+        "pos": 28725069
+      },
+      {
+        "variant_key": "chr22:28725068:C>A",
+        "delta": -0.017386674880981445,
+        "region_type": "coding",
+        "pos": 28725068
+      },
+      {
+        "variant_key": "chr22:28742276:G>T",
+        "delta": -0.01726001501083374,
+        "region_type": "promoter",
+        "pos": 28742276
+      },
+      {
+        "variant_key": "chr22:28725241:C>A",
+        "delta": -0.014193713665008545,
+        "region_type": "intronic",
+        "pos": 28725241
+      },
+      {
+        "variant_key": "chr22:28742277:C>A",
+        "delta": -0.013979911804199219,
+        "region_type": "promoter",
+        "pos": 28742277
+      },
+      {
+        "variant_key": "chr22:28742268:C>A",
+        "delta": -0.013195037841796875,
+        "region_type": "promoter",
+        "pos": 28742268
+      },
+      {
+        "variant_key": "chr22:28725124:C>A",
+        "delta": -0.012719273567199707,
+        "region_type": "intronic",
+        "pos": 28725124
+      },
+      {
+        "variant_key": "chr22:28734513:C>A",
+        "delta": -0.012620389461517334,
+        "region_type": "coding",
+        "pos": 28734513
+      },
+      {
+        "variant_key": "chr22:28742313:C>A",
+        "delta": -0.01221698522567749,
+        "region_type": "promoter",
+        "pos": 28742313
+      },
+      {
+        "variant_key": "chr22:28742097:G>T",
+        "delta": -0.011124908924102783,
+        "region_type": "promoter",
+        "pos": 28742097
+      },
+      {
+        "variant_key": "chr22:28725269:G>T",
+        "delta": -0.011059105396270752,
+        "region_type": "coding",
+        "pos": 28725269
+      },
+      {
+        "variant_key": "chr22:28742225:G>T",
+        "delta": -0.010008931159973145,
+        "region_type": "promoter",
+        "pos": 28742225
+      },
+      {
+        "variant_key": "chr22:28742216:G>T",
+        "delta": -0.00999516248703003,
+        "region_type": "promoter",
+        "pos": 28742216
+      },
+      {
+        "variant_key": "chr22:28734495:C>A",
+        "delta": -0.009761333465576172,
+        "region_type": "coding",
+        "pos": 28734495
+      },
+      {
+        "variant_key": "chr22:28734401:C>A",
+        "delta": -0.009756803512573242,
+        "region_type": "intronic",
+        "pos": 28734401
+      },
+      {
+        "variant_key": "chr22:28725065:G>T",
+        "delta": -0.009740829467773438,
+        "region_type": "coding",
+        "pos": 28725065
+      },
+      {
+        "variant_key": "chr22:28742331:G>T",
+        "delta": -0.009440422058105469,
+        "region_type": "promoter",
+        "pos": 28742331
+      },
+      {
+        "variant_key": "chr22:28725006:C>A",
+        "delta": -0.009141862392425537,
+        "region_type": "coding",
+        "pos": 28725006
+      },
+      {
+        "variant_key": "chr22:28734417:C>A",
+        "delta": -0.009011387825012207,
+        "region_type": "coding",
+        "pos": 28734417
+      }
+    ]
+  },
+  {
+    "gene": "DNMT3A",
+    "snv_classes": {
+      "radiation_oxidative": {
+        "n": 3211,
+        "mean_delta": -0.0013593418952350265,
+        "std_delta": 0.0020247512303623377,
+        "median_delta": -0.0006088018417358398,
+        "q10": -0.003570556640625,
+        "q90": -4.1365623474121094e-05
+      },
+      "transition_CG_to_TA": {
+        "n": 3299,
+        "mean_delta": -0.00087172797536373,
+        "std_delta": 0.0016652104779090644,
+        "median_delta": -0.0003408193588256836,
+        "q10": -0.0021728754043579103,
+        "q90": 6.9856643676757975e-06
+      },
+      "transition_AT_to_GC": {
+        "n": 2099,
+        "mean_delta": -0.0009251311314906774,
+        "std_delta": 0.0014822814533835202,
+        "median_delta": -0.00035327672958374023,
+        "q10": -0.0025003910064697265,
+        "q90": 0.00011658668518066409
+      },
+      "other_transversion": {
+        "n": 7366,
+        "mean_delta": -0.0013103940112740328,
+        "std_delta": 0.0020819794536159064,
+        "median_delta": -0.0005872249603271484,
+        "q10": -0.0033643245697021484,
+        "q90": 3.165006637573242e-05
+      }
+    },
+    "region_analysis": {
+      "coding": {
+        "radiation_n": 1649,
+        "other_n": 6568,
+        "radiation_mean": -0.0023466291537495945,
+        "other_mean": -0.0019954085513386745,
+        "mannwhitney_p": 3.853699535509463e-11
+      },
+      "intronic": {
+        "radiation_n": 32,
+        "other_n": 214,
+        "radiation_mean": -0.001744735985994339,
+        "other_mean": -0.0011068844349584846,
+        "mannwhitney_p": 0.09892882341554457
+      },
+      "promoter": {
+        "radiation_n": 1525,
+        "other_n": 5974,
+        "radiation_mean": -0.00028838951079571834,
+        "other_mean": -0.00018850311133068943,
+        "mannwhitney_p": 2.317569342579762e-30
+      },
+      "utr5": {
+        "radiation_n": 1,
+        "other_n": 4,
+        "radiation_mean": 7.796287536621094e-05,
+        "other_mean": -7.274746894836426e-05
+      },
+      "utr3": {
+        "radiation_n": 4,
+        "other_n": 3,
+        "radiation_mean": 7.306039333343506e-05,
+        "other_mean": -0.0003434618314107259
+      }
+    },
+    "indel_analysis": {
+      "microhomology_del": {
+        "n": 3618,
+        "mean_delta": -0.009349746935403169,
+        "std_delta": 0.005533742762125305,
+        "median_delta": -0.008514106273651123
+      },
+      "other_indel": {
+        "n": 99,
+        "mean_delta": -0.007685698644079343,
+        "std_delta": 0.005998231943886459,
+        "median_delta": -0.007633328437805176
+      }
+    },
+    "radiation_vs_other": {
+      "radiation_n": 3211,
+      "other_n": 12764,
+      "radiation_mean_delta": -0.0013593418952350265,
+      "other_mean_delta": -0.001133660539232874,
+      "mannwhitney_p": 6.405401090594306e-19,
+      "ks_stat": 0.08802801127938764,
+      "ks_p": 9.469102070377692e-18
+    },
+    "top_radiation_hotspots": [
+      {
+        "variant_key": "chr2:25234298:C>A",
+        "delta": -0.02831292152404785,
+        "region_type": "coding",
+        "pos": 25234298
+      },
+      {
+        "variant_key": "chr2:25234342:G>T",
+        "delta": -0.018771052360534668,
+        "region_type": "coding",
+        "pos": 25234342
+      },
+      {
+        "variant_key": "chr2:25248038:C>A",
+        "delta": -0.017528533935546875,
+        "region_type": "coding",
+        "pos": 25248038
+      },
+      {
+        "variant_key": "chr2:25234372:C>A",
+        "delta": -0.01604694128036499,
+        "region_type": "coding",
+        "pos": 25234372
+      },
+      {
+        "variant_key": "chr2:25248044:C>A",
+        "delta": -0.015962958335876465,
+        "region_type": "coding",
+        "pos": 25248044
+      },
+      {
+        "variant_key": "chr2:25235705:C>A",
+        "delta": -0.0149611234664917,
+        "region_type": "intronic",
+        "pos": 25235705
+      },
+      {
+        "variant_key": "chr2:25236934:C>A",
+        "delta": -0.014129340648651123,
+        "region_type": "intronic",
+        "pos": 25236934
+      },
+      {
+        "variant_key": "chr2:25236935:C>A",
+        "delta": -0.014085471630096436,
+        "region_type": "coding",
+        "pos": 25236935
+      },
+      {
+        "variant_key": "chr2:25234391:C>A",
+        "delta": -0.01333761215209961,
+        "region_type": "coding",
+        "pos": 25234391
+      },
+      {
+        "variant_key": "chr2:25234339:C>A",
+        "delta": -0.013290107250213623,
+        "region_type": "coding",
+        "pos": 25234339
+      },
+      {
+        "variant_key": "chr2:25282608:C>A",
+        "delta": -0.013230681419372559,
+        "region_type": "coding",
+        "pos": 25282608
+      },
+      {
+        "variant_key": "chr2:25235706:C>A",
+        "delta": -0.013017237186431885,
+        "region_type": "coding",
+        "pos": 25235706
+      },
+      {
+        "variant_key": "chr2:25235737:C>A",
+        "delta": -0.013002157211303711,
+        "region_type": "coding",
+        "pos": 25235737
+      },
+      {
+        "variant_key": "chr2:25248050:C>A",
+        "delta": -0.012490034103393555,
+        "region_type": "coding",
+        "pos": 25248050
+      },
+      {
+        "variant_key": "chr2:25282632:C>A",
+        "delta": -0.012184739112854004,
+        "region_type": "coding",
+        "pos": 25282632
+      },
+      {
+        "variant_key": "chr2:25235710:C>A",
+        "delta": -0.012023389339447021,
+        "region_type": "coding",
+        "pos": 25235710
+      },
+      {
+        "variant_key": "chr2:25234375:C>A",
+        "delta": -0.011751353740692139,
+        "region_type": "coding",
+        "pos": 25234375
+      },
+      {
+        "variant_key": "chr2:25235743:C>A",
+        "delta": -0.011682689189910889,
+        "region_type": "coding",
+        "pos": 25235743
+      },
+      {
+        "variant_key": "chr2:25236973:C>A",
+        "delta": -0.011478424072265625,
+        "region_type": "coding",
+        "pos": 25236973
+      },
+      {
+        "variant_key": "chr2:25234373:G>T",
+        "delta": -0.011400818824768066,
+        "region_type": "coding",
+        "pos": 25234373
       }
     ]
   }

@@ -173,18 +173,32 @@ def fig3_dms_calibration():
 
     for idx, gene in enumerate(genes):
         ax = axes[idx // 2, idx % 2]
-        csv_file = RESULTS_DIR / gene / "dms_calibration.csv"
+        json_file = RESULTS_DIR / gene / "calibration" / "dms_evo2_matched.json"
+        cal_file = RESULTS_DIR / gene / "calibration" / "calibration_result.json"
 
-        if csv_file.exists():
-            df = pd.read_csv(csv_file)
+        if json_file.exists():
+            import json as _json
+            matched = _json.load(open(json_file))
+            df = pd.DataFrame(matched)
             ax.scatter(df["dms_score"], df["evo2_delta"],
                       alpha=0.3, s=8, color=COLORS["Evo2"])
 
-            # Add correlation
-            if len(df) > 10:
-                from scipy import stats
-                rho, p = stats.spearmanr(df["dms_score"], df["evo2_delta"])
-                ax.text(0.05, 0.95, "rho = {:.3f}".format(rho),
+            # Pull Spearman rho from calibration result if available
+            rho_str = ""
+            if cal_file.exists():
+                cal = _json.load(open(cal_file))
+                rho = cal.get("spearman_rho")
+                p = cal.get("spearman_p", 1.0)
+                if rho is not None:
+                    rho_str = "rho = {:.3f}".format(rho)
+                    if p < 0.001:
+                        rho_str += "\np < 0.001"
+            if not rho_str and len(df) > 10:
+                from scipy import stats as _stats
+                rho, p = _stats.spearmanr(df["dms_score"], df["evo2_delta"])
+                rho_str = "rho = {:.3f}".format(rho)
+            if rho_str:
+                ax.text(0.05, 0.95, rho_str,
                        transform=ax.transAxes, va="top", fontsize=10)
 
             ax.set_xlabel("DMS Score")
@@ -501,6 +515,160 @@ def supp_s3_indels():
 
 
 # =============================================================================
+# Figure 5: Per-Gene Constraint Landscapes
+# =============================================================================
+
+def fig5_constraint_landscapes():
+    """Per-gene constraint landscapes from Evo2 variant scores.
+
+    For each gene, computes a positional constraint profile by averaging
+    |delta| across all SNVs at each position, then smoothing with a
+    rolling window. Exon structure is shown as a gene model track.
+    """
+    from utils.gene_coordinates import get_gene
+    all_genes = [g.symbol for g in CONTROL_GENES] + [g.symbol for g in NOVEL_GENES]
+
+    n_genes = len(all_genes)
+    fig, axes = plt.subplots(n_genes, 1, figsize=(14, 2.2 * n_genes),
+                              sharex=False)
+    if n_genes == 1:
+        axes = [axes]
+
+    smooth_window = 50  # number of positions for rolling mean
+
+    for idx, gene_symbol in enumerate(all_genes):
+        ax = axes[idx]
+        results_file = RESULTS_DIR / gene_symbol / "w8192" / "results.jsonl"
+
+        if not results_file.exists():
+            ax.text(0.5, 0.5, "{}: data not available".format(gene_symbol),
+                    ha="center", va="center", transform=ax.transAxes)
+            ax.set_ylabel(gene_symbol, fontsize=9, rotation=0, labelpad=50)
+            continue
+
+        # Load SNV scores
+        positions = []
+        deltas = []
+        clinvar_plp_pos = []
+        with open(results_file) as f:
+            for line in f:
+                v = json.loads(line)
+                # SNVs only (skip indels)
+                if len(v.get("ref", "")) != 1 or len(v.get("alt", "")) != 1:
+                    continue
+                d = v.get("delta")
+                if d is None:
+                    continue
+                positions.append(v["pos"])
+                deltas.append(abs(d))
+                # Track ClinVar P/LP positions
+                cclass = v.get("clinvar_class", "")
+                if cclass in ("Pathogenic", "Likely pathogenic",
+                              "Pathogenic/Likely pathogenic"):
+                    clinvar_plp_pos.append((v["pos"], abs(d)))
+
+        if not positions:
+            ax.text(0.5, 0.5, "{}: no SNV scores".format(gene_symbol),
+                    ha="center", va="center", transform=ax.transAxes)
+            continue
+
+        # Build per-position mean |delta|
+        pos_arr = np.array(positions)
+        delta_arr = np.array(deltas)
+
+        # Aggregate by position (mean across alt alleles at same position)
+        pos_unique = np.unique(pos_arr)
+        mean_delta = np.zeros(len(pos_unique))
+        for i, p in enumerate(pos_unique):
+            mask = pos_arr == p
+            mean_delta[i] = delta_arr[mask].mean()
+
+        # Rolling mean smoothing
+        if len(mean_delta) > smooth_window:
+            kernel = np.ones(smooth_window) / smooth_window
+            smoothed = np.convolve(mean_delta, kernel, mode="same")
+        else:
+            smoothed = mean_delta
+
+        # Plot constraint landscape
+        ax.fill_between(pos_unique, 0, smoothed,
+                        color=COLORS["Evo2"], alpha=0.4, linewidth=0)
+        ax.plot(pos_unique, smoothed, color=COLORS["Evo2"],
+                linewidth=0.5, alpha=0.8)
+
+        # Mark ClinVar P/LP
+        if clinvar_plp_pos:
+            plp_x = [p[0] for p in clinvar_plp_pos]
+            plp_y = [p[1] for p in clinvar_plp_pos]
+            ax.scatter(plp_x, plp_y, color=COLORS["P/LP"],
+                      s=4, alpha=0.4, zorder=3, label="P/LP" if idx == 0 else None)
+
+        # Gene structure annotation
+        try:
+            gene_info = get_gene(gene_symbol)
+            ymin, ymax = ax.get_ylim()
+            track_y = ymin - (ymax - ymin) * 0.08
+            track_h = (ymax - ymin) * 0.04
+
+            # Gene body line
+            ax.plot([gene_info.start, gene_info.end],
+                    [track_y, track_y], color="black", linewidth=1.0,
+                    clip_on=False)
+
+            # Exons as filled rectangles
+            for exon in gene_info.exons:
+                is_coding = (exon.end > gene_info.cds_start and
+                             exon.start < gene_info.cds_end)
+                color = "#2c3e50" if is_coding else "#95a5a6"
+                rect = plt.Rectangle(
+                    (exon.start, track_y - track_h / 2),
+                    exon.end - exon.start, track_h,
+                    facecolor=color, edgecolor="black",
+                    linewidth=0.3, clip_on=False, zorder=4)
+                ax.add_patch(rect)
+        except Exception:
+            pass
+
+        # Formatting
+        ax.set_ylabel(gene_symbol, fontsize=9, rotation=0, labelpad=50,
+                      va="center")
+        ax.tick_params(axis="y", labelsize=7)
+        ax.tick_params(axis="x", labelsize=7)
+        if idx < n_genes - 1:
+            ax.set_xticklabels([])
+        else:
+            ax.set_xlabel("Genomic Position")
+
+        # Compact axis
+        ax.spines["top"].set_visible(False)
+        ax.spines["right"].set_visible(False)
+
+    # Add legend to first panel
+    if len(axes) > 0:
+        from matplotlib.patches import Patch
+        from matplotlib.lines import Line2D
+        legend_elements = [
+            Patch(facecolor=COLORS["Evo2"], alpha=0.4,
+                  label="Evo2 |delta| (smoothed)"),
+            Line2D([0], [0], marker="o", color="w",
+                   markerfacecolor=COLORS["P/LP"], markersize=5,
+                   label="ClinVar P/LP"),
+            Patch(facecolor="#2c3e50", label="Coding exon"),
+            Patch(facecolor="#95a5a6", label="Non-coding exon"),
+        ]
+        axes[0].legend(handles=legend_elements, loc="upper right",
+                       fontsize=7, framealpha=0.8)
+
+    fig.suptitle("Per-Gene Constraint Landscapes (Evo2)", fontsize=13, y=1.01)
+    plt.tight_layout()
+    out = FIG_DIR / "fig5_constraint_landscapes.pdf"
+    fig.savefig(out, bbox_inches="tight")
+    fig.savefig(out.with_suffix(".png"), bbox_inches="tight")
+    plt.close(fig)
+    log.info("Saved: {}".format(out))
+
+
+# =============================================================================
 # Main
 # =============================================================================
 
@@ -508,6 +676,7 @@ FIGURE_MAP = {
     "2": ("Window Size Ablation", fig2_ablation),
     "3": ("DMS Calibration", fig3_dms_calibration),
     "4": ("ClinVar Validation", fig4_clinvar_validation),
+    "5": ("Constraint Landscapes", fig5_constraint_landscapes),
     "6": ("Non-Coding Validation", fig6_noncoding),
     "7": ("Radiation Signatures", fig7_radiation),
     "8": ("Astronaut Variants", fig8_astronaut),

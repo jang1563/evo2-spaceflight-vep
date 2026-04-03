@@ -49,12 +49,12 @@ data/mouse/
 *.safetensors
 huggingface/
 
-# Results (large output files — archive separately)
+# Results (large JSONL scoring output — available on Hugging Face)
 results/scores/
-results/figures/
 *.parquet
 *.h5
 *.hdf5
+*.jsonl
 
 # OS
 .DS_Store
@@ -84,12 +84,17 @@ tmp/
 # Backup
 scripts_old_backup/
 
-# Personal research notes and internal brainstorming
+# Personal notes
 research/
 ideas/
+notes/
+drafts/
 
-# Evolutionary potential sub-project (separate repo)
+# Separate sub-projects
 scripts/evolutionary_potential/
 results/evolutionary_potential/
 results/analysis/
-results/benchmark/
+results_phase1/
+
+# Hugging Face staging
+huggingface/

@@ -1,18 +1,20 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this software or data, please cite it as below."
 title: "Evo2 Zero-Shot VEP for Spaceflight Radiation-Response Genes"
 type: software
 authors:
   - family-names: Kim
     given-names: JangKeun
     affiliation: "Weill Cornell Medicine"
+    orcid: "https://orcid.org/0000-0002-4707-1663"
   - family-names: Mason
     given-names: Christopher E.
     affiliation: "Weill Cornell Medicine"
+    orcid: "https://orcid.org/0000-0002-1850-1642"
 repository-code: "https://github.com/jang1563/evo2-spaceflight-vep"
 license: MIT
 version: "1.0.0"
-date-released: "2026-03-30"
+date-released: "2026-04-03"
 keywords:
   - variant effect prediction
   - genomic foundation model
@@ -21,15 +23,16 @@ keywords:
   - radiation biology
   - deep mutational scanning
   - non-coding variants
+  - ClinVar
   - clonal hematopoiesis
 abstract: >-
   Zero-shot variant effect prediction across coding and non-coding regions
   of 10 spaceflight radiation-response genes using the Evo2 genomic
-  foundation model. Validated against deep mutational scanning data
-  (BRCA1, TP53, CHEK2, DNMT3A), TERT promoter MPRA, and ENCODE
-  regulatory elements. Provides PP3/BP4-level computational evidence
-  for ClinVar VUS prioritization and radiation-characteristic mutation
-  functional impact assessment.
+  foundation model (7B parameters). Includes 215,000+ scored variants,
+  validated against deep mutational scanning (4 genes), ClinVar (6 genes,
+  mean AUROC 0.980), TERT promoter MPRA, and ENCODE regulatory elements.
+  Demonstrates that radiation-characteristic mutations are preferentially
+  damaging across all 10 DNA damage response genes.
 references:
   - type: article
     title: "Sequence modeling and design from molecular to genome scale with Evo 2"
