@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software or data, please cite it as below."
-title: "Evo2 Zero-Shot VEP for Spaceflight Radiation-Response Genes"
+title: "Evo2 Zero-Shot Variant Effect Prediction for Spaceflight Genes"
 type: software
 authors:
   - family-names: Kim

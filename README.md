@@ -15,8 +15,8 @@ Zero-shot variant effect prediction across **coding and non-coding** regions of 
 
 | Gene | Variants | Evo2 AUROC | AlphaMissense | CADD | REVEL |
 |------|----------|------------|---------------|------|-------|
-| CHEK2 | 16,098 | **0.9996** | -- (n=8) | 0.999 | 0.832 |
-| ATM | 52,791 | **0.9955** | 0.926 | 0.999 | 0.937 |
+| CHEK2 | 16,098 | **1.000** | -- | 0.999 | 0.832 |
+| ATM | 52,791 | 0.995 | 0.926 | 0.999 | 0.937 |
 | DNMT3A | 19,693 | 0.996 | 1.000 | 1.000 | 0.972 |
 | TP53 | 14,240 | **0.9887** | 0.988 | 0.988 | 0.952 |
 | BRCA1 | 36,901 | 0.988 | 0.960 | 0.995 | 0.748 |
@@ -65,7 +65,7 @@ ds = load_dataset("jang1563/evo2-spaceflight-vep")
 atm = ds.filter(lambda x: x["gene"] == "ATM")
 
 # Get pathogenic variants
-pathogenic = ds.filter(lambda x: x["clinvar_class"] == "Pathogenic")
+pathogenic = ds.filter(lambda x: x["clinvar_class"] == "P/LP")
 ```
 
 Each variant includes: `chrom`, `pos`, `ref`, `alt`, `gene`, `region_type`, `delta` (Evo2 score), `clinvar_class`, `clinvar_stars`.
@@ -74,7 +74,7 @@ Each variant includes: `chrom`, `pos`, `ref`, `alt`, `gene`, `region_type`, `del
 
 ```
 scripts/
-  00_window_ablation.py       # Window size ablation (4K--64K bp)
+  00_window_ablation.py       # Window size ablation (4K--32K bp)
   01_prepare_variants.py      # Generate variant sequences (SNVs + indels)
   02_score_variants.py        # Evo2 scoring engine with checkpointing
   03_calibrate_dms.py         # DMS calibration + Pejaver LR thresholds
@@ -198,7 +198,7 @@ delta    = score(S_alt) - score(S_ref)
 
 ```bibtex
 @software{kim2026evo2vep,
-  title={Evo2 Zero-Shot Variant Effect Prediction for Spaceflight Radiation-Response Genes},
+  title={Evo2 Zero-Shot Variant Effect Prediction for Spaceflight Genes},
   author={Kim, JangKeun and Mason, Christopher E.},
   year={2026},
   url={https://github.com/jang1563/evo2-spaceflight-vep}

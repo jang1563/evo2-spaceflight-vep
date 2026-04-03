@@ -198,7 +198,8 @@ def fig3_dms_calibration():
                 rho, p = _stats.spearmanr(df["dms_score"], df["evo2_delta"])
                 rho_str = "rho = {:.3f}".format(rho)
             if rho_str:
-                ax.text(0.05, 0.95, rho_str,
+                n_str = "n = {:,}".format(len(df))
+                ax.text(0.05, 0.95, "{}\n{}".format(rho_str, n_str),
                        transform=ax.transAxes, va="top", fontsize=10)
 
             ax.set_xlabel("DMS Score")
@@ -249,9 +250,14 @@ def fig4_clinvar_validation():
     ax = axes[1]
     if tool_csv.exists():
         df = pd.read_csv(tool_csv)
-        pivot = df.pivot_table(index="gene", columns="tool", values="auroc")
+        pivot = df.pivot_table(index="gene", columns="tool", values="auroc",
+                               aggfunc="first")
         if HAS_SNS:
-            sns.heatmap(pivot, ax=ax, annot=True, fmt=".2f",
+            # Use custom annotation to show "—" for NaN instead of phantom values
+            annot = pivot.copy()
+            annot_text = annot.map(
+                lambda x: "{:.3f}".format(x) if pd.notna(x) else "--")
+            sns.heatmap(pivot, ax=ax, annot=annot_text, fmt="",
                        cmap="RdYlGn", vmin=0.5, vmax=1.0)
     else:
         ax.text(0.5, 0.5, "Data not yet\navailable",
@@ -287,7 +293,9 @@ def fig6_noncoding():
         if len(df) > 10:
             from scipy import stats
             rho, p = stats.spearmanr(df["mpra_score"], df["evo2_score"])
-            ax.text(0.05, 0.95, "rho = {:.3f}".format(rho),
+            p_str = "p = {:.1e}".format(p) if p < 0.001 else "p = {:.3f}".format(p)
+            ax.text(0.05, 0.95,
+                   "rho = {:.3f}\n{}\nn = {:,}".format(rho, p_str, len(df)),
                    transform=ax.transAxes, va="top", fontsize=10)
     else:
         ax.text(0.5, 0.5, "MPRA data not yet\navailable",
@@ -369,11 +377,34 @@ def fig7_radiation():
         # Group by mutation class
         class_means = df.groupby("mutation_class")["mean_delta"].agg(["mean", "std"])
         class_means = class_means.sort_values("mean")
+        # Clean up raw variable names for display
+        label_map = {
+            "transversion_C_to_A": "C>A / G>T (oxidative)",
+            "transversion_G_to_T": "C>A / G>T (oxidative)",
+            "oxidative_C_to_A": "C>A / G>T (oxidative)",
+            "radiation_oxidative": "C>A / G>T (oxidative)",
+            "transition_C_to_T": "C>T / G>A (deamination)",
+            "transition_cg_to_ta": "C>T / G>A (deamination)",
+            "transition_CG_to_TA": "C>T / G>A (deamination)",
+            "transition_AT_to_GC": "A>G / T>C (transition)",
+            "transition_at_to_gc": "A>G / T>C (transition)",
+            "transition_GC_to_AT": "G>A / C>T (deamination)",
+            "transition_gc_to_at": "G>A / C>T (deamination)",
+            "transversion_A_to_T": "A>T / T>A (transversion)",
+            "transversion_A_to_C": "A>C / T>G (transversion)",
+            "transversion_G_to_C": "G>C / C>G (transversion)",
+            "other_transversion": "Other transversions",
+        }
+        clean_labels = [label_map.get(c, c.replace("_", " ").title())
+                        for c in class_means.index]
         colors_list = [COLORS.get("radiation", "#e41a1c")
-                       if "oxidative" in c else COLORS["other"]
+                       if "oxidative" in c or "C_to_A" in c or "G_to_T" in c
+                       else COLORS["other"]
                        for c in class_means.index]
         class_means["mean"].plot(kind="barh", ax=ax, xerr=class_means["std"],
                                  color=colors_list, capsize=3)
+        ax.set_yticklabels(clean_labels)
+        ax.set_ylabel("")
         ax.set_xlabel("Mean Delta")
     else:
         ax.text(0.5, 0.5, "Data not yet\navailable",
@@ -415,7 +446,7 @@ def fig8_astronaut():
 
     ax.barh(y_pos, scored["evo2_delta"], color=colors, height=0.6)
     ax.set_yticks(y_pos)
-    labels = ["{} {}".format(row["gene"], row["note"][:25])
+    labels = ["{} {}".format(row["gene"], row.get("note", row.get("variant", "")))
               for _, row in scored.iterrows()]
     ax.set_yticklabels(labels, fontsize=8)
     ax.set_xlabel("Evo2 Delta (more negative = more damaging)")
@@ -518,6 +549,11 @@ def supp_s3_indels():
 # Figure 5: Per-Gene Constraint Landscapes
 # =============================================================================
 
+def _format_genomic_pos(x, _pos=None):
+    """Format genomic position as Mb for tick labels."""
+    return "{:.2f} Mb".format(x / 1e6)
+
+
 def fig5_constraint_landscapes():
     """Per-gene constraint landscapes from Evo2 variant scores.
 
@@ -525,14 +561,19 @@ def fig5_constraint_landscapes():
     |delta| across all SNVs at each position, then smoothing with a
     rolling window. Exon structure is shown as a gene model track.
     """
+    from matplotlib.ticker import FuncFormatter
     from utils.gene_coordinates import get_gene
     all_genes = [g.symbol for g in CONTROL_GENES] + [g.symbol for g in NOVEL_GENES]
 
     n_genes = len(all_genes)
-    fig, axes = plt.subplots(n_genes, 1, figsize=(14, 2.2 * n_genes),
-                              sharex=False)
-    if n_genes == 1:
-        axes = [axes]
+    n_cols = 2
+    n_rows = (n_genes + 1) // n_cols
+    fig, axes_grid = plt.subplots(n_rows, n_cols, figsize=(14, 2.8 * n_rows),
+                                   squeeze=False)
+    axes = [axes_grid[i // n_cols, i % n_cols] for i in range(n_genes)]
+    # Hide any unused axes
+    for i in range(n_genes, n_rows * n_cols):
+        axes_grid[i // n_cols, i % n_cols].set_visible(False)
 
     smooth_window = 50  # number of positions for rolling mean
 
@@ -543,7 +584,7 @@ def fig5_constraint_landscapes():
         if not results_file.exists():
             ax.text(0.5, 0.5, "{}: data not available".format(gene_symbol),
                     ha="center", va="center", transform=ax.transAxes)
-            ax.set_ylabel(gene_symbol, fontsize=9, rotation=0, labelpad=50)
+            ax.set_title(gene_symbol, fontsize=10, fontweight="bold")
             continue
 
         # Load SNV scores
@@ -563,7 +604,7 @@ def fig5_constraint_landscapes():
                 deltas.append(abs(d))
                 # Track ClinVar P/LP positions
                 cclass = v.get("clinvar_class", "")
-                if cclass in ("Pathogenic", "Likely pathogenic",
+                if cclass in ("P/LP", "Pathogenic", "Likely pathogenic",
                               "Pathogenic/Likely pathogenic"):
                     clinvar_plp_pos.append((v["pos"], abs(d)))
 
@@ -601,18 +642,18 @@ def fig5_constraint_landscapes():
             plp_x = [p[0] for p in clinvar_plp_pos]
             plp_y = [p[1] for p in clinvar_plp_pos]
             ax.scatter(plp_x, plp_y, color=COLORS["P/LP"],
-                      s=4, alpha=0.4, zorder=3, label="P/LP" if idx == 0 else None)
+                      s=6, alpha=0.5, zorder=3)
 
-        # Gene structure annotation
+        # Gene structure annotation track
         try:
             gene_info = get_gene(gene_symbol)
             ymin, ymax = ax.get_ylim()
-            track_y = ymin - (ymax - ymin) * 0.08
-            track_h = (ymax - ymin) * 0.04
+            track_y = ymin - (ymax - ymin) * 0.12
+            track_h = (ymax - ymin) * 0.06
 
             # Gene body line
             ax.plot([gene_info.start, gene_info.end],
-                    [track_y, track_y], color="black", linewidth=1.0,
+                    [track_y, track_y], color="black", linewidth=1.5,
                     clip_on=False)
 
             # Exons as filled rectangles
@@ -624,40 +665,36 @@ def fig5_constraint_landscapes():
                     (exon.start, track_y - track_h / 2),
                     exon.end - exon.start, track_h,
                     facecolor=color, edgecolor="black",
-                    linewidth=0.3, clip_on=False, zorder=4)
+                    linewidth=0.5, clip_on=False, zorder=4)
                 ax.add_patch(rect)
         except Exception:
             pass
 
         # Formatting
-        ax.set_ylabel(gene_symbol, fontsize=9, rotation=0, labelpad=50,
-                      va="center")
+        ax.set_title(gene_symbol, fontsize=10, fontweight="bold")
         ax.tick_params(axis="y", labelsize=7)
         ax.tick_params(axis="x", labelsize=7)
-        if idx < n_genes - 1:
-            ax.set_xticklabels([])
-        else:
-            ax.set_xlabel("Genomic Position")
+        ax.xaxis.set_major_formatter(FuncFormatter(_format_genomic_pos))
+        ax.set_ylabel("|delta|", fontsize=8)
 
         # Compact axis
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
 
-    # Add legend to first panel
-    if len(axes) > 0:
-        from matplotlib.patches import Patch
-        from matplotlib.lines import Line2D
-        legend_elements = [
-            Patch(facecolor=COLORS["Evo2"], alpha=0.4,
-                  label="Evo2 |delta| (smoothed)"),
-            Line2D([0], [0], marker="o", color="w",
-                   markerfacecolor=COLORS["P/LP"], markersize=5,
-                   label="ClinVar P/LP"),
-            Patch(facecolor="#2c3e50", label="Coding exon"),
-            Patch(facecolor="#95a5a6", label="Non-coding exon"),
-        ]
-        axes[0].legend(handles=legend_elements, loc="upper right",
-                       fontsize=7, framealpha=0.8)
+    # Add shared legend to first panel
+    from matplotlib.patches import Patch
+    from matplotlib.lines import Line2D
+    legend_elements = [
+        Patch(facecolor=COLORS["Evo2"], alpha=0.4,
+              label="Evo2 |delta| (smoothed)"),
+        Line2D([0], [0], marker="o", color="w",
+               markerfacecolor=COLORS["P/LP"], markersize=5,
+               label="ClinVar P/LP"),
+        Patch(facecolor="#2c3e50", label="Coding exon"),
+        Patch(facecolor="#95a5a6", label="Non-coding exon"),
+    ]
+    axes[0].legend(handles=legend_elements, loc="upper right",
+                   fontsize=7, framealpha=0.8)
 
     fig.suptitle("Per-Gene Constraint Landscapes (Evo2)", fontsize=13, y=1.01)
     plt.tight_layout()
