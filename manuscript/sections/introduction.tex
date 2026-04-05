@@ -1,0 +1,67 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The interpretation of genomic variants remains a central bottleneck in clinical
+genetics and precision medicine. Despite advances in sequencing technology,
+the majority of rare variants detected in human genomes are classified as
+variants of uncertain significance (VUS), limiting their clinical
+actionability~\cite{ClinVar_2018,ACMG_2015}. Computational variant effect
+prediction (VEP) tools provide evidence for the ACMG/AMP PP3 and BP4 criteria,
+but each existing tool addresses only a subset of the variant landscape.
+AlphaMissense~\cite{AlphaMissense_2023} and REVEL~\cite{REVEL_2016} are
+restricted to missense variants; SpliceAI~\cite{SpliceAI_2019} predicts only
+splice-altering effects; non-coding scores such as ncER~\cite{ncER_2019} and LINSIGHT~\cite{LINSIGHT_2017}
+provide regional constraint estimates but lack variant-level resolution;
+and integrative scores such as CADD~\cite{CADD_2024},
+though broadly applicable, incorporate ClinVar annotations in their training,
+creating potential circularity when used for ClinVar variant
+reclassification~\cite{gnomAD_2020}. No single existing tool provides unified,
+training-data-free predictions across coding, non-coding, and indel variants.
+
+Genomic foundation models offer a fundamentally different approach. Trained on
+large collections of DNA sequences in a self-supervised manner, these models
+learn the statistical grammar of genomes without exposure to phenotypic labels.
+The Evo family of models---Evo~\cite{Evo1_2024} and
+Evo2~\cite{Evo2_2026}---represents the current state of the art in genomic
+language modelling, with Evo2's 7-billion-parameter architecture trained on 9.3
+trillion nucleotides from 128,000 genomes spanning all domains of life. Evo2
+supports context windows up to one million base pairs, far exceeding the Nucleotide
+Transformer~\cite{NT_2024} ($\sim$6\,kb effective context) and
+HyenaDNA~\cite{HyenaDNA_2023} (450\,kb at reduced resolution). The zero-shot
+variant effect prediction paradigm---comparing reference and alternate sequence
+log-likelihoods without fine-tuning---enables variant scoring that is intrinsically
+free of training-set circularity and agnostic to variant type, including
+non-coding and indel variants that remain inaccessible to most supervised tools.
+
+Spaceflight presents a unique context for variant interpretation. Astronauts are
+exposed to galactic cosmic radiation (GCR) and solar particle events that
+generate characteristic mutational signatures, including C$>$A transversions
+from 8-oxoguanine lesions and complex double-strand break (DSB)
+repair products~\cite{daSilveira_2020}. The NASA Twins Study revealed persistent
+gene expression changes in DNA repair, telomere maintenance, and immune
+regulation pathways after long-duration spaceflight~\cite{Twins_2019}, and
+Rutter et al.~\cite{Rutter_2024} recently identified protective and risk alleles
+in astronaut genomes across genes involved in radiation response. However, the
+functional consequences of the vast majority of variants in these genes---particularly
+non-coding and structural variants---remain unknown. A comprehensive variant
+effect atlas for spaceflight radiation-response genes would support both
+mission-planning risk assessment and fundamental understanding of
+radiation-induced mutagenesis.
+
+Here we apply Evo2 to generate zero-shot variant effect predictions for 215,001
+variants (168,409 SNVs and 46,592 indels) across ten genes selected for their
+relevance to spaceflight radiation biology: four well-characterised control genes
+(BRCA1, TP53, CHEK2, DNMT3A) with extensive experimental validation data, and
+six spaceflight-associated genes (TERT, ATM, NFE2L2, CLOCK, MSTN, RAD51). We
+validate predictions through a three-layer framework: (1) deep mutational
+scanning (DMS) calibration against four independent functional datasets, (2)
+ClinVar clinical benchmarking with multi-tool comparison and matched-variant
+analysis, and (3) non-coding validation using TERT promoter MPRA data and ENCODE
+regulatory element annotations.
+
+We demonstrate that Evo2 achieves clinical-grade ClinVar AUROCs (0.91--1.00),
+is the highest-performing tool for two of six benchmarked genes, provides
+orthogonal signal that improves ensemble classification, and---critically---is
+the only tool with significant positive correlation with non-coding MPRA data
+in the TERT promoter. The resulting variant effect atlas, encompassing coding
+and non-coding regions across all ten genes, is provided as a public resource.

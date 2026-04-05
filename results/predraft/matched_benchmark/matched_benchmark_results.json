@@ -1,0 +1,1144 @@
+[
+  {
+    "gene": "ATM",
+    "per_tool": {
+      "AlphaMissense": {
+        "auroc": 0.9262672811059908,
+        "auroc_ci_low": 0.8703917050691244,
+        "auroc_ci_high": 0.9694988479262673,
+        "auprc": 0.9608318282878235,
+        "n_scored": 87,
+        "n_plp": 56,
+        "n_blb": 31
+      },
+      "CADD": {
+        "auroc": 0.9989010962912297,
+        "auroc_ci_low": 0.9978905003134976,
+        "auroc_ci_high": 0.9995860586240309,
+        "auprc": 0.9973825173779206,
+        "n_scored": 3396,
+        "n_plp": 816,
+        "n_blb": 2580
+      },
+      "REVEL": {
+        "auroc": 0.9367753623188405,
+        "auroc_ci_low": 0.9005434782608696,
+        "auroc_ci_high": 0.9650981280193238,
+        "auprc": 0.9064946837681467,
+        "n_scored": 187,
+        "n_plp": 72,
+        "n_blb": 115
+      },
+      "SpliceAI": {
+        "auroc": 0.7904250265997872,
+        "auroc_ci_low": 0.7698332525839793,
+        "auroc_ci_high": 0.8096372335271316,
+        "auprc": 0.7076087452627733,
+        "n_scored": 3396,
+        "n_plp": 816,
+        "n_blb": 2580
+      },
+      "ncER": {
+        "auroc": 0.6562310075134278,
+        "auroc_ci_low": 0.635463874866103,
+        "auroc_ci_high": 0.675568415447349,
+        "auprc": 0.34862908735472387,
+        "n_scored": 3397,
+        "n_plp": 816,
+        "n_blb": 2581
+      },
+      "Evo2": {
+        "auroc": 0.9954715716650719,
+        "auroc_ci_low": 0.9925398640284929,
+        "auroc_ci_high": 0.9978418118554547,
+        "auprc": 0.9916780048207555,
+        "n_scored": 3398,
+        "n_plp": 816,
+        "n_blb": 2582
+      }
+    },
+    "matched_set": {
+      "Evo2": {
+        "auroc": 0.8642857142857143,
+        "auroc_ci_low": 0.7678422619047619,
+        "auroc_ci_high": 0.9392857142857143,
+        "auprc": 0.9091394808212402,
+        "n": 86
+      },
+      "CADD": {
+        "auroc": 0.9398809523809524,
+        "auroc_ci_low": 0.8874776785714285,
+        "auroc_ci_high": 0.9797619047619047,
+        "auprc": 0.9656818482147219,
+        "n": 86
+      },
+      "AlphaMissense": {
+        "auroc": 0.9238095238095237,
+        "auroc_ci_low": 0.8601041666666667,
+        "auroc_ci_high": 0.9696428571428571,
+        "auprc": 0.9608318282878235,
+        "n": 86
+      },
+      "REVEL": {
+        "auroc": 0.9407738095238095,
+        "auroc_ci_low": 0.8827232142857144,
+        "auroc_ci_high": 0.9845386904761904,
+        "auprc": 0.9622130194362769,
+        "n": 86
+      }
+    },
+    "matched_n": 86,
+    "matched_n_plp": 56,
+    "matched_n_blb": 30,
+    "delong": {
+      "AlphaMissense_vs_CADD": {
+        "z_statistic": -0.5423498097877723,
+        "p_value": 0.5875775481895369,
+        "auroc_1": 0.9238095238095237,
+        "auroc_2": 0.9398809523809524
+      },
+      "AlphaMissense_vs_Evo2": {
+        "z_statistic": 1.3159037470702437,
+        "p_value": 0.1882063509443067,
+        "auroc_1": 0.9238095238095237,
+        "auroc_2": 0.8642857142857143
+      },
+      "AlphaMissense_vs_REVEL": {
+        "z_statistic": -0.7072358985591735,
+        "p_value": 0.4794198932025564,
+        "auroc_1": 0.9238095238095237,
+        "auroc_2": 0.9407738095238095
+      },
+      "CADD_vs_Evo2": {
+        "z_statistic": 1.68946063926913,
+        "p_value": 0.09113118871987445,
+        "auroc_1": 0.9398809523809524,
+        "auroc_2": 0.8642857142857143
+      },
+      "CADD_vs_REVEL": {
+        "z_statistic": -0.03095305454523706,
+        "p_value": 0.975306978760926,
+        "auroc_1": 0.9398809523809524,
+        "auroc_2": 0.9407738095238095
+      },
+      "Evo2_vs_REVEL": {
+        "z_statistic": -1.7638632988944671,
+        "p_value": 0.07775499722872006,
+        "auroc_1": 0.8642857142857143,
+        "auroc_2": 0.9407738095238095
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.602296981638742,
+        "p_value": 6.770162726666697e-10,
+        "n_shared": 87
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.5689837428009039,
+        "p_value": 8.927700418942454e-09,
+        "n_shared": 87
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.8361802601937032,
+        "p_value": 1.2644050375688233e-23,
+        "n_shared": 86
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "spearman_rho": -0.12464502176444818,
+        "p_value": 0.25002522311292535,
+        "n_shared": 87
+      },
+      "AlphaMissense_vs_ncER": {
+        "spearman_rho": 0.422447028780389,
+        "p_value": 4.5845156993784176e-05,
+        "n_shared": 87
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.6736680698897185,
+        "p_value": 0.0,
+        "n_shared": 3396
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.6781378311844484,
+        "p_value": 1.54805749515488e-26,
+        "n_shared": 187
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.40847148450323256,
+        "p_value": 9.838929824523375e-137,
+        "n_shared": 3396
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.30498125051793246,
+        "p_value": 5.007095834674615e-74,
+        "n_shared": 3396
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.633336040432558,
+        "p_value": 2.3282525495020317e-22,
+        "n_shared": 187
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.3725389810528031,
+        "p_value": 2.809963669811351e-112,
+        "n_shared": 3396
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.32546688244309846,
+        "p_value": 1.194393631131694e-84,
+        "n_shared": 3397
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": 0.2359496354581674,
+        "p_value": 0.0011501876701677293,
+        "n_shared": 187
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": 0.23764481896069745,
+        "p_value": 0.001056620918353539,
+        "n_shared": 187
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": 0.1587186103397253,
+        "p_value": 1.3399865426516553e-20,
+        "n_shared": 3396
+      }
+    }
+  },
+  {
+    "gene": "BRCA1",
+    "per_tool": {
+      "AlphaMissense": {
+        "auroc": 0.9604448603512813,
+        "auroc_ci_low": 0.9353553304059891,
+        "auroc_ci_high": 0.9799169486035126,
+        "auprc": 0.9645313675414461,
+        "n_scored": 335,
+        "n_plp": 151,
+        "n_blb": 184
+      },
+      "CADD": {
+        "auroc": 0.9950900108782985,
+        "auroc_ci_low": 0.9924750694480773,
+        "auroc_ci_high": 0.997142426236149,
+        "auprc": 0.9908408032222001,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "REVEL": {
+        "auroc": 0.7481848890409202,
+        "auroc_ci_low": 0.7053435669388977,
+        "auroc_ci_high": 0.7853684739385127,
+        "auprc": 0.7326806857576933,
+        "n_scored": 712,
+        "n_plp": 257,
+        "n_blb": 455
+      },
+      "SpliceAI": {
+        "auroc": 0.6877157048560671,
+        "auroc_ci_low": 0.6664690196520285,
+        "auroc_ci_high": 0.7092870623362723,
+        "auprc": 0.5979801336065027,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "ncER": {
+        "auroc": 0.7146354696916652,
+        "auroc_ci_low": 0.6953189195877783,
+        "auroc_ci_high": 0.735478972087976,
+        "auprc": 0.5105394216882331,
+        "n_scored": 2647,
+        "n_plp": 813,
+        "n_blb": 1834
+      },
+      "Evo2": {
+        "auroc": 0.987934919606845,
+        "auroc_ci_low": 0.9839058287925874,
+        "auroc_ci_high": 0.9918524312054715,
+        "auprc": 0.9726550556955196,
+        "n_scored": 2676,
+        "n_plp": 813,
+        "n_blb": 1863
+      }
+    },
+    "matched_set": {
+      "Evo2": {
+        "auroc": 0.9324071408004606,
+        "auroc_ci_low": 0.9044045133890007,
+        "auroc_ci_high": 0.9573549524906421,
+        "auprc": 0.9113688985466394,
+        "n": 335
+      },
+      "CADD": {
+        "auroc": 0.9570796141664267,
+        "auroc_ci_low": 0.9339718902965736,
+        "auroc_ci_high": 0.9773673697091851,
+        "auprc": 0.9385713782487216,
+        "n": 335
+      },
+      "AlphaMissense": {
+        "auroc": 0.9604448603512813,
+        "auroc_ci_low": 0.9353553304059891,
+        "auroc_ci_high": 0.9799169486035126,
+        "auprc": 0.9645313675414461,
+        "n": 335
+      },
+      "REVEL": {
+        "auroc": 0.9156528937517996,
+        "auroc_ci_low": 0.8789222214224013,
+        "auroc_ci_high": 0.9464835876763604,
+        "auprc": 0.9204737759905723,
+        "n": 335
+      }
+    },
+    "matched_n": 335,
+    "matched_n_plp": 151,
+    "matched_n_blb": 184,
+    "delong": {
+      "AlphaMissense_vs_CADD": {
+        "z_statistic": 0.2574256770279491,
+        "p_value": 0.7968501832189391,
+        "auroc_1": 0.9604448603512813,
+        "auroc_2": 0.9570796141664267
+      },
+      "AlphaMissense_vs_Evo2": {
+        "z_statistic": 2.035694385460847,
+        "p_value": 0.04178105323619911,
+        "auroc_1": 0.9604448603512813,
+        "auroc_2": 0.9324071408004606
+      },
+      "AlphaMissense_vs_REVEL": {
+        "z_statistic": 2.7500689171939787,
+        "p_value": 0.005958273183254988,
+        "auroc_1": 0.9604448603512813,
+        "auroc_2": 0.9156528937517996
+      },
+      "CADD_vs_Evo2": {
+        "z_statistic": 1.7009892458106448,
+        "p_value": 0.08894500661123377,
+        "auroc_1": 0.9570796141664267,
+        "auroc_2": 0.9324071408004606
+      },
+      "CADD_vs_REVEL": {
+        "z_statistic": 2.239426866347959,
+        "p_value": 0.025128154905534,
+        "auroc_1": 0.9570796141664267,
+        "auroc_2": 0.9156528937517996
+      },
+      "Evo2_vs_REVEL": {
+        "z_statistic": 0.8478944875620594,
+        "p_value": 0.39649673477920844,
+        "auroc_1": 0.9324071408004606,
+        "auroc_2": 0.9156528937517996
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.7965320734097807,
+        "p_value": 9.256471997158218e-75,
+        "n_shared": 335
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.7878604149831315,
+        "p_value": 4.3572797545211907e-72,
+        "n_shared": 335
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.8031681019959052,
+        "p_value": 6.78894836992162e-77,
+        "n_shared": 335
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "spearman_rho": 0.2705896485100554,
+        "p_value": 4.951006852592097e-07,
+        "n_shared": 335
+      },
+      "AlphaMissense_vs_ncER": {
+        "spearman_rho": 0.7639329196193928,
+        "p_value": 2.547295257093464e-65,
+        "n_shared": 335
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.7207739230302723,
+        "p_value": 0.0,
+        "n_shared": 2647
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.45423576758259737,
+        "p_value": 1.5442685937487143e-37,
+        "n_shared": 712
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.34172257895240804,
+        "p_value": 2.1656424272554992e-73,
+        "n_shared": 2647
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.5253545586061166,
+        "p_value": 9.464790617358123e-188,
+        "n_shared": 2647
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.4724346246570893,
+        "p_value": 7.254161739764575e-41,
+        "n_shared": 712
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.28543168564969423,
+        "p_value": 8.385381380516586e-51,
+        "n_shared": 2647
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.40412603277458403,
+        "p_value": 1.4777425090693524e-104,
+        "n_shared": 2647
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": 0.12245262053648134,
+        "p_value": 0.0010602489499509987,
+        "n_shared": 712
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": 0.4107976744212511,
+        "p_value": 2.3090700383056568e-30,
+        "n_shared": 712
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": 0.3735898539169834,
+        "p_value": 1.9011099332418032e-88,
+        "n_shared": 2647
+      }
+    }
+  },
+  {
+    "gene": "TP53",
+    "per_tool": {
+      "AlphaMissense": {
+        "auroc": 0.9881693648816937,
+        "auroc_ci_low": 0.9775148747751488,
+        "auroc_ci_high": 0.9962657395876574,
+        "auprc": 0.9956022013440678,
+        "n_scored": 271,
+        "n_plp": 198,
+        "n_blb": 73
+      },
+      "CADD": {
+        "auroc": 0.9881649097297952,
+        "auroc_ci_low": 0.9794311159578334,
+        "auroc_ci_high": 0.994784169392948,
+        "auprc": 0.9809655966717594,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "REVEL": {
+        "auroc": 0.9516798583051973,
+        "auroc_ci_low": 0.9254995295289755,
+        "auroc_ci_high": 0.9745426744894006,
+        "auprc": 0.9799580144616531,
+        "n_scored": 292,
+        "n_plp": 203,
+        "n_blb": 89
+      },
+      "SpliceAI": {
+        "auroc": 0.5941960499212408,
+        "auroc_ci_low": 0.5569687537865018,
+        "auroc_ci_high": 0.6336959287531807,
+        "auprc": 0.564480276055351,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "ncER": {
+        "auroc": 0.7404580152671756,
+        "auroc_ci_low": 0.7068987792317944,
+        "auroc_ci_high": 0.7722631921725434,
+        "auprc": 0.6172452644566856,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      },
+      "Evo2": {
+        "auroc": 0.9887343996122622,
+        "auroc_ci_low": 0.9833181115957834,
+        "auroc_ci_high": 0.9932635102387011,
+        "auprc": 0.9794355213918384,
+        "n_scored": 839,
+        "n_plp": 315,
+        "n_blb": 524
+      }
+    },
+    "matched_set": {
+      "Evo2": {
+        "auroc": 0.8941469489414695,
+        "auroc_ci_low": 0.8473035145980352,
+        "auroc_ci_high": 0.9360090632350907,
+        "auprc": 0.9531243644425585,
+        "n": 271
+      },
+      "CADD": {
+        "auroc": 0.9198145841981459,
+        "auroc_ci_low": 0.8797867372353674,
+        "auroc_ci_high": 0.9551015289885152,
+        "auprc": 0.9527188570763165,
+        "n": 271
+      },
+      "AlphaMissense": {
+        "auroc": 0.9881693648816937,
+        "auroc_ci_low": 0.9775148747751488,
+        "auroc_ci_high": 0.9962657395876574,
+        "auprc": 0.9956022013440678,
+        "n": 271
+      },
+      "REVEL": {
+        "auroc": 0.9665144596651446,
+        "auroc_ci_low": 0.9454121696416217,
+        "auroc_ci_high": 0.9846772519717726,
+        "auprc": 0.9865440067392385,
+        "n": 271
+      }
+    },
+    "matched_n": 271,
+    "matched_n_plp": 198,
+    "matched_n_blb": 73,
+    "delong": {
+      "AlphaMissense_vs_CADD": {
+        "z_statistic": 3.6814422654464476,
+        "p_value": 0.00023191830988082877,
+        "auroc_1": 0.9881693648816937,
+        "auroc_2": 0.9198145841981459
+      },
+      "AlphaMissense_vs_Evo2": {
+        "z_statistic": 4.265070938185145,
+        "p_value": 1.998386983626716e-05,
+        "auroc_1": 0.9881693648816937,
+        "auroc_2": 0.8941469489414695
+      },
+      "AlphaMissense_vs_REVEL": {
+        "z_statistic": 2.4217611220787014,
+        "p_value": 0.015445499882297672,
+        "auroc_1": 0.9881693648816937,
+        "auroc_2": 0.9665144596651446
+      },
+      "CADD_vs_Evo2": {
+        "z_statistic": 0.9698892366208683,
+        "p_value": 0.332101705686903,
+        "auroc_1": 0.9198145841981459,
+        "auroc_2": 0.8941469489414695
+      },
+      "CADD_vs_REVEL": {
+        "z_statistic": -3.1508505968851135,
+        "p_value": 0.0016279574138548302,
+        "auroc_1": 0.9198145841981459,
+        "auroc_2": 0.9665144596651446
+      },
+      "Evo2_vs_REVEL": {
+        "z_statistic": -3.3967882366849835,
+        "p_value": 0.0006818170849495512,
+        "auroc_1": 0.8941469489414695,
+        "auroc_2": 0.9665144596651446
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.6321867013598345,
+        "p_value": 1.1963870771559964e-31,
+        "n_shared": 271
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.6009298294760173,
+        "p_value": 5.423080468382676e-28,
+        "n_shared": 271
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.7578041725266654,
+        "p_value": 8.41142534744115e-52,
+        "n_shared": 271
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "spearman_rho": -0.07751870289236545,
+        "p_value": 0.20332505868935805,
+        "n_shared": 271
+      },
+      "AlphaMissense_vs_ncER": {
+        "spearman_rho": 0.477513804696055,
+        "p_value": 7.68181383363327e-17,
+        "n_shared": 271
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.8276820943733622,
+        "p_value": 3.4044499656026e-212,
+        "n_shared": 839
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.7587823567848887,
+        "p_value": 6.226298948815103e-56,
+        "n_shared": 292
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.24089066546560733,
+        "p_value": 1.5326261359412035e-12,
+        "n_shared": 839
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.49350163107775197,
+        "p_value": 1.0388819007402845e-52,
+        "n_shared": 839
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.5246734750443399,
+        "p_value": 4.689599202629614e-22,
+        "n_shared": 292
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.19302624769938104,
+        "p_value": 1.7419737913926913e-08,
+        "n_shared": 839
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.4482875920352317,
+        "p_value": 1.0265518856357394e-42,
+        "n_shared": 839
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": -0.09658516876731274,
+        "p_value": 0.09951240857635589,
+        "n_shared": 292
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": 0.49076987056900007,
+        "p_value": 4.187950664266161e-19,
+        "n_shared": 292
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": -0.007662754985492103,
+        "p_value": 0.8246036030706179,
+        "n_shared": 839
+      }
+    }
+  },
+  {
+    "gene": "CHEK2",
+    "per_tool": {
+      "CADD": {
+        "auroc": 0.9985791418016482,
+        "auroc_ci_low": 0.9956505247026347,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9978699089312515,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "REVEL": {
+        "auroc": 0.8317730496453901,
+        "auroc_ci_low": 0.7721914893617021,
+        "auroc_ci_high": 0.8875195035460993,
+        "auprc": 0.6255163545422818,
+        "n_scored": 197,
+        "n_plp": 47,
+        "n_blb": 150
+      },
+      "SpliceAI": {
+        "auroc": 0.8202817358827591,
+        "auroc_ci_low": 0.7816238633134414,
+        "auroc_ci_high": 0.8598520023951608,
+        "auprc": 0.7658040233642676,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "ncER": {
+        "auroc": 0.6452218568586855,
+        "auroc_ci_low": 0.6018736298867372,
+        "auroc_ci_high": 0.6854858066414972,
+        "auprc": 0.39608347019364826,
+        "n_scored": 687,
+        "n_plp": 204,
+        "n_blb": 483
+      },
+      "Evo2": {
+        "auroc": 0.9996462502526784,
+        "auroc_ci_low": 0.9988273195876288,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9990897400665222,
+        "n_scored": 689,
+        "n_plp": 204,
+        "n_blb": 485
+      }
+    },
+    "matched_set": {},
+    "matched_n": 8,
+    "matched_n_plp": 6,
+    "matched_n_blb": 2,
+    "delong": {},
+    "orthogonality": {
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.6816474611580674,
+        "p_value": 5.128287032232102e-95,
+        "n_shared": 687
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.5075971250155483,
+        "p_value": 2.6840044656631457e-14,
+        "n_shared": 197
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.48558332467725757,
+        "p_value": 6.248499404812202e-42,
+        "n_shared": 687
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.28930540851033276,
+        "p_value": 1.0332573091437542e-14,
+        "n_shared": 687
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.4414271168291548,
+        "p_value": 8.4217087668672e-11,
+        "n_shared": 197
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.4464727808256364,
+        "p_value": 5.794358428975778e-35,
+        "n_shared": 687
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.2769532760023839,
+        "p_value": 1.4576255791610345e-13,
+        "n_shared": 687
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": 0.24000599022619545,
+        "p_value": 0.0006812997941445999,
+        "n_shared": 197
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": 0.08141396013368518,
+        "p_value": 0.2554059812362047,
+        "n_shared": 197
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": 0.20897899123525462,
+        "p_value": 3.2267700923046304e-08,
+        "n_shared": 687
+      }
+    }
+  },
+  {
+    "gene": "DNMT3A",
+    "per_tool": {
+      "AlphaMissense": {
+        "auroc": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "auroc_ci_high": 1.0,
+        "auprc": 1.0,
+        "n_scored": 18,
+        "n_plp": 12,
+        "n_blb": 6
+      },
+      "CADD": {
+        "auroc": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "auroc_ci_high": 1.0,
+        "auprc": 1.0,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "REVEL": {
+        "auroc": 0.9722222222222223,
+        "auroc_ci_low": 0.875,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9880952380952381,
+        "n_scored": 18,
+        "n_plp": 12,
+        "n_blb": 6
+      },
+      "SpliceAI": {
+        "auroc": 0.6582480818414322,
+        "auroc_ci_low": 0.5381793478260869,
+        "auroc_ci_high": 0.7664761828644501,
+        "auprc": 0.34528602290515964,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "ncER": {
+        "auroc": 0.7476023017902813,
+        "auroc_ci_low": 0.645136668797954,
+        "auroc_ci_high": 0.8435222186700767,
+        "auprc": 0.3398582516005143,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      },
+      "Evo2": {
+        "auroc": 0.9961636828644501,
+        "auroc_ci_low": 0.9888107416879796,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9767491001796045,
+        "n_scored": 159,
+        "n_plp": 23,
+        "n_blb": 136
+      }
+    },
+    "matched_set": {
+      "Evo2": {
+        "auroc": 0.8472222222222222,
+        "auroc_ci_low": 0.5972222222222222,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9217964905464906,
+        "n": 18
+      },
+      "CADD": {
+        "auroc": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "auroc_ci_high": 1.0,
+        "auprc": 1.0,
+        "n": 18
+      },
+      "AlphaMissense": {
+        "auroc": 1.0,
+        "auroc_ci_low": 0.9999999999999999,
+        "auroc_ci_high": 1.0,
+        "auprc": 1.0,
+        "n": 18
+      },
+      "REVEL": {
+        "auroc": 0.9722222222222223,
+        "auroc_ci_low": 0.875,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9880952380952381,
+        "n": 18
+      }
+    },
+    "matched_n": 18,
+    "matched_n_plp": 12,
+    "matched_n_blb": 6,
+    "delong": {
+      "AlphaMissense_vs_CADD": {
+        "z_statistic": 0.0,
+        "p_value": 1.0,
+        "auroc_1": 1.0,
+        "auroc_2": 1.0
+      },
+      "AlphaMissense_vs_Evo2": {
+        "z_statistic": 1.504016828810776,
+        "p_value": 0.13257703365028425,
+        "auroc_1": 1.0,
+        "auroc_2": 0.8472222222222222
+      },
+      "AlphaMissense_vs_REVEL": {
+        "z_statistic": 0.8451542547285168,
+        "p_value": 0.39802471950693763,
+        "auroc_1": 1.0,
+        "auroc_2": 0.9722222222222223
+      },
+      "CADD_vs_Evo2": {
+        "z_statistic": 1.504016828810776,
+        "p_value": 0.13257703365028425,
+        "auroc_1": 1.0,
+        "auroc_2": 0.8472222222222222
+      },
+      "CADD_vs_REVEL": {
+        "z_statistic": 0.8451542547285168,
+        "p_value": 0.39802471950693763,
+        "auroc_1": 1.0,
+        "auroc_2": 0.9722222222222223
+      },
+      "Evo2_vs_REVEL": {
+        "z_statistic": -1.2888265304156938,
+        "p_value": 0.19745840045661744,
+        "auroc_1": 0.8472222222222222,
+        "auroc_2": 0.9722222222222223
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.712371044107835,
+        "p_value": 0.0009093530834684736,
+        "n_shared": 18
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.5376676986584108,
+        "p_value": 0.021371414657806467,
+        "n_shared": 18
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.7564499484004128,
+        "p_value": 0.0002802193872136038,
+        "n_shared": 18
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "spearman_rho": 0.35849049881405776,
+        "p_value": 0.14406168520464702,
+        "n_shared": 18
+      },
+      "AlphaMissense_vs_ncER": {
+        "spearman_rho": 0.6900830128594342,
+        "p_value": 0.0015268501579865184,
+        "n_shared": 18
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.6005406754423427,
+        "p_value": 5.896221752003296e-17,
+        "n_shared": 159
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.8307534042073877,
+        "p_value": 1.961260020444634e-05,
+        "n_shared": 18
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.29962879120222363,
+        "p_value": 0.0001245979695718911,
+        "n_shared": 159
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.37521589657524695,
+        "p_value": 1.0980154084992377e-06,
+        "n_shared": 159
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.5087719298245614,
+        "p_value": 0.031068538407296186,
+        "n_shared": 18
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.05306778554731986,
+        "p_value": 0.5064677050025173,
+        "n_shared": 159
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.32339422853222916,
+        "p_value": 3.2110235483980096e-05,
+        "n_shared": 159
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": 0.25623255325070354,
+        "p_value": 0.30473959656954414,
+        "n_shared": 18
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": 0.5557854205364904,
+        "p_value": 0.016626517634375945,
+        "n_shared": 18
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": 0.1848818389225432,
+        "p_value": 0.019646748026355746,
+        "n_shared": 159
+      }
+    }
+  },
+  {
+    "gene": "TERT",
+    "per_tool": {
+      "AlphaMissense": {
+        "auroc": 0.96875,
+        "auroc_ci_low": 0.8928571428571428,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9815476190476189,
+        "n_scored": 22,
+        "n_plp": 14,
+        "n_blb": 8
+      },
+      "CADD": {
+        "auroc": 0.9990295972828724,
+        "auroc_ci_low": 0.9969053250849103,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9799187156524113,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "REVEL": {
+        "auroc": 0.9956709956709957,
+        "auroc_ci_low": 0.9805194805194805,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9910714285714285,
+        "n_scored": 47,
+        "n_plp": 14,
+        "n_blb": 33
+      },
+      "SpliceAI": {
+        "auroc": 0.6234230955846677,
+        "auroc_ci_low": 0.4937257399320718,
+        "auroc_ci_high": 0.7516383127122755,
+        "auprc": 0.2948720430759511,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "ncER": {
+        "auroc": 0.3833090732654052,
+        "auroc_ci_low": 0.2913785783600194,
+        "auroc_ci_high": 0.48749772561863175,
+        "auprc": 0.02701499215442391,
+        "n_scored": 711,
+        "n_plp": 24,
+        "n_blb": 687
+      },
+      "Evo2": {
+        "auroc": 0.9089483839845635,
+        "auroc_ci_low": 0.8319343945972022,
+        "auroc_ci_high": 0.9739688856729378,
+        "auprc": 0.6419929637543712,
+        "n_scored": 715,
+        "n_plp": 24,
+        "n_blb": 691
+      }
+    },
+    "matched_set": {
+      "Evo2": {
+        "auroc": 0.8660714285714286,
+        "auroc_ci_low": 0.6696428571428572,
+        "auroc_ci_high": 0.9821428571428572,
+        "auprc": 0.92388653013653,
+        "n": 22
+      },
+      "CADD": {
+        "auroc": 0.9910714285714286,
+        "auroc_ci_low": 0.9464285714285714,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.995238095238095,
+        "n": 22
+      },
+      "AlphaMissense": {
+        "auroc": 0.96875,
+        "auroc_ci_low": 0.8928571428571428,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.9815476190476189,
+        "n": 22
+      },
+      "REVEL": {
+        "auroc": 0.9910714285714286,
+        "auroc_ci_low": 0.9464285714285714,
+        "auroc_ci_high": 1.0,
+        "auprc": 0.995238095238095,
+        "n": 22
+      }
+    },
+    "matched_n": 22,
+    "matched_n_plp": 14,
+    "matched_n_blb": 8,
+    "delong": {
+      "AlphaMissense_vs_CADD": {
+        "z_statistic": -0.7375622597718076,
+        "p_value": 0.4607804963454071,
+        "auroc_1": 0.96875,
+        "auroc_2": 0.9910714285714286
+      },
+      "AlphaMissense_vs_Evo2": {
+        "z_statistic": 1.4649874200424882,
+        "p_value": 0.14292434998456027,
+        "auroc_1": 0.96875,
+        "auroc_2": 0.8660714285714286
+      },
+      "AlphaMissense_vs_REVEL": {
+        "z_statistic": -0.784769751286223,
+        "p_value": 0.4325885782916016,
+        "auroc_1": 0.96875,
+        "auroc_2": 0.9910714285714286
+      },
+      "CADD_vs_Evo2": {
+        "z_statistic": 1.5421197532401085,
+        "p_value": 0.12304449564853596,
+        "auroc_1": 0.9910714285714286,
+        "auroc_2": 0.8660714285714286
+      },
+      "CADD_vs_REVEL": {
+        "z_statistic": 0.0,
+        "p_value": 1.0,
+        "auroc_1": 0.9910714285714286,
+        "auroc_2": 0.9910714285714286
+      },
+      "Evo2_vs_REVEL": {
+        "z_statistic": -1.6631683715902201,
+        "p_value": 0.09627873685203243,
+        "auroc_1": 0.8660714285714286,
+        "auroc_2": 0.9910714285714286
+      }
+    },
+    "orthogonality": {
+      "AlphaMissense_vs_CADD": {
+        "spearman_rho": 0.8480225988700565,
+        "p_value": 6.237808226109957e-07,
+        "n_shared": 22
+      },
+      "AlphaMissense_vs_Evo2": {
+        "spearman_rho": 0.6382378113869324,
+        "p_value": 0.0013922270029529513,
+        "n_shared": 22
+      },
+      "AlphaMissense_vs_REVEL": {
+        "spearman_rho": 0.7579780025497905,
+        "p_value": 4.379088347671502e-05,
+        "n_shared": 22
+      },
+      "AlphaMissense_vs_SpliceAI": {
+        "spearman_rho": 0.5484162187597845,
+        "p_value": 0.008224344302352827,
+        "n_shared": 22
+      },
+      "AlphaMissense_vs_ncER": {
+        "spearman_rho": -0.18089318887996678,
+        "p_value": 0.4204639629659122,
+        "n_shared": 22
+      },
+      "CADD_vs_Evo2": {
+        "spearman_rho": 0.4139633681579354,
+        "p_value": 8.246175043907872e-31,
+        "n_shared": 711
+      },
+      "CADD_vs_REVEL": {
+        "spearman_rho": 0.7378859732469981,
+        "p_value": 3.265987122197879e-09,
+        "n_shared": 47
+      },
+      "CADD_vs_SpliceAI": {
+        "spearman_rho": 0.002219373938146399,
+        "p_value": 0.9528926669838061,
+        "n_shared": 711
+      },
+      "CADD_vs_ncER": {
+        "spearman_rho": 0.48622147765054874,
+        "p_value": 1.825423848119253e-43,
+        "n_shared": 711
+      },
+      "Evo2_vs_REVEL": {
+        "spearman_rho": 0.5448553028675365,
+        "p_value": 7.503389257578661e-05,
+        "n_shared": 47
+      },
+      "Evo2_vs_SpliceAI": {
+        "spearman_rho": 0.09389117729388939,
+        "p_value": 0.012255562561295827,
+        "n_shared": 711
+      },
+      "Evo2_vs_ncER": {
+        "spearman_rho": 0.12467511642340771,
+        "p_value": 0.000863582678037735,
+        "n_shared": 711
+      },
+      "REVEL_vs_SpliceAI": {
+        "spearman_rho": 0.42712968341306656,
+        "p_value": 0.0027506201089806848,
+        "n_shared": 47
+      },
+      "REVEL_vs_ncER": {
+        "spearman_rho": -0.15278666974644156,
+        "p_value": 0.30522996664988633,
+        "n_shared": 47
+      },
+      "SpliceAI_vs_ncER": {
+        "spearman_rho": -0.1685881224418568,
+        "p_value": 6.189454721772468e-06,
+        "n_shared": 711
+      }
+    }
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "gene": "TERT",
+    "n_indel_plp": 62,
+    "n_indel_blb": 48,
+    "n_frameshift_plp": 60,
+    "n_inframe_plp": 2,
+    "frameshift_auroc": 0.9475694444444444,
+    "frameshift_n": 108,
+    "frameshift_mean_delta": -0.0058184504508972164,
+    "inframe_mean_delta": -0.005763888359069824,
+    "total_indels_scored": 4713,
+    "total_snvs_scored": 12730
+  },
+  {
+    "gene": "ATM",
+    "n_indel_plp": 2347,
+    "n_indel_blb": 449,
+    "n_frameshift_plp": 2250,
+    "n_inframe_plp": 97,
+    "frameshift_auroc": 0.9925949022519179,
+    "frameshift_n": 2699,
+    "frameshift_mean_delta": -0.012189958810806274,
+    "inframe_mean_delta": -0.00579649640112808,
+    "total_indels_scored": 14414,
+    "total_snvs_scored": 38377
+  },
+  {
+    "gene": "NFE2L2",
+    "n_indel_plp": 0,
+    "n_indel_blb": 6,
+    "n_frameshift_plp": 0,
+    "n_inframe_plp": 0,
+    "total_indels_scored": 2392,
+    "total_snvs_scored": 12838
+  },
+  {
+    "gene": "CLOCK",
+    "n_indel_plp": 0,
+    "n_indel_blb": 0,
+    "n_frameshift_plp": 0,
+    "n_inframe_plp": 0,
+    "total_indels_scored": 3226,
+    "total_snvs_scored": 15143
+  },
+  {
+    "gene": "MSTN",
+    "n_indel_plp": 0,
+    "n_indel_blb": 1,
+    "n_frameshift_plp": 0,
+    "n_inframe_plp": 0,
+    "total_indels_scored": 1474,
+    "total_snvs_scored": 10909
+  },
+  {
+    "gene": "RAD51",
+    "n_indel_plp": 1,
+    "n_indel_blb": 11,
+    "n_frameshift_plp": 1,
+    "n_inframe_plp": 0,
+    "frameshift_mean_delta": -0.011268138885498047,
+    "total_indels_scored": 1231,
+    "total_snvs_scored": 10622
+  },
+  {
+    "gene": "BRCA1",
+    "n_indel_plp": 2912,
+    "n_indel_blb": 247,
+    "n_frameshift_plp": 2836,
+    "n_inframe_plp": 76,
+    "frameshift_auroc": 0.9610973430103413,
+    "frameshift_n": 3083,
+    "frameshift_mean_delta": -0.0055728872925337345,
+    "inframe_mean_delta": -0.006002032443096763,
+    "total_indels_scored": 10063,
+    "total_snvs_scored": 26838
+  },
+  {
+    "gene": "TP53",
+    "n_indel_plp": 648,
+    "n_indel_blb": 80,
+    "n_frameshift_plp": 540,
+    "n_inframe_plp": 108,
+    "frameshift_auroc": 0.985787037037037,
+    "frameshift_n": 620,
+    "frameshift_mean_delta": -0.009577161956716467,
+    "inframe_mean_delta": -0.008439258292869286,
+    "total_indels_scored": 2492,
+    "total_snvs_scored": 11748
+  },
+  {
+    "gene": "CHEK2",
+    "n_indel_plp": 720,
+    "n_indel_blb": 82,
+    "n_frameshift_plp": 693,
+    "n_inframe_plp": 27,
+    "frameshift_auroc": 0.9797451870622602,
+    "frameshift_n": 775,
+    "frameshift_mean_delta": -0.007601195943647993,
+    "inframe_mean_delta": 0.0031432443194919163,
+    "total_indels_scored": 2869,
+    "total_snvs_scored": 13229
+  },
+  {
+    "gene": "DNMT3A",
+    "n_indel_plp": 67,
+    "n_indel_blb": 6,
+    "n_frameshift_plp": 65,
+    "n_inframe_plp": 2,
+    "frameshift_auroc": 0.9923076923076923,
+    "frameshift_n": 71,
+    "frameshift_mean_delta": -0.009029033550849329,
+    "inframe_mean_delta": 0.009551644325256348,
+    "total_indels_scored": 3718,
+    "total_snvs_scored": 15975
+  }
+]

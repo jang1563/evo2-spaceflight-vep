@@ -1,0 +1,138 @@
+% bioarxiv.sty — Clean single-column style for bioRxiv preprints
+% General-purpose; not tied to any specific manuscript.
+%
+% Inspired by kourgeorge/arxiv-style and quantixed/manuscript-templates.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bioarxiv}[2026/04/04 bioRxiv preprint style]
+
+% --- Options ---
+\newif\if@linenumbers\@linenumberstrue
+\newif\if@submit\@submitfalse
+\DeclareOption{nolinenumbers}{\@linenumbersfalse}
+\DeclareOption{submit}{\@submittrue\@linenumberstrue}
+\ProcessOptions\relax
+
+% --- Page geometry ---
+\if@submit
+  \RequirePackage[margin=1in]{geometry}
+  \RequirePackage{setspace}
+  \doublespacing
+\else
+  \RequirePackage[margin=1in]{geometry}
+\fi
+
+% --- Colors ---
+\RequirePackage{xcolor}
+\definecolor{preprint-gray}{gray}{0.45}
+
+% --- Math (must load before lineno) ---
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+% --- Line numbering ---
+\RequirePackage{lineno}
+\if@linenumbers
+  \linenumbers
+\fi
+\renewcommand\linenumberfont{\normalfont\tiny\sffamily\color{preprint-gray}}
+
+% --- Header / footer ---
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+\newcommand{\runningtitle}[1]{\def\@runningtitle{#1}}
+\runningtitle{}  % default empty
+
+\fancyhead[L]{\small\color{preprint-gray}\textit{Preprint --- not peer reviewed}}
+\fancyhead[R]{\small\color{preprint-gray}\textit{\@runningtitle}}
+\fancyfoot[L]{\small\color{preprint-gray}\@leadauthor}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Plain style for first page
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[L]{\small\color{preprint-gray}\textit{Preprint --- not peer reviewed}}%
+  \fancyfoot[L]{\small\color{preprint-gray}\@leadauthor}%
+  \fancyfoot[C]{\small\thepage}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+}
+
+% --- Authors and affiliations ---
+\RequirePackage{authblk}
+\renewcommand\Affilfont{\small}
+\renewcommand\Authfont{\normalsize\bfseries}
+\setlength{\affilsep}{0.5em}
+
+% --- Hyperlinks (must load before orcidlink, which requires hyperref) ---
+\RequirePackage[
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+]{hyperref}
+
+% --- ORCID ---
+\RequirePackage{orcidlink}
+
+% --- Captions ---
+\RequirePackage[
+  font=small,
+  labelfont=bf,
+  labelsep=period,
+  margin=1em
+]{caption}
+
+% --- Spacing (preprint only; submit mode uses doublespacing set above) ---
+\if@submit\else
+  \RequirePackage{setspace}
+  \onehalfspacing
+\fi
+
+% --- Biology-specific SI units (from quantixed/manuscript-templates) ---
+\RequirePackage{siunitx}
+\DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\molar{\mole\per\litre}
+\DeclareSIUnit\rpm{rpm}
+\DeclareSIUnit\gforce{\textit{g}}
+\DeclareSIUnit\units{U}
+\DeclareSIUnit\CFU{CFU}
+% \bp and \nt defined as simple text macros to avoid siunitx v3 conflict
+% (siunitx v3 pre-declares \bp as big-point, causing \ERROR on redeclaration)
+\providecommand{\bp}{\text{bp}}
+\providecommand{\nt}{\text{nt}}
+% Ensure \bp expands to text even if siunitx defined it as \ERROR
+\AtBeginDocument{%
+  \renewcommand{\bp}{\text{bp}}%
+  \renewcommand{\nt}{\text{nt}}%
+}
+
+% --- Custom commands ---
+
+% Lead author (for running footer)
+\newcommand{\leadauthor}[1]{\def\@leadauthor{#1}}
+\leadauthor{}  % default empty
+
+% Corresponding author
+\newcommand{\correspondingauthor}[1]{%
+  \def\@correspondingauthor{#1}%
+}
+\correspondingauthor{}  % default empty
+
+% Keywords
+\newcommand{\keywords}[1]{%
+  \vspace{0.5em}%
+  \noindent\textbf{Keywords:} #1%
+}
+
+% Print corresponding author footnote (call after \maketitle)
+\newcommand{\printcorrespondence}{%
+  \ifx\@correspondingauthor\empty\else
+    \vspace{0.5em}%
+    \noindent\textsuperscript{*}\textbf{Correspondence:} \@correspondingauthor%
+  \fi
+}
+
+\endinput

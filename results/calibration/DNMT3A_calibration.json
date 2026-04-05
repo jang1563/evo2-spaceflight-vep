@@ -1,25 +1,11 @@
 {
   "gene": "DNMT3A",
-  "window_size": 8192,
-  "n_evo2_scored": 19693,
-  "n_plp": 207,
-  "n_blb": 515,
-  "n_dms_mapped": 2337,
-  "n_dms_matched": 1956,
-  "spearman_rho": 0.4620035474198949,
-  "spearman_p": 5.2126755056791644e-104,
-  "auroc": 0.9876366024107687,
-  "thresholds": {
-    "pp3_supporting": 0.0002864461999994364,
-    "pp3_moderate": 0.00046266724278141644,
-    "pp3_strong": 0.0008151093283453731,
-    "bp4_supporting": null,
-    "bp4_moderate": null,
-    "bp4_strong": null
-  },
-  "sanity_checks": {
-    "plp_lower_than_blb": "True",
-    "plp_mean_delta": -0.005115315914154052,
-    "blb_mean_delta": -0.00017494401511024027
-  }
+  "n_dms_total": 981,
+  "n_evo2_matched": 746,
+  "spearman_rho": 0.4570245320952317,
+  "spearman_p": 8.949551279497786e-40,
+  "evo2_mean_delta": -0.0031069942198234334,
+  "evo2_std_delta": 0.0027383179656438107,
+  "dms_mean": -0.3408722961346039,
+  "dms_std": 0.3891016496339714
 }

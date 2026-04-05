@@ -1,0 +1,34 @@
+# LaTeX intermediates
+*.aux
+*.log
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.out
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
+*-blx.bib
+
+# Build outputs (root only — preserves figures/*.pdf)
+/*.pdf
+
+# Merged manuscript
+manuscript.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor backups
+*~
+*.swp
+*.swo
+\#*\#

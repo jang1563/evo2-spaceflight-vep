@@ -1,0 +1,67 @@
+{
+  "total_variants": 215001,
+  "total_snvs": 168409,
+  "total_indels": 46592,
+  "per_gene": [
+    {
+      "gene": "TERT",
+      "total": 17443,
+      "snvs": 12730,
+      "indels": 4713
+    },
+    {
+      "gene": "ATM",
+      "total": 52791,
+      "snvs": 38377,
+      "indels": 14414
+    },
+    {
+      "gene": "NFE2L2",
+      "total": 15230,
+      "snvs": 12838,
+      "indels": 2392
+    },
+    {
+      "gene": "CLOCK",
+      "total": 18369,
+      "snvs": 15143,
+      "indels": 3226
+    },
+    {
+      "gene": "MSTN",
+      "total": 12383,
+      "snvs": 10909,
+      "indels": 1474
+    },
+    {
+      "gene": "RAD51",
+      "total": 11853,
+      "snvs": 10622,
+      "indels": 1231
+    },
+    {
+      "gene": "BRCA1",
+      "total": 36901,
+      "snvs": 26838,
+      "indels": 10063
+    },
+    {
+      "gene": "TP53",
+      "total": 14240,
+      "snvs": 11748,
+      "indels": 2492
+    },
+    {
+      "gene": "CHEK2",
+      "total": 16098,
+      "snvs": 13229,
+      "indels": 2869
+    },
+    {
+      "gene": "DNMT3A",
+      "total": 19693,
+      "snvs": 15975,
+      "indels": 3718
+    }
+  ]
+}

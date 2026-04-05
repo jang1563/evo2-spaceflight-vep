@@ -1,0 +1,44 @@
+\begin{abstract}
+
+\textbf{Background:}
+Variant effect prediction (VEP) is a bottleneck in clinical variant
+interpretation. Existing tools are restricted to specific variant types---missense
+(AlphaMissense, REVEL), splice-altering (SpliceAI)---or incorporate clinical
+databases in training (CADD), creating potential circularity. No single tool
+provides unified, training-data-free predictions across coding, non-coding, and
+indel variants. Spaceflight radiation generates characteristic transversion
+mutations and complex DNA damage in genes critical for radiation response,
+telomere maintenance, and DNA repair, yet comprehensive variant effect maps
+for these genes are lacking.
+
+\textbf{Results:}
+We applied Evo2, a 7-billion-parameter genomic foundation model trained on 9.3
+trillion nucleotides, to score 215,001 variants (168,409 SNVs and 46,592 indels)
+across ten spaceflight radiation-response genes in a zero-shot manner requiring
+no training data. Deep mutational scanning calibration against four independent
+datasets yielded Spearman $|\rho| = 0.21$--$0.52$. ClinVar benchmarking
+demonstrated AUROCs of 0.91--1.00 across six genes, with Evo2 achieving the
+highest AUROC for CHEK2 (0.9996) and TP53 (0.9887). On matched variant sets,
+Evo2 was statistically indistinguishable from CADD (DeLong $p > 0.08$, all
+genes). Evo2 scores were orthogonal to supervised tools (Spearman $\rho =
+0.41$--$0.83$ vs.\ CADD), and an Evo2+CADD ensemble improved classification
+by up to 0.38\%. For non-coding variants, Evo2 was the only tool with a
+significant positive correlation with TERT promoter MPRA functional data
+($\rho = +0.267$, $p = 3.8 \times 10^{-14}$; CADD, SpliceAI, ncER: not
+significant). Frameshift indel AUROCs exceeded 0.94 across six genes (mean
+0.977). Transversion-control analysis revealed that the elevated scores for
+radiation-signature mutations are attributable to general transversion bias
+rather than radiation-specific chemistry.
+
+\textbf{Conclusions:}
+Evo2 provides a comprehensive zero-shot variant effect atlas that complements
+supervised tools and fills critical gaps for non-coding and indel variants.
+The atlas of 215,001 scored variants across ten genes is provided as a
+public resource for clinical variant interpretation and astronaut genomic
+risk assessment.
+
+\end{abstract}
+
+\keywords{variant effect prediction, genomic foundation model, Evo2, deep
+mutational scanning, ClinVar, spaceflight radiation, non-coding variants,
+zero-shot prediction, TERT, DNA damage response}

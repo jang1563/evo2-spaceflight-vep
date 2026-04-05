@@ -1,0 +1,40 @@
+name: Build LaTeX
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build main manuscript
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          texlive_version: 2025
+          extra_system_packages: ghostscript
+
+      - name: Build supplement
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: supplement.tex
+          texlive_version: 2025
+
+      - name: Merge into single PDF
+        run: |
+          gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite \
+            -sOutputFile=manuscript.pdf main.pdf supplement.pdf
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: manuscript
+          path: |
+            main.pdf
+            supplement.pdf
+            manuscript.pdf

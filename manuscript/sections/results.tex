@@ -1,0 +1,170 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Window size optimization identifies 8,192\,\bp{} as optimal}
+\label{sec:results_window}
+
+To determine the scoring window that best captures variant context, we evaluated
+four window sizes (1,024, 2,048, 4,096, and 8,192\,\bp) on ClinVar-annotated
+variants in three well-characterised genes (BRCA1, TP53, CHEK2). The
+8,192\,\bp{} window achieved the highest mean AUROC (0.9921) for discriminating
+pathogenic from benign variants and was selected for all subsequent analyses
+(\Cref{fig:supp_ablation}). Performance improved monotonically with window size
+across all three genes, suggesting that flanking-sequence context---including
+intronic and regulatory regions---contributes to variant effect prediction.
+
+\subsection{DMS calibration confirms Evo2 captures functional impact}
+\label{sec:results_dms}
+
+We calibrated Evo2 $\Delta$LL scores (\Cref{eq:delta_ll}) against deep
+mutational scanning data for four control genes (\Cref{fig:dms}A--D). Evo2 showed significant Spearman
+correlations with experimentally measured functional scores in all four genes:
+BRCA1 ($\rho = +0.515$, $p < 10^{-261}$, $n = 3{,}884$),
+DNMT3A ($\rho = +0.457$, $p < 10^{-39}$, $n = 746$),
+CHEK2 ($\rho = +0.310$, $p < 10^{-108}$, $n = 4{,}882$),
+and TP53 ($\rho = -0.211$, $p < 10^{-29}$, $n = 2{,}827$). The negative
+TP53 correlation is expected: the Giacomelli nutlin-3 assay assigns high scores
+to loss-of-function variants, inverting the sign convention.
+
+Multi-tool comparison on the same variant sets revealed that Evo2's $|\rho|$
+was competitive with supervised tools (\Cref{fig:dms}E; Supplementary Table~S3).
+For BRCA1, Evo2 ($|\rho| = 0.515$) was comparable to AlphaMissense (0.562) and
+exceeded CADD (0.499) and REVEL (0.470). AlphaMissense achieved the highest
+$|\rho|$ for DNMT3A (0.672 vs.\ Evo2 0.457) and TP53 (0.414 vs.\ 0.211),
+consistent with its specialisation for missense variants. SpliceAI and ncER
+showed the weakest DMS correlations ($|\rho| < 0.28$), as expected given that
+DMS variants are predominantly coding.
+
+\subsection{ClinVar benchmarking demonstrates clinical-grade classification}
+\label{sec:results_clinvar}
+
+We benchmarked Evo2 against CADD, AlphaMissense, and REVEL on ClinVar variants
+with $\geq$2-star review status across six genes with sufficient pathogenic and
+benign annotations (\Cref{fig:clinvar}; Supplementary Table~S5).
+
+\subsubsection*{Per-tool AUROCs.}
+
+On its full scoreable variant set, Evo2 achieved AUROCs of 0.909--0.9996
+(\Cref{fig:clinvar}A,B). Evo2 was the highest-performing tool for two genes:
+CHEK2 (0.9996, 95\% CI [0.999, 1.000]; vs.\ CADD 0.9986) and TP53 (0.9887
+[0.983, 0.993]; vs.\ CADD 0.9882, AlphaMissense 0.988). For ATM (0.9955),
+BRCA1 (0.9879), and DNMT3A (0.9962), Evo2 was slightly below CADD
+(0.9989, 0.9951, 1.000 respectively) but within overlapping confidence
+intervals. TERT showed the lowest Evo2 AUROC (0.9089 [0.832, 0.974]), consistent
+with this gene's non-coding nature: many TERT ClinVar variants are promoter
+mutations, including gain-of-function hotspots (C228T, C250T) that violate the
+loss-of-function assumption underlying $\Delta$LL scoring.
+
+\subsubsection*{Matched-variant analysis.}
+
+On the intersection of variants scored by all four tools (Evo2 $\cap$ CADD
+$\cap$ AlphaMissense $\cap$ REVEL), sample sizes were substantially reduced
+($n = 18$--$335$; \Cref{fig:clinvar}C; Supplementary Table~S5). These matched
+sets were dominated by missense variants, which inherently favours
+AlphaMissense and REVEL. On matched sets, AlphaMissense led for TP53
+(0.988 vs.\ Evo2 0.894; DeLong $p = 2.0 \times 10^{-5}$) and BRCA1 (0.960 vs.\
+0.932; $p = 0.042$). Importantly, the DeLong comparison between CADD and Evo2
+was not significant for any gene ($p > 0.08$), indicating that Evo2's zero-shot
+approach achieves comparable discrimination to CADD's supervised framework on
+shared variant sets.
+
+\subsection{Orthogonal signal enables ensemble improvement}
+\label{sec:results_orthogonality}
+
+Evo2 scores showed moderate to low correlation with supervised tools, indicating
+complementary information content (\Cref{fig:orthogonality}A). Spearman
+correlations between Evo2 and CADD ranged from 0.414 (TERT) to 0.828 (TP53);
+between Evo2 and SpliceAI from 0.053 (DNMT3A) to 0.446 (CHEK2). This
+orthogonality motivated an ensemble approach.
+
+Five-fold cross-validated logistic regression combining Evo2 and CADD scores
+as features consistently matched or exceeded the best single tool
+(\Cref{fig:orthogonality}B; Supplementary Table~S5). The largest gain
+was observed for TP53, where the ensemble AUROC (0.9922) exceeded both Evo2-only
+(0.9882) and CADD-only (0.9885) by 0.38\%. For CHEK2, the ensemble (0.9998)
+improved on an already near-perfect Evo2 baseline (0.9997). These results
+demonstrate that Evo2 captures variant-effect information not redundant with
+existing supervised annotations.
+
+\subsection{Non-coding and indel variants: filling critical gaps}
+\label{sec:results_noncoding}
+
+A key advantage of genomic foundation models over protein-level tools is the
+ability to score non-coding and indel variants using the same framework.
+
+\subsubsection*{TERT promoter MPRA.}
+
+We validated Evo2's non-coding predictions against massively parallel reporter
+assay (MPRA) data for 777 variants in the TERT promoter
+(\Cref{fig:noncoding}A). Evo2 $\Delta$LL correlated positively with MPRA
+reporter activity (Spearman $\rho = +0.267$, $p = 3.8 \times 10^{-14}$),
+indicating that variants predicted as more deleterious by Evo2 also reduced
+transcriptional output in the GBM reporter assay. Critically, Evo2 was the
+\textit{only} tool with a significant positive MPRA correlation: CADD showed
+a non-significant negative trend ($\rho = -0.081$, $p = 0.21$, $n = 240$),
+SpliceAI was near zero ($\rho = +0.003$, $p = 0.96$), and ncER showed a
+significant \textit{negative} correlation ($\rho = -0.211$, $p = 5.9 \times 10^{-4}$).
+These results highlight a genuine advantage of sequence-level foundation models
+for non-coding variant interpretation.
+
+\subsubsection*{ENCODE cCRE enrichment.}
+
+Variants overlapping ENCODE candidate cis-regulatory elements showed elevated
+Evo2 scores relative to non-cCRE variants. Enrichment ratios ranged from 1.12$\times$
+(pELS) to 1.26$\times$ (dELS) and 1.19$\times$ (DNase-H3K4me3), consistent
+with the expectation that regulatory elements harbour more functionally
+consequential sequence.
+
+\subsubsection*{Frameshift indel classification.}
+
+Evo2 discriminated pathogenic from benign frameshift indels with high accuracy
+across six genes with sufficient ClinVar-annotated indels
+(\Cref{fig:noncoding}C; \Cref{fig:supp_indels}). Frameshift AUROCs ranged from 0.948 (TERT, $n = 108$)
+to 0.993 (ATM, $n = 2{,}699$), with a mean of 0.977. This demonstrates that the
+$\Delta$LL framework, which captures disruption to the sequence likelihood
+landscape, naturally extends to length-altering variants without requiring
+specialised indel models.
+
+\subsection{Mutation signature analysis reveals transversion bias}
+\label{sec:results_radiation}
+
+To assess whether Evo2 scores reflect mutational signatures relevant to
+spaceflight radiation exposure, we classified variants by mutational category
+(\Cref{fig:supp_signatures}A). Across all ten genes, transversions scored
+significantly more deleterious than transitions ($p < 10^{-10}$ for every gene),
+consistent with the greater chemical disruption caused by purine$\leftrightarrow$pyrimidine
+substitutions.
+
+\subsubsection*{Transversion control.}
+
+To test whether radiation-specific mutations (C$>$A and G$>$T, associated with
+8-oxoguanine lesions from ionising radiation) score differently from other
+transversions, we performed a within-transversion comparison
+(\Cref{fig:supp_signatures}B; Supplementary Table~S6). After Bonferroni
+correction for ten genes, only two showed marginal radiation-specific signal:
+TP53 ($p_\text{Bonf} = 0.005$, rank-biserial $r_{bc} = +0.049$) and DNMT3A
+($p_\text{Bonf} = 0.032$, $r_{bc} = +0.033$). The remaining eight genes showed
+no significant difference between radiation-oxidative and other transversions
+($p_\text{Bonf} > 0.32$). This control demonstrates that the consistently
+elevated scores for radiation-type mutations reported in the four-class analysis
+are primarily attributable to transversion-versus-transition bias rather than
+radiation-specific chemistry.
+
+\subsection{Variant atlas and constraint landscapes}
+\label{sec:results_atlas}
+
+In total, we scored 215,001 variants across the ten gene loci (168,409 SNVs and
+46,592 indels), creating a comprehensive variant effect atlas for spaceflight
+radiation-response genes. Gene-level constraint landscapes (\Cref{fig:landscapes})
+reveal that functional protein domains correspond to regions of elevated predicted
+deleteriousness, consistent with structural and biochemical expectations.
+
+To illustrate clinical utility, we scored eight variants previously detected in
+astronaut genomes from the Rutter et al.\ cohort~\cite{Rutter_2024}
+(\Cref{fig:supp_astronauts}; Supplementary Table~S7). The somatic hotspot DNMT3A
+R882C ranked at the 97.2nd percentile of all DNMT3A variants, and TP53 R248W
+ranked at the 86.5th percentile. The TERT C228T promoter mutation ranked at only
+the 4th percentile, consistent with its gain-of-function mechanism---this variant
+\textit{increases} TERT expression by creating a de novo ETS binding site, and a
+model trained to detect sequence disruption would not flag a variant that
+preserves or enhances regulatory grammar.

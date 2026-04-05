@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+% --- Style (loads geometry, amsmath, lineno, fancyhdr, authblk, etc.) ---
+\usepackage{bioarxiv}
+
+% --- Figures and tables ---
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{booktabs}
+
+% --- Bibliography ---
+\usepackage[numbers,sort&compress]{natbib}
+
+% --- Subfigures ---
+\usepackage{subcaption}
+
+% --- Smart references (MUST load after hyperref, which is in bioarxiv.sty) ---
+\usepackage{cleveref}
+
+% ====================================================================
+% METADATA
+% ====================================================================
+\runningtitle{Evo2 zero-shot VEP for spaceflight genes}
+\leadauthor{Kim \textit{et al.}}
+
+\title{Evo2 zero-shot variant effect prediction across 215,001 coding
+       and non-coding variants in spaceflight radiation-response genes}
+
+\author[1]{JangKeun Kim}
+\author[1,2]{Christopher E.\ Mason\,\orcidlink{0000-0002-1850-1642}}
+\affil[1]{Department of Physiology and Biophysics, Weill Cornell Medicine,
+          New York, NY 10065, USA}
+\affil[2]{The WorldQuant Initiative for Quantitative Prediction,
+          Weill Cornell Medicine, New York, NY 10065, USA}
+
+\correspondingauthor{chm2042@med.cornell.edu}
+
+\date{}  % leave empty for preprint
+
+% ====================================================================
+\begin{document}
+
+\maketitle
+\printcorrespondence
+
+% --- Abstract ---
+\input{sections/abstract}
+
+% --- Main text ---
+\input{sections/introduction}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/methods}
+
+% --- Acknowledgments ---
+\input{sections/acknowledgments}
+
+% --- Figures ---
+\clearpage
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig1_overview}
+  \caption{\textbf{Study overview.}
+    \textbf{(A)} Ten spaceflight radiation-response genes spanning four functional
+    categories: DNA damage response (BRCA1, TP53, CHEK2, ATM, RAD51), epigenetic
+    regulation (DNMT3A), telomere maintenance (TERT), oxidative stress response
+    (NFE2L2), circadian rhythm (CLOCK), and muscle homeostasis (MSTN).
+    \textbf{(B)} Evo2 scoring pipeline: for each variant, the reference and
+    alternate sequences are scored within an 8,192\,\bp{} window centred on the
+    variant; the log-likelihood difference ($\Delta$LL) quantifies predicted
+    deleteriousness.
+    \textbf{(C)} Three-layer validation: deep mutational scanning (DMS) calibration
+    $\to$ ClinVar clinical benchmarking $\to$ non-coding functional validation
+    (TERT MPRA, ENCODE cCREs).}
+  \label{fig:overview}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig2_dms}
+  \caption{\textbf{DMS calibration of Evo2 scores.}
+    \textbf{(A--D)} Scatter plots of Evo2 $\Delta$LL vs.\ DMS functional score
+    for BRCA1 (Findlay SGE, $\rho = +0.515$, $n = 3{,}884$),
+    DNMT3A (Garcia paired fitness, $\rho = +0.457$, $n = 746$),
+    CHEK2 (McCarthy-Leo abundance, $\rho = +0.310$, $n = 4{,}882$),
+    and TP53 (Giacomelli nutlin-3, $\rho = -0.211$, $n = 2{,}827$;
+    sign reflects LOF assay polarity).
+    \textbf{(E)} Multi-tool comparison of $|\rho|$ with DMS scores on the
+    same variant sets: Evo2 vs.\ AlphaMissense, CADD, REVEL, SpliceAI, and ncER.}
+  \label{fig:dms}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig3_clinvar}
+  \caption{\textbf{ClinVar clinical validation.}
+    \textbf{(A)} ROC curves for Evo2 across six genes with sufficient
+    pathogenic/benign ClinVar variants ($\geq$2-star review status).
+    \textbf{(B)} Per-tool AUROCs with 95\% bootstrap confidence intervals
+    (1,000 iterations) for Evo2, CADD, AlphaMissense, and REVEL.
+    \textbf{(C)} Matched-variant AUROCs (intersection of variants scored by
+    all four tools), providing a head-to-head comparison on identical variant sets.
+    \textbf{(D)} DeLong test $p$-value matrix for pairwise AUROC differences
+    on matched sets.}
+  \label{fig:clinvar}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig4_orthogonality}
+  \caption{\textbf{Orthogonality and ensemble performance.}
+    \textbf{(A)} Pairwise Spearman correlation heatmap between Evo2 and
+    supervised tools across six genes, demonstrating complementary signal
+    (Evo2 vs.\ CADD: $\rho = 0.41$--$0.83$; vs.\ SpliceAI: $\rho = 0.05$--$0.45$).
+    \textbf{(B)} Five-fold cross-validated AUROC for Evo2-only, CADD-only,
+    and logistic-regression ensemble (Evo2 + CADD); ensemble always $\geq$
+    best single tool, with TP53 showing the largest gain ($+0.38\%$).}
+  \label{fig:orthogonality}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig5_landscapes}
+  \caption{\textbf{Gene-level variant effect landscapes.}
+    Evo2 $\Delta$LL profiles across the ten gene loci. Exons are shaded;
+    known protein domains (kinase, RING, BRCT, MTase, etc.)\ are annotated.
+    Variants are plotted as smoothed score densities along the genomic
+    coordinate. Functional domain boundaries correspond to regions of
+    elevated predicted deleteriousness.}
+  \label{fig:landscapes}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth]{fig6_noncoding_indels}
+  \caption{\textbf{Non-coding validation and indel scoring.}
+    \textbf{(A)} TERT promoter MPRA: Evo2 $\Delta$LL vs.\ GBM reporter
+    activity (Spearman $\rho = +0.267$, $p = 3.8 \times 10^{-14}$, $n = 777$);
+    multi-tool comparison shows Evo2 is the only tool with a significant
+    positive MPRA correlation (CADD: $\rho = -0.081$, NS; SpliceAI: $\rho = +0.003$, NS).
+    \textbf{(B)} ENCODE cCRE enrichment analysis: variants in distal enhancer-like
+    signatures (dELS) and proximal enhancer-like signatures (pELS) show elevated
+    Evo2 scores relative to non-cCRE variants.
+    \textbf{(C)} Frameshift indel classification: ClinVar P/LP vs.\ B/LB AUROC
+    for six genes (mean $= 0.977$, range $0.948$--$0.993$).}
+  \label{fig:noncoding}
+\end{figure}
+
+% --- Bibliography ---
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

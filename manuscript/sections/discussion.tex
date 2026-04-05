@@ -1,0 +1,105 @@
+\section{Discussion}
+\label{sec:discussion}
+
+We have presented a comprehensive zero-shot variant effect atlas for ten
+spaceflight radiation-response genes, scoring 215,001 variants spanning coding,
+non-coding, and indel categories using the Evo2 genomic foundation model. Our
+three-layer validation framework demonstrates that Evo2 zero-shot predictions
+are competitive with supervised tools for clinical variant classification and
+offer unique capabilities for non-coding and indel variant interpretation.
+
+\subsection*{Foundation models as complementary VEP tools}
+
+Evo2's zero-shot approach occupies a distinct niche in the variant effect
+prediction landscape. Unlike AlphaMissense, which achieves high accuracy for
+missense variants through AlphaFold2 structural priors, or CADD, which
+integrates dozens of annotation tracks including ClinVar itself, Evo2 derives
+predictions solely from sequence context without exposure to phenotypic labels.
+This independence from training data confers two advantages: absence of
+ClinVar circularity and the ability to score any variant type---including
+promoter, intronic, and indel variants---through a single unified framework.
+
+Our matched-variant analysis reveals that on the shared variant space
+(predominantly missense), supervised tools---particularly AlphaMissense---retain
+an accuracy advantage. This is expected: missense prediction is a well-defined
+protein-level problem for which structure-informed models are specifically
+optimised. However, the orthogonality analysis demonstrates that Evo2 captures
+complementary information (Spearman $\rho = 0.41$--$0.83$ vs.\ CADD;
+$\rho = 0.05$--$0.45$ vs.\ SpliceAI), and the ensemble of Evo2 + CADD
+consistently matches or exceeds either tool alone. The TP53 ensemble improvement
+($+0.38\%$ AUROC) is particularly notable given the already high baseline
+performance, suggesting that the two tools identify partially non-overlapping
+sets of true positives.
+
+\subsection*{Non-coding and indel variants: an unmet need}
+
+The most compelling evidence for foundation-model VEP comes from non-coding
+variants. For the TERT promoter, Evo2 was the only tool with a significant
+positive correlation with MPRA functional data ($\rho = +0.267$,
+$p = 3.8 \times 10^{-14}$), while CADD, SpliceAI, and ncER showed
+non-significant or negatively correlated predictions. This result highlights a
+genuine gap in the current VEP toolkit: existing non-coding scores either lack
+variant-level resolution (ncER provides regional scores) or are not designed for
+promoter-regulatory logic (SpliceAI targets splice junctions). Evo2's ability to
+capture promoter-level sequence grammar, trained implicitly through genome-wide
+likelihood optimisation, fills this gap.
+
+Similarly, the high frameshift indel AUROCs (mean 0.977 across six genes) demonstrate
+that the log-likelihood framework naturally extends to length-altering variants.
+AlphaMissense and REVEL cannot score indels by design, and CADD requires
+separate pre-computed indel annotations. Evo2's unified scoring of all variant
+types from a single model forward pass represents a practical advantage for
+clinical pipelines that must process mixed variant sets.
+
+\subsection*{Mutation signatures: transversion bias, not radiation specificity}
+
+Our initial observation that radiation-type mutations (C$>$A, G$>$T) receive
+more damaging Evo2 scores than other mutation classes required careful control.
+The transversion control analysis revealed that 8 of 10 genes showed no
+significant difference between radiation-oxidative and other transversions after
+Bonferroni correction, with only TP53 and DNMT3A showing borderline effects
+(rank-biserial $r_{bc} < 0.05$). The dominant signal is transversion versus
+transition: purine$\leftrightarrow$pyrimidine substitutions cause greater
+disruption to sequence grammar than purine$\leftrightarrow$purine or
+pyrimidine$\leftrightarrow$pyrimidine changes, and Evo2 faithfully captures
+this physical asymmetry.
+
+This honest null result has practical implications: Evo2 is a sequence-disruption
+detector, not a radiation exposure biomarker. However, the consistently greater
+predicted impact of transversions is itself relevant to spaceflight risk
+assessment, as the GCR mutational spectrum is enriched for transversions relative
+to the endogenous mutational background.
+
+\subsection*{Limitations}
+
+Several limitations warrant discussion. First, Evo2's zero-shot accuracy, while
+competitive, does not uniformly surpass supervised tools on their home turf---particularly
+AlphaMissense for missense and CADD for ClinVar-trained categories. The appropriate
+use case for Evo2 is as a complementary tool, not a replacement. Second, our
+validation is constrained to genes with existing DMS, ClinVar, or MPRA data; the
+six novel spaceflight genes (ATM, NFE2L2, CLOCK, MSTN, RAD51, TERT) have
+variable annotation depth, and the predictions for CLOCK and MSTN (which lack
+ClinVar pathogenic variants) remain experimentally unvalidated. Third, the TERT
+C228T and C250T promoter hotspots---the two most clinically important TERT
+variants---receive low Evo2 scores because they are gain-of-function mutations
+that create de novo ETS binding sites rather than disrupting existing sequence
+grammar. This reflects a fundamental limitation of loss-of-function-oriented
+$\Delta$LL scoring for gain-of-function variants. Fourth, inference requires
+GPU access (48\,GB VRAM minimum), limiting deployment in resource-constrained
+clinical settings. Fifth, the indel validation is limited to ClinVar frameshift
+classification; DMS-level functional data for indels would strengthen the
+calibration.
+
+\subsection*{Future directions}
+
+The variant effect atlas presented here serves as a foundation for several
+downstream applications. First, Evo2 scores could be incorporated into
+ACMG/AMP PP3/BP4 evidence frameworks for variant interpretation, particularly
+for non-coding and indel variants where existing tools provide limited coverage.
+Second, ensemble approaches combining foundation-model scores with supervised
+annotations warrant systematic evaluation across larger gene panels and diverse
+population cohorts. Third, pre-computed Evo2 atlases for mission-critical gene
+panels could support astronaut genomic risk assessment during mission planning.
+Finally, as genomic foundation models continue to scale, the zero-shot VEP
+paradigm may increasingly complement or substitute for supervised approaches
+that require continual retraining on expanding clinical databases.

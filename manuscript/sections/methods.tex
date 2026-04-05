@@ -1,0 +1,212 @@
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Gene panel selection}
+\label{sec:methods_genes}
+
+We selected ten genes spanning five functional categories relevant to spaceflight
+radiation biology (\Cref{fig:overview}A; Supplementary Table~S1). Four
+\textit{control} genes---BRCA1, TP53, CHEK2, and DNMT3A---were chosen for their
+extensive deep mutational scanning (DMS) datasets and well-populated ClinVar
+entries, enabling rigorous calibration and benchmarking. Six
+\textit{spaceflight-associated} genes---TERT, ATM, NFE2L2, CLOCK, MSTN, and
+RAD51---were selected based on their roles in the DNA damage response, telomere
+maintenance, oxidative stress signalling, circadian regulation, and muscle
+homeostasis, all of which are perturbed during
+spaceflight~\cite{Rutter_2024,daSilveira_2020,Twins_2019}. Gene boundaries were
+defined as the full genomic locus (5$'$ UTR through 3$'$ UTR plus 2\,kb
+flanking sequence on each side) using NCBI RefSeq annotations on the GRCh38
+reference genome.
+
+\subsection{Variant generation}
+\label{sec:methods_variants}
+
+All possible single-nucleotide variants (SNVs) were enumerated at every
+position within each gene locus, yielding three alternate alleles per position.
+Indels were generated systematically: single-nucleotide insertions (four bases
+at each position) and deletions of length 1--10\,\bp{} at each position within
+coding exons, plus frameshifting deletions at selected positions in non-coding
+regions. In total, 215,001 variants were generated across the ten genes
+(168,409 SNVs and 46,592 indels; Supplementary Table~S2).
+
+\subsection{Evo2 variant effect scoring}
+\label{sec:methods_scoring}
+
+Variant effects were predicted using the Evo2 7-billion-parameter genomic
+foundation model~\cite{Evo2_2026}, which was trained on the OpenGenome2 dataset
+comprising 9.3 trillion nucleotides from 128,000 genomes spanning all domains of
+life. The model uses a StripedHyena architecture supporting context windows up to
+one million base pairs. For each variant, we extracted the reference and alternate
+sequences within a window of $W = 8{,}192$\,\bp{} centred on the variant
+position. The model computed per-nucleotide log-likelihoods for both sequences in
+a single forward pass. The variant effect score was defined as:
+
+\begin{equation}
+  \Delta\text{LL} = \sum_{i=1}^{W}
+    \bigl[\log P(x_i^{\text{alt}} \mid \mathbf{x}_{\text{alt}})
+    - \log P(x_i^{\text{ref}} \mid \mathbf{x}_{\text{ref}})\bigr]
+  \label{eq:delta_ll}
+\end{equation}
+
+\noindent where more negative $\Delta$LL values indicate greater predicted
+deleteriousness. This zero-shot approach requires no training data and is
+agnostic to variant type: the same procedure scores missense, synonymous,
+intronic, promoter, and indel variants.
+
+\subsubsection*{Window size optimization.}
+
+We evaluated scoring windows of 1,024, 2,048, 4,096, and 8,192\,\bp{} on
+ClinVar-annotated variants in three genes (BRCA1, TP53, CHEK2) using AUROC as
+the performance metric. The 8,192\,\bp{} window achieved the highest mean AUROC
+(0.9921 across three genes) and was selected for all subsequent analyses
+(\Cref{fig:supp_ablation}). Note that 8,192\,\bp{} is the scoring window, not
+the model's maximum context; the model can accept inputs up to 1\,Mb but
+marginal gains beyond 8,192\,\bp{} did not justify the additional compute cost.
+
+\subsubsection*{Computational resources.}
+
+All inference was performed on NVIDIA A40 (48\,GB VRAM) and A100 (40/80\,GB
+VRAM) GPUs on the Cornell Cayuga high-performance computing cluster. Scoring
+a single gene required 8--72 hours depending on locus size, totalling
+approximately 400 GPU-hours for all ten genes.
+
+\subsection{DMS calibration}
+\label{sec:methods_dms}
+
+To calibrate Evo2 scores against experimentally measured variant effects, we
+obtained DMS datasets for four control genes from MaveDB~\cite{MaveDB_2019}:
+
+\begin{itemize}
+  \item \textbf{BRCA1}: Findlay et al.\ saturation genome editing
+    (SGE)~\cite{BRCA1_DMS_2018} (urn:mavedb:00000097-0-2; $n = 3{,}884$
+    variants mapped to GRCh38).
+  \item \textbf{TP53}: Giacomelli et al.\ nutlin-3 selection
+    assay~\cite{TP53_DMS_2018} (urn:mavedb:00000068-b-1; $n = 2{,}827$ matched
+    to Evo2-scored positions). In this assay, high functional scores indicate
+    loss of function, so the expected correlation with Evo2 $\Delta$LL is
+    \textit{negative}.
+  \item \textbf{CHEK2}: McCarthy-Leo et al.\ protein abundance
+    DMS~\cite{CHEK2_DMS_2024} (urn:mavedb:00001203-a-1; $n = 4{,}882$ matched).
+  \item \textbf{DNMT3A}: Garcia et al.\ paired fitness DMS~\cite{DNMT3A_DMS_2025}
+    (bioRxiv 10.1101/2025.09.24.678339; $n = 746$ matched). Library-relative
+    amino acid positions were converted to absolute DNMT3A coordinates using
+    experimentally verified offsets (Library~1: +655, Library~2: +809, Library~3:
+    +831); all reference allele matches were confirmed at 100\% against GRCh38.
+\end{itemize}
+
+\noindent Spearman rank correlations ($\rho$) between Evo2 $\Delta$LL and DMS
+functional scores were computed for each gene. To contextualise Evo2 performance,
+we computed the absolute Spearman $|\rho|$ for five additional tools
+(AlphaMissense~\cite{AlphaMissense_2023}, CADD~\cite{CADD_2024},
+REVEL~\cite{REVEL_2016}, SpliceAI~\cite{SpliceAI_2019}, ncER~\cite{ncER_2019})
+on the same variant sets.
+
+\subsection{ClinVar benchmarking}
+\label{sec:methods_clinvar}
+
+ClinVar~\cite{ClinVar_2018} variants (release 2024-12) within each gene locus
+were filtered to those with $\geq$2-star review status and classified as
+pathogenic/likely pathogenic (P/LP) or benign/likely benign (B/LB). Variants of
+uncertain significance (VUS) were excluded.
+
+\subsubsection*{Per-tool AUROC.}
+
+For each tool, the area under the receiver operating characteristic curve
+(AUROC) was computed using all ClinVar variants scoreable by that tool. This
+maximises the sample size available to each tool but means different tools are
+evaluated on partially different variant sets.
+
+\subsubsection*{Matched-variant AUROC.}
+
+To enable direct head-to-head comparison, we computed AUROCs on the intersection
+of variants scored by all four SNV-capable tools (Evo2 $\cap$ CADD $\cap$
+AlphaMissense $\cap$ REVEL). Because AlphaMissense and REVEL are restricted to
+missense variants, these matched sets are predominantly missense, which
+inherently favours missense-specialised tools.
+
+\subsubsection*{Bootstrap confidence intervals.}
+
+95\% confidence intervals for all AUROCs were computed using stratified bootstrap
+resampling (1,000 iterations), maintaining the pathogenic:benign ratio in each
+resample.
+
+\subsubsection*{DeLong test.}
+
+Pairwise AUROC differences between tools on matched variant sets were assessed
+using the DeLong test~\cite{DeLong_1988}, which accounts for correlation between
+ROC curves computed on overlapping data.
+
+\subsection{Orthogonality and ensemble analysis}
+\label{sec:methods_ensemble}
+
+Orthogonality between Evo2 and each supervised tool was quantified using Spearman
+rank correlation on all shared variants per gene. Ensemble performance was
+evaluated using 5-fold cross-validated logistic regression combining Evo2
+$\Delta$LL and CADD PHRED scores as features, with ClinVar P/LP vs.\ B/LB as
+the binary outcome.
+
+\subsection{Non-coding validation}
+\label{sec:methods_noncoding}
+
+\subsubsection*{TERT promoter MPRA.}
+
+Massively parallel reporter assay (MPRA) data for the TERT promoter were
+obtained from Kircher et al.~\cite{TERT_MPRA_2019}
+(urn:mavedb:00000031-b-1; GBM cell line). Of 973 variants assayed, 777 mapped
+to the Evo2-scored TERT locus. Because TERT is transcribed on the minus strand,
+all coordinates were maintained on the forward strand with appropriate complement
+operations. Spearman correlations between Evo2 $\Delta$LL and MPRA reporter
+activity were computed, and the same was done for CADD, SpliceAI, and ncER on
+their respective scoreable subsets.
+
+\subsubsection*{ENCODE cCRE enrichment.}
+
+Candidate cis-regulatory elements (cCREs) from the ENCODE
+registry~\cite{ENCODE_2020} were intersected with each gene locus. Variants
+falling within annotated cCREs---proximal enhancer-like signatures (pELS), distal
+enhancer-like signatures (dELS), DNase-H3K4me3, CTCF-bound, and
+DNase-only---were compared against non-cCRE variants using mean Evo2 $\Delta$LL,
+and enrichment ratios were computed.
+
+\subsection{Mutation signature analysis}
+\label{sec:methods_radiation}
+
+Variants were classified into four mutational categories: transitions (Ti),
+transversions (Tv), frameshift indels, and in-frame indels. We first tested
+whether transversions received more negative (more damaging) Evo2 scores than
+transitions using the Mann--Whitney $U$ test.
+
+\subsubsection*{Transversion control.}
+
+To assess whether radiation-signature mutations (C$>$A and G$>$T, associated
+with oxidative DNA damage from ionising radiation) score differently from other
+transversions of comparable chemical disruption, we performed a
+within-transversion comparison. Radiation-oxidative transversions (C$>$A, G$>$T)
+were compared against all other transversions (C$>$G, G$>$C, A$>$T, T$>$A,
+A$>$C, T$>$G) using the Mann--Whitney $U$ test with rank-biserial correlation as
+the effect size. $P$-values were Bonferroni-corrected for ten independent tests.
+
+\subsection{Statistical analysis}
+\label{sec:methods_stats}
+
+All statistical tests were two-sided. Spearman rank correlations were used
+throughout to avoid distributional assumptions. Mann--Whitney $U$ tests were used
+for two-group comparisons of non-normally distributed scores. Bootstrap
+confidence intervals used 1,000 stratified resamples. DeLong tests for AUROC
+comparison used the fast Sun \& Xu (2014) variance estimator. Multiple testing
+was corrected using the Bonferroni method. All analyses were performed in Python
+3.11 using NumPy, SciPy, scikit-learn, and custom scripts available at
+\url{https://github.com/JangKeunKim/evo2-spaceflight-vep}.
+
+\subsection{Data and code availability}
+\label{sec:methods_data}
+
+Pre-computed Evo2 $\Delta$LL scores for all 215,001 variants, ClinVar
+benchmarking results, DMS calibration data, and all figure-generation scripts
+are deposited at \url{https://github.com/JangKeunKim/evo2-spaceflight-vep}.
+The Evo2 model checkpoint is publicly available via Hugging Face
+(Arc Institute). ClinVar data are available from NCBI. AlphaMissense, CADD v1.7,
+REVEL, SpliceAI, and ncER scores were obtained from their respective public
+repositories. DMS and MPRA data are available from
+MaveDB~\cite{MaveDB_2019}. ENCODE cCRE annotations are available from
+the ENCODE portal~\cite{ENCODE_2020}.
